@@ -1,0 +1,171 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Messaging facility.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This could be seen as another subsystem, and in deed is a different process. It
+makes comunication between the other subsystem posible in a transparent maner,
+currently it uses sockets but it could use any means of comunication without 
+modifing any other code.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT message_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO MESSAGE_MAXSIZE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM subsystem_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM mesg_message_type_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM misc_message_type_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### USER_FUNCTION receive_callback ##### -->
+<para>
+Function pointer type to be used in mesg_callback_register.
+</para>
+
+@m: message.
+
+
+<!-- ##### FUNCTION mesg_pre_setup ##### -->
+<para>
+
+</para>
+
+@subsystem: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_messanger_setup ##### -->
+<para>
+
+</para>
+
+@subsystem: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_subsystem_setup ##### -->
+<para>
+
+</para>
+
+@subsystem: 
+@flags: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_quit ##### -->
+<para>
+
+</para>
+
+@subsystem: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_send ##### -->
+<para>
+
+</para>
+
+@dest: 
+@type: 
+@data: 
+@size: 
+@Returns: 
+<!-- # Unused Parameters # -->
+@subsystem: 
+
+
+<!-- ##### FUNCTION mesg_broadcast ##### -->
+<para>
+
+</para>
+
+@type: 
+@data: 
+@size: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_loop ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_callback_register ##### -->
+<para>
+
+</para>
+
+@type: 
+@func: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_who_am_i ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_subsystem_name ##### -->
+<para>
+
+</para>
+
+@subsystem: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_block ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION mesg_unblock ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

@@ -1,0 +1,216 @@
+<refentry id="VisualOS-Processor-Algorithms">
+<refmeta>
+<refentrytitle>Processor Algorithms</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Processor Algorithms</refname><refpurpose>Interface for Algorithms.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="cpu-algorithm-t">cpu_algorithm_t</link>;
+<link linkend="cpu-algorithm-t">cpu_algorithm_t</link>* <link linkend="get-CPU-current-algorithm">get_CPU_current_algorithm</link>  (void);
+<link linkend="GSList">GSList</link>*     <link linkend="init-CPU-algorithms">init_CPU_algorithms</link>             (void);
+<link linkend="gint">gint</link>        <link linkend="register-CPU-algorithm">register_CPU_algorithm</link>          (<link linkend="cpu-algorithm-t">cpu_algorithm_t</link> *algorithm);
+<link linkend="gint">gint</link>        <link linkend="deallocate-algorithm-private-data">deallocate_algorithm_private_data</link>
+                                            (<link linkend="proc-queue-t">proc_queue_t</link> proc_list);
+<link linkend="gint">gint</link>        <link linkend="set-CPU-heart-beat">set_CPU_heart_beat</link>              (<link linkend="gint">gint</link> freq);
+<link linkend="gint">gint</link>        <link linkend="reset-CPU-timer">reset_CPU_timer</link>                 (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+Great effort has been devoted to making the addicion of new algorithms as easy
+as posible, here is documented what there is to know to be able to write your
+own algorithms.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="cpu-algorithm-t">struct cpu_algorithm_t</title>
+<indexterm><primary>cpu_algorithm_t</primary></indexterm><programlisting>struct cpu_algorithm_t {
+ /*This struct is all that we know about each algorithm*/
+	gchar * name;				
+	gint (*select) (void);
+	gint (*unselect) (void);		/* These two functions will be
+                                                   called before and after the
+                                                   use of an algorithm to let
+                                                   it keep a low memory usage
+                                                   when not in use.*/
+	gint (*clock) (void);			/* timer interrupt. */
+	gint (*select_proc) (proc_t *proc);	/* notifies the algorithm of a
+						   process selection by the
+						   user */
+	GtkWidget * process_properties;
+	GtkWidget * properties;			/* Each algorithm will maintain
+						   it's own properties widgets.
+						   NULL means "no properties".
+						   They should be set to NULL
+						   when destroyed. If not
+						   destroyed in "unselect" the
+						   system will destroy them.*/
+	gint (*init_proc) (proc_t *proc);	/* This function should allocate
+						   and initialice algorith data
+						   and anything else to get
+						   a new process going, like
+						   sticking it into a queue. */
+	gint (*end_proc) (proc_t *proc);	/* This function should free the
+						   algorithm specific data of
+						   proc but should not take it
+						   out of its queue */
+	gint (*event) (proc_t *proc);		/* This function is called when
+						   ever a process gets waked up
+						   by an event and we have to
+						   put it in some queue. */
+	gint (*next) (proc_t *proc);		/* This function is called when
+						   ever the current process gets
+						   suspended waiting for some
+						   event and we have to choose
+						   another one to run.
+						   It receives the suspended
+						   process as argument just in
+						   case its needed. */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-current-algorithm">get_CPU_current_algorithm ()</title>
+<indexterm><primary>get_CPU_current_algorithm</primary></indexterm><programlisting><link linkend="cpu-algorithm-t">cpu_algorithm_t</link>* get_CPU_current_algorithm  (void);</programlisting>
+<para>
+Find out which is the current algorithm.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the struct which descrives the current algorithm.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="init-CPU-algorithms">init_CPU_algorithms ()</title>
+<indexterm><primary>init_CPU_algorithms</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*     init_CPU_algorithms             (void);</programlisting>
+<para>
+Initializes the CPU algorithms code.
+</para>
+<para>
+Mainly will call init functions for each algorithm.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a pointer to the algorithm structs linked list
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="register-CPU-algorithm">register_CPU_algorithm ()</title>
+<indexterm><primary>register_CPU_algorithm</primary></indexterm><programlisting><link linkend="gint">gint</link>        register_CPU_algorithm          (<link linkend="cpu-algorithm-t">cpu_algorithm_t</link> *algorithm);</programlisting>
+<para>
+Each algorithm should call this function in it's initialization function
+to register its algorithm struct.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>algorithm</parameter>&nbsp;:</term>
+<listitem><simpara> algorithm struct to register.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="deallocate-algorithm-private-data">deallocate_algorithm_private_data ()</title>
+<indexterm><primary>deallocate_algorithm_private_data</primary></indexterm><programlisting><link linkend="gint">gint</link>        deallocate_algorithm_private_data
+                                            (<link linkend="proc-queue-t">proc_queue_t</link> proc_list);</programlisting>
+<para>
+This function uses the algorithm's private data of each process
+as argument to g_free.
+</para>
+<para>
+This is for convinience of algorithm writers.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc_list</parameter>&nbsp;:</term>
+<listitem><simpara> queue of processes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="set-CPU-heart-beat">set_CPU_heart_beat ()</title>
+<indexterm><primary>set_CPU_heart_beat</primary></indexterm><programlisting><link linkend="gint">gint</link>        set_CPU_heart_beat              (<link linkend="gint">gint</link> freq);</programlisting>
+<para>
+Set timer interrupt frequency. Which means, the calling frequency
+of algorithm function <parameter>clock</parameter>.
+</para>
+<para>
+Zero means that the timer interupt is not desired.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>freq</parameter>&nbsp;:</term>
+<listitem><simpara> new frequency in "time units".
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="reset-CPU-timer">reset_CPU_timer ()</title>
+<indexterm><primary>reset_CPU_timer</primary></indexterm><programlisting><link linkend="gint">gint</link>        reset_CPU_timer                 (void);</programlisting>
+<para>
+Resets the "time unit" counter so we will have a full timeslice until
+the next interupt.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1>
+<title>See Also</title>
+<para>
+<variablelist>
+
+<varlistentry>
+<term><link linkend="Process"><type>Process</type></link> Queues</term>
+<listitem><para>How to inspect process queues.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="Processor"><type>Processor</type></link> Simulation</term>
+<listitem><para>How simulation works.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="Property"><type>Property</type></link> Widget Facility</term>
+<listitem><para>How to hadle numerical algorithm properties with the user
+	without learning GTK+.
+	</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+</refsect1>
+
+</refentry>

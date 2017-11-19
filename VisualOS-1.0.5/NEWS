@@ -1,0 +1,42 @@
+Changes since 1.0.4:
+	* Czech i18n and user manual.
+	* Should build on MacOS X/Fink "out of the box".
+	* Updated documentation from DocBook 3.0 to 4.1
+	* Updated Spanish translation.
+	
+Changes since 1.0.3:
+	* English user manual.
+	* Documentation compiles again.
+	* Use libtool
+	* Debian packing fixes
+	* Some spelling fixes thans to
+		Laurent Bonnaud <Laurent.Bonnaud@inpg.fr>
+	
+Changes since 1.0.2:
+	* code cleanups
+	* added a manpage
+	* fixed font problem with XFree86 4.x
+	* released official debian package for sid
+
+Changes since 1.0.1:
+	* fixed 'make install'
+	* added i18n funcionality
+	* made spanish translation
+	* added italian translation
+	* added french translation
+	* hopefully fixed the makefiles
+	* added Debian menu entry
+	* added undocumented manpage link
+
+Changes since 1.0.0:
+	* added a README
+	* fig2dev presence is autodetected.
+	
+Changes since 0.2.2:
+	* Added a NEWS file :)
+	* Added copyright notice to all code files.
+	* More documentation.
+	* MEM terminates processes when not enogh physical memory or swap
+	  is available.
+	* added IO Manual algorithm.
+	* added Memory Manual algorithm.

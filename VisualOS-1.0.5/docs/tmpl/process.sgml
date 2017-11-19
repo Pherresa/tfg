@@ -1,0 +1,115 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Process Handling.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions provide general process handling. Creation, insertion into the
+system, destruction, finding a certain process...
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION create_process ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION new_process ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION insert_process ##### -->
+<para>
+
+</para>
+
+@proc: 
+
+
+<!-- ##### FUNCTION free_process ##### -->
+<para>
+
+</para>
+
+@proc: 
+
+
+<!-- ##### FUNCTION destroy_process ##### -->
+<para>
+
+</para>
+
+@proc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_proc_list ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_proc_by_pid ##### -->
+<para>
+
+</para>
+
+@pid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION select_process ##### -->
+<para>
+
+</para>
+
+@proc: 
+
+
+<!-- ##### FUNCTION get_CPU_selected_proc ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION save_processes_to_file ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION load_processes_from_file ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO burst ##### -->
+<para>
+
+</para>
+
+@proc: 
+<!-- # Unused Parameters # -->
+@x: 
+
+

@@ -1,0 +1,93 @@
+<refentry id="VisualOS-Procesor-Configuration">
+<refmeta>
+<refentrytitle>Procesor Configuration</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Procesor Configuration</refname><refpurpose>Internal configuration.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="cpu-config-t">cpu_config_t</link>;
+extern      const cpu_config_t *<link linkend="CPU-config">CPU_config</link>;
+<link linkend="cpu-config-t">cpu_config_t</link>* <link linkend="get-CPU-config">get_CPU_config</link>                (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This is the way to find out CPU internal configuration.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="cpu-config-t">struct cpu_config_t</title>
+<indexterm><primary>cpu_config_t</primary></indexterm><programlisting>struct cpu_config_t {
+
+	gboolean stop_clock;	/* clock should be stoped when something
+				   interesting happens */
+	gboolean auto_fill_procs;	/* process properties should be
+					   filled automaticly without any
+					   user interaction */
+	prop_io_params_t prop_io_params;   /* current parameters for processes
+					      IO parameters autofilling */
+	prop_mem_params_t prop_mem_params; /* current parametes for processes
+					      Memory parametes autofilling */
+	struct {			/* parameters related with the 
+					   graphical representation of the 
+					   subsystem */
+		gint max_graph_history;	/* Maximun pixmap width for the
+					   different representations */
+		gint pix_size_step;
+	} drawing;
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="CPU-config">CPU_config</title>
+<indexterm><primary>CPU_config</primary></indexterm><programlisting>extern const cpu_config_t *CPU_config;
+</programlisting>
+<para>
+This is a pointer to the configuration data, but should be used only
+for reading.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-config">get_CPU_config ()</title>
+<indexterm><primary>get_CPU_config</primary></indexterm><programlisting><link linkend="cpu-config-t">cpu_config_t</link>* get_CPU_config                (void);</programlisting>
+<para>
+This is the right way to modify the configuration.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a writable pointer to the configuration data.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

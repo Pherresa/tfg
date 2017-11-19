@@ -1,0 +1,25 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Glib addons
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This is the functionality which I wanted from Glib but wasn't there.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION g_slist_dup ##### -->
+<para>
+
+</para>
+
+@list: 
+@Returns: 
+
+

@@ -1,0 +1,158 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Simulation of the processor
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions serve to manage the CPU's simulation and it's data structures.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT simul_data_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT simul_io_event_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT simul_mem_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT event_data_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION init_CPU_simulation ##### -->
+<para>
+
+</para>
+
+<!-- # Unused Parameters # -->
+@Returns: 
+
+
+<!-- ##### FUNCTION init_CPU_simulation_in_proc ##### -->
+<para>
+
+</para>
+
+@proc: 
+<!-- # Unused Parameters # -->
+@Returns: 
+
+
+<!-- ##### FUNCTION end_CPU_simulation_in_proc ##### -->
+<para>
+
+</para>
+
+@proc: 
+<!-- # Unused Parameters # -->
+@Returns: 
+
+
+<!-- ##### FUNCTION cpy_CPU_simulation_data ##### -->
+<para>
+
+</para>
+
+@dest: 
+@src: 
+
+
+<!-- ##### FUNCTION dup_CPU_simulation_data ##### -->
+<para>
+
+</para>
+
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION free_CPU_simulation_data ##### -->
+<para>
+
+</para>
+
+@data: 
+
+
+<!-- ##### FUNCTION free_CPU_proc_simulation_data ##### -->
+<para>
+
+</para>
+
+@proc: 
+
+
+<!-- ##### FUNCTION next_CPU_simulation_in_proc ##### -->
+<para>
+
+</para>
+
+@proc: 
+<!-- # Unused Parameters # -->
+@Returns: 
+
+
+<!-- ##### FUNCTION CPU_proc_current_page ##### -->
+<para>
+
+</para>
+
+@proc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION CPU_proc_next_page ##### -->
+<para>
+
+</para>
+
+@proc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION CPU_proc_current_page_is_write ##### -->
+<para>
+
+</para>
+
+@proc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fix_simulation_in_proc ##### -->
+<para>
+
+</para>
+
+@proc: 
+
+
+<!-- ##### MACRO IO_BLOCK ##### -->
+<para>
+
+</para>
+
+@event: 
+<!-- # Unused Parameters # -->
+@x: 
+
+

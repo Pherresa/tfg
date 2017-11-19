@@ -1,0 +1,60 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Other interesting functions.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions wouldn't make a proper section, but I believe that they are
+relevant enough to be mencioned.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### MACRO MAX_FRAMES ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO MAX_PAGES ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION mem_server_init ##### -->
+<para>
+
+</para>
+
+@xml: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mem_page_ready_server ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mem_page_bitmap_update_server ##### -->
+<para>
+
+</para>
+
+@pid: 
+@new_page_bitmap: 
+@Returns: 
+
+

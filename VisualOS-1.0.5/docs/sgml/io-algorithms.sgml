@@ -1,0 +1,147 @@
+<refentry id="VisualOS-IO-Algorithms">
+<refmeta>
+<refentrytitle>IO Algorithms</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>IO Algorithms</refname><refpurpose>Interface for Algorithms.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="io-algorithm-t">io_algorithm_t</link>;
+<link linkend="io-algorithm-t">io_algorithm_t</link>* <link linkend="get-IO-current-algorithm">get_IO_current_algorithm</link>    (void);
+<link linkend="GSList">GSList</link>*     <link linkend="init-IO-algorithms">init_IO_algorithms</link>              (void);
+<link linkend="gint">gint</link>        <link linkend="register-IO-algorithm">register_IO_algorithm</link>           (<link linkend="io-algorithm-t">io_algorithm_t</link> *algorithm);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+Great effort has been devoted to making the addicion of new algorithms as easy
+as posible, here is documented what there is to know to be able to write your
+own algorithms.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="io-algorithm-t">struct io_algorithm_t</title>
+<indexterm><primary>io_algorithm_t</primary></indexterm><programlisting>struct io_algorithm_t {
+				/* This struct is all we know
+						   about each algorithm */
+	gchar * name;
+	gint (*select) (void);
+	gint (*unselect) (void);		/* These two functions will be
+                                                   called before and after the
+                                                   use of an algorithm to let
+                                                   it keep a low memory usage
+                                                   when not in use.*/
+	GtkWidget * properties;			/* Each algorithm will maintain
+                                                   it's own properties widget.
+                                                   NULL means "no properties".
+                                                   It should be set to NULL
+                                                   when destroyed. If not
+                                                   destroyed in "unselect" the
+                                                   system will destroy it.*/
+	gint (*event) (io_request_t *request);	/* This is called to inform the
+						   algorithm of block request*/
+	gint (*done_reading) (void);		/* This ia called to inform the
+						   algorithm about all requested
+						   reads been done */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="get-IO-current-algorithm">get_IO_current_algorithm ()</title>
+<indexterm><primary>get_IO_current_algorithm</primary></indexterm><programlisting><link linkend="io-algorithm-t">io_algorithm_t</link>* get_IO_current_algorithm    (void);</programlisting>
+<para>
+Find out which is the current algorithm.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the struct which descrives the current algorithm.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="init-IO-algorithms">init_IO_algorithms ()</title>
+<indexterm><primary>init_IO_algorithms</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*     init_IO_algorithms              (void);</programlisting>
+<para>
+Initializes the IO algorithms code.
+</para>
+<para>
+Mainly will call init functions for each algorithm.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a pointer to the algorithm structs linked list.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="register-IO-algorithm">register_IO_algorithm ()</title>
+<indexterm><primary>register_IO_algorithm</primary></indexterm><programlisting><link linkend="gint">gint</link>        register_IO_algorithm           (<link linkend="io-algorithm-t">io_algorithm_t</link> *algorithm);</programlisting>
+<para>
+Each algorithm should call this function in it's initialization function
+to register its algorithm struct.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>algorithm</parameter>&nbsp;:</term>
+<listitem><simpara> algorithm struct to register.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1>
+<title>See Also</title>
+<para>
+<variablelist>
+
+<varlistentry>
+<term><link linkend="IO-CAPS"><type>IO</type></link> Simulation</term>
+<listitem><para>How to inspect and manage requests.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="Geometry"><type>Geometry</type></link></term>
+<listitem><para>How manage geometry.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="Property"><type>Property</type></link> Widget Facility</term>
+<listitem><para>How to hadle numerical algorithm properties with the user
+	without learning GTK+.
+	</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="Request"><type>Request</type></link> Queues</term>
+<listitem><para>How to hadle request queues.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+</refsect1>
+
+</refentry>

@@ -1,0 +1,136 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
+<!entity SCHED SYSTEM "sgml/SCHED.sgml">
+<!entity cpu-config SYSTEM "sgml/cpu_config.sgml">
+<!entity cpu-interface SYSTEM "sgml/cpu_interface.sgml">
+<!entity cpu-algorithms SYSTEM "sgml/cpu-algorithms.sgml">
+<!entity io-algorithms SYSTEM "sgml/io-algorithms.sgml">
+<!entity mem-algorithms SYSTEM "sgml/mem-algorithms.sgml">
+<!entity cpu-status SYSTEM "sgml/cpu-status.sgml">
+<!entity mem-status SYSTEM "sgml/mem-status.sgml">
+<!entity mem-interface SYSTEM "sgml/mem_interface.sgml">
+<!entity swap SYSTEM "sgml/swap.sgml">
+<!entity propertywidgets SYSTEM "sgml/property_widgets.sgml">
+<!entity MEM SYSTEM "sgml/MEM.sgml">
+<!entity messaging SYSTEM "sgml/messaging.sgml">
+<!entity process SYSTEM "sgml/process.sgml">
+<!entity process-queues SYSTEM "sgml/process-queues.sgml">
+<!entity io-request-queues SYSTEM "sgml/io-request-queues.sgml">
+<!entity mem-config SYSTEM "sgml/mem_config.sgml">
+<!entity geometry SYSTEM "sgml/geometry.sgml">
+<!entity IO SYSTEM "sgml/IO.sgml">
+<!entity IO-interface SYSTEM "sgml/IO-interface.sgml">
+<!entity IO-simulation SYSTEM "sgml/IO-simulation.sgml">
+<!entity CPU-simulation SYSTEM "sgml/CPU-simulation.sgml">
+<!entity drawing SYSTEM "sgml/drawing.sgml">
+<!entity gdk-helper SYSTEM "sgml/gdk-helper.sgml">
+<!entity glib-helper SYSTEM "sgml/glib-helper.sgml">
+<!entity bitops SYSTEM "sgml/bitops.sgml">
+<!entity system-events SYSTEM "sgml/system-events.sgml">
+<!entity file-dialog "sgml/file-dialog.sgml">
+<!entity CLOCK-interface SYSTEM "sgml/CLOCK-interface.sgml">
+]>
+
+<book>
+  <bookinfo>
+    <title>VisualOS</title>
+    <subtitle>Programer Reference</subtitle>
+    <author>
+      <firstname>Manuel</firstname>
+      <surname>Estrada Sainz</surname>
+      <affiliation>
+	<address>
+	  <email>ranty@debian.org</email>
+	  <email>ranty@bigfoot.com</email>
+	</address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2000</year>
+      <year>2003</year>
+      <holder>Manuel Estrada Sainz</>
+    </>
+  </bookinfo>
+  <chapter>
+    <title>Introduction</>
+    <para>
+      This is a programers reference, so you will find lots of C code
+      and tecnical explanations all of it, as you can see, writen in
+      english, as I spect to share all this with the rest of the world
+      via The Internet so if you don't what to modify the code or find out
+      how the program works internaly, then the user manual will provably
+      benefit you most.
+    </para>
+  </chapter>
+  <chapter>
+    <title>SubSystems</title>
+    <para>
+      The program is divided into Subsystems, which communicate with
+      each other via a messaging facility.
+    </para>
+    <sect1><title>Procesor</title>
+      <para>
+	This is the subsystem responsable of executing the processes
+	and, usualy, is the one which generates all activity in the
+	other subsystems as their client.
+      </para>
+	&cpu-interface;
+	&cpu-config;
+	&CPU-simulation;
+	&process;
+        &cpu-status;
+	&process-queues;
+        &cpu-algorithms;
+    </sect1>
+    <sect1><title>I/O</title>
+      <para>
+	This subsystem is responsable of accepting block disk accesses,
+	simulating them and reporting its client when done.
+      </para>
+    	&IO-interface;
+    	&geometry;
+	&IO-simulation;
+	&io-request-queues;
+        &io-algorithms;
+	&IO;
+    </sect1>
+    <sect1><title>Memory</title>
+      <para>
+	This subsystem is responsable for accepting memory read and
+	write requests, managing memory for all processes: stealing
+	and swapping pages as necesary.
+      </para>
+    	&mem-interface;
+	&mem-config;
+        &mem-algorithms;
+    	&swap;
+        &mem-status;
+	&MEM;
+    </sect1>
+    <sect1><title>Clock</title>
+      <para>
+	This subsystem is responsable for generating a common time
+	reference for all other subsystems.
+      </para>
+    	&CLOCK-interface;
+    </sect1>
+    <sect1><title>Requestor</title>
+      <para>
+	This subsystem is not important for the general understanding
+	of the program, but is included here for completnes. It is
+	there to allow the user to request I/O data and Memory manualy
+	acting as the client for those subsystems.
+      </para>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Helpers</title>
+      &SCHED;
+      &propertywidgets;
+      &drawing;
+      &gdk-helper;
+      &glib-helper;
+      &messaging;
+      &system-events;
+      &bitops;
+  </chapter>
+</book>

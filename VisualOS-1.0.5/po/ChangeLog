@@ -1,0 +1,67 @@
+2004-06-02  rrey  <rrey@debian>
+
+	* es.po: Updated Spanish translation.
+
+2003-08-04  ranty  <ranty@debian>
+
+	* es.po: Revised by Ramón Rey Vicente
+
+	* cs.po, es.po, it.po: Copyright updates thanks to Ramón Rey Vicente.
+
+2003-01-10  ranty  <ranty@debian>
+
+	* cs.po: Update for new wellcome string.
+
+2003-01-05  ranty  <ranty@debian>
+
+	* cs.po: Added Czech Translation and some misc NLS related changes.
+
+	* es.po, fr.po, it.po: Automatic gettext changes.
+
+2002-10-26  ranty  <ranty@debian>
+
+	* es.po, fr.po, it.po:
+	Updated Content-Type and Content-Transfer-Encoding fields.
+
+2002-05-25  ranty  <ranty@debian>
+
+	* es.po, fr.po, it.po:
+	Updated copyright information (bye bye atdot.org).
+
+2002-05-19  ranty  <ranty@debian>
+
+	* es.po, fr.po, it.po: Side effects of the spelling fixes.
+
+2002-05-18  ranty  <ranty@debian>
+
+	* es.po, fr.po, it.po:
+	Some english spelling fixes thanks to Laurent Bonnaud <Laurent.Bonnaud@inpg.fr>
+
+2001-11-13  ranty  <ranty@debian>
+
+	* ChangeLog, es.po, fr.po, it.po: Automatic format changes by gettext.
+
+2001-03-29  ranty  <ranty@debian>
+
+	* .cvsignore: .cvsignore
+
+2001-03-28  ranty  <ranty@debian>
+
+	* it.po, fr.po, es.po: automatic updates on comments.
+
+2000-10-11  ranty  <ranty@debian>
+
+	* .cvsignore: .cvsignore
+
+	* fr.po: added french translation
+
+	* es.po, it.po: misc revision
+
+2000-09-13  ranty  <ranty@debian>
+
+	* it.po: Added italian translation
+
+	* ChangeLog, POTFILES.in, es.po: Fixed 'make install';
+	Added i18n support;
+	Added and spanish translation.
+

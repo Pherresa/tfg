@@ -1,0 +1,118 @@
+<refentry id="VisualOS-Drawings">
+<refmeta>
+<refentrytitle>Drawings</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Drawings</refname><refpurpose>Multiple representation facility.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="drawing-style-t">drawing_style_t</link>;
+enum        <link linkend="drawing-flags-t">drawing_flags_t</link>;
+<link linkend="GtkWidget">GtkWidget</link>*  <link linkend="create-drawing">create_drawing</link>                  (void);
+<link linkend="void">void</link>        <link linkend="register-drawing-style">register_drawing_style</link>          (<link linkend="GtkWidget">GtkWidget</link> *drawing,
+                                             <link linkend="drawing-style-t">drawing_style_t</link> *style);
+<link linkend="void">void</link>        <link linkend="update-drawing">update_drawing</link>                  (<link linkend="GtkWidget">GtkWidget</link> *drawing);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This allow easy impletentation of multiple representations for the same
+subsystem.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="drawing-style-t">struct drawing_style_t</title>
+<indexterm><primary>drawing_style_t</primary></indexterm><programlisting>struct drawing_style_t {
+				/* descrives a drawing style */
+	GtkWidget *widget;			/* widget to be shown */
+	gchar *name;				/* name for this style */
+	void (*update)(GtkWidget *widget);	/* function to update the
+						   style */
+	drawing_flags_t flags;			/* one of drawing_flags_t */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="drawing-flags-t">enum drawing_flags_t</title>
+<indexterm><primary>drawing_flags_t</primary></indexterm><programlisting>typedef enum {
+	DRAWING_FIXED_SIZE=1,		/* the widget will not change it's
+					   size scrollbars should be used */
+	DRAWING_FIXED_RATIO=1&lt;&lt;1	/* the widget will change it's size
+					   if needed but wants to keep it's
+					   width/height ratio */
+} drawing_flags_t;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="create-drawing">create_drawing ()</title>
+<indexterm><primary>create_drawing</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*  create_drawing                  (void);</programlisting>
+<para>
+Creates a widget capable of containing multiple representations for a 
+certain subsystem.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a widget ready to be handled with the apropiate GTK+ functions.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="register-drawing-style">register_drawing_style ()</title>
+<indexterm><primary>register_drawing_style</primary></indexterm><programlisting><link linkend="void">void</link>        register_drawing_style          (<link linkend="GtkWidget">GtkWidget</link> *drawing,
+                                             <link linkend="drawing-style-t">drawing_style_t</link> *style);</programlisting>
+<para>
+Adds <parameter>style</parameter> to <parameter>drawing</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>drawing</parameter>&nbsp;:</term>
+<listitem><simpara> a widget returned by <parameter>create_drawing</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>style</parameter>&nbsp;:</term>
+<listitem><simpara> the structure descriving a drawing style.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="update-drawing">update_drawing ()</title>
+<indexterm><primary>update_drawing</primary></indexterm><programlisting><link linkend="void">void</link>        update_drawing                  (<link linkend="GtkWidget">GtkWidget</link> *drawing);</programlisting>
+<para>
+Updates the styles (representations) in a "drawing".</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>drawing</parameter>&nbsp;:</term>
+<listitem><simpara> a widget returned by create_drawing.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,331 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+<article lang="es">
+  <title>VisualOS</title>
+  <para>
+    <!-- The parser insists on having something before the
+    bibliography, so here an empty paragraph -->
+  </para>
+  <bibliography>
+<bibliodiv>
+      <title>Desarrollo de la aplicación</title>
+    <biblioentry>
+      <authorgroup>
+	<author>
+	  <firstname>Brian W.</firstname>
+	  <surname>Kernighan</surname>
+	</author>
+	<author>
+	  <firstname>Dennis M.</firstname>
+	  <surname>Ritchie</surname>
+	</author>
+      </authorgroup>
+      <copyright>
+	<year>1988</year>
+	<year>1978</year>
+	<holder>Bell Telephone Laboratories, Inc.</holder>
+      </copyright>
+      <isbn>0-13-110362-8</isbn>
+      <publisher>
+	<publishername>Prentice-Hall, Inc.</publishername>
+      </publisher>
+      <title lang="en">The C programming language</title>
+      <biblioset>
+	<title>Prentice-Hall software series</title>
+	<publisher>
+	  <publishername>Prentice-Hall, Inc.</publishername>
+	</publisher>
+      </biblioset>
+    </biblioentry>
+    
+    <biblioentry>
+      <author>
+	<firstname>Havoc</firstname>
+	<surname>Pennington</surname>
+      </author>
+      <copyright>
+	<year>1999</year>
+	<holder>New Riders Publishing</holder>
+      </copyright>
+      <isbn>0-7357-0078-8</isbn>
+      <publisher>
+	<publishername>New Riders Publishing</publishername>
+      </publisher>
+      <title>GTK+/Gnome Application Development</title>
+    </biblioentry>
+    <biblioentry>
+      <authorgroup>
+	<author>
+	  <firstname>Brian W.</firstname>
+	  <surname>Kernighan</surname>
+	</author>
+	<author>
+	  <firstname>Rob</firstname>
+	  <surname>Pike</surname>
+	</author>
+      </authorgroup>
+      <copyright>
+	<year>1999</year>
+	<holder>Ludent Technologies</holder>
+      </copyright>
+      <isbn>0-201-61586-X</isbn>
+      <publisher>
+	<publishername>Addison-Wesley Publishing Company</publishername>
+      </publisher>
+      <title>The Practice of Programming</title>
+      <biblioset>
+	<title>Addison-Wesley Proffessional Computing Series</title>
+	<publisher>
+	  <publishername>
+	    Addison-Wesley Publishing Company, Inc.
+	  </publishername>
+	</publisher>
+      </biblioset>
+    </biblioentry>
+    
+    <biblioentry>
+      <author>
+	<firstname>Andrew</firstname>
+	<surname>Koenig</surname>
+      </author>
+      <copyright>
+	<year>1989</year>
+	<holder>AT&amp T Bell Laboratories, Inc.</holder>
+      </copyright>
+      <isbn>0-201-17928-8</isbn>
+      <publisher>
+	<publishername>Addison-Wesley Publishing Company</publishername>
+      </publisher>
+      <title>C Traps and Pitfalls</title>
+    </biblioentry>
+
+    <biblioentry>
+      <authorgroup>
+	<author>
+	  <firstname>Norman</firstname>
+	  <surname>Walsh</surname>
+	</author>
+	<author>
+	  <firstname>Leonard</firstname>
+	  <surname>Muellner</surname>
+	</author>
+      </authorgroup>
+      <copyright>
+	<year>1999</year>
+	<holder>O'Reilly & Associates, Inc.</holder>
+      </copyright>
+      <isbn>156592-580-7</isbn>
+      <publisher>
+	<publishername>O'Reilly & Associates, Inc.</publishername>
+      </publisher>
+      <title>DocBook</title>
+      <subtitle>The Definitive Guide</subtitle>
+      <edition>1st, Ed.</edition>
+    </biblioentry>
+    
+    <biblioentry>
+      <title>
+	<ulink url="http://developer.gnome.org/doc/">
+	  GNOME Developer Documentation
+	</ulink>
+      </title>
+      <date>2000/07/14</date>
+    </biblioentry>
+    <biblioentry>
+      <title>
+	<ulink url="http://www.gnu.org/">
+	  the GNU Project and the Free Software Fundation (FSF)
+	</ulink>
+      </title>
+      <date>2000/07/14</date>
+    </biblioentry>
+    <biblioentry>
+      <title>
+	<ulink url="http://www.cyclic.com/cvs/info.html">
+	  Concurrent Version System
+	</ulink>
+      </title>
+      <date>2000/07/14</date>
+    </biblioentry>
+    <biblioentry>
+      <title>
+	<ulink url="http://www.gtk.org">
+	  GTK+ - The GIMP Tookkit
+	</ulink>
+      </title>
+      <date>2000/07/14</date>
+    </biblioentry>
+    <biblioentry>
+      <title>
+	<ulink url="http://glade.pn.org/">
+	  GLADE GTK+ User Interface Builder
+	</ulink>
+      </title>
+      <date>2000/07/14</date>
+    </biblioentry>
+    <biblioentry>
+      <title>
+	<ulink url="http://www.gnome.org">
+	  GNOME - Computing Made Easy
+	</ulink>
+      </title>
+      <date>2000/07/14</date>
+    </biblioentry>
+
+
+
+    </bibliodiv>
+
+    <BIBLIODIV>
+      <TITLE>Conceptos teóricos</title>
+    <biblioentry>
+      <author>
+	<firstname>David A.</firstname>
+	<surname>Rusling</surname>
+      </author>
+      <copyright>
+	<year>1996</year>
+	<year>1997</year>
+	<holder>David A. Rusling</holder>
+      </copyright>
+      <title>The Linux Kernel</title>
+      <biblioset>
+	  <title>
+	    <ulink url="http://www.linuxdoc.org/">
+	      Linux Documentation Project
+	    </ulink>
+	  </title>
+      </biblioset>
+    </biblioentry>
+
+    <biblioentry>
+      <author lang="es">
+	<firstname>Luis Antonio Miguel</firstname>
+	<surname>Quintales</surname>
+      </author>
+      <title>Asignatura de Sistemas Operativos 1997/98 (Transparencias)</title>
+	<affiliation>
+	  <orgname>Universidad de Salamanca</orgname>
+	  <orgdiv>Departamento de Informatica y Automatica</orgdiv>
+	</affiliation> 
+    </biblioentry>
+    
+    <biblioentry>
+      <authorgroup>
+	<author>
+	  <firstname>Andrew S.</firstname>
+	  <surname>Tannenbaum</surname>
+	</author>
+	<author>
+	  <firstname>Albert S.</firstname>
+	  <surname>Woodhull</surname>
+	</author>
+      </authorgroup>
+      <copyright>
+	<year>1997</year>
+	<year>1987</year>
+	<holder>Prentice-Hall, Inc.</holder>
+      </copyright>
+      <publisher>
+	<publishername>
+	  Prentice-Hall, Inc.
+	</publishername>
+      </publisher>
+      <title>Operating Systems</title>
+      <subtitle>Design &amp  Implementation</subtitle>
+      <edition>2nd Ed.</edition>
+    </biblioentry>
+    
+    <biblioentry>
+      <author>
+	<firstname>William</firstname>
+	<surname>Stallings</surname>
+      </author>
+      <copyright>
+	<year>1998</year>
+	<holder>Prentice-Hall Inc.</holder>
+      </copyright>
+      <publisher>
+	<publishername>Prentice-Hall Inc.</publishername>
+      </publisher>
+      <title>Operating Systems</title>
+      <subtitle>Internals and Design Principles</subtitle>
+      <edition>3rd. ed.</edition>
+    </biblioentry>
+ 
+    <biblioentry>
+      <authorgroup>
+	<author>
+	  <firstname>Abraham</firstname>
+	  <surname>Silberschatz</surname>
+	</author>
+	<author>
+	  <firstname>Peter B.</firstname>
+	  <surname>Galvin</surname>
+	</author>
+      </authorgroup>
+      <copyright>
+	<year>1994</year>
+	<holder>Addison-Wesley Publishing Company, Inc.</holder>
+      </copyright>
+      <publisher>
+	<publishername>Addison-Wesley Publishing Company, Inc.</publishername>
+      </publisher>
+      <title>Operating System Concepts</title>
+      <edition>4th ed.</edition>
+    </biblioentry>
+ 
+    <biblioentry>
+      <author>
+	<firstname>Milan</firstname>
+	<surname>Milenkovi&#263</surname>
+      </author>
+      <copyright>
+	<year>1992</year>
+	<holder>McGraw-Hill, Inc.</holder>
+      </copyright>
+      <publisher>
+	<publishername>McGraw-Hill, Inc.</publishername>
+      </publisher>
+      <title>Operating Systems</title>
+      <subtitle>Concepts and Design</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <author>
+	<firstname>Maurice J.</firstname>
+	<surname>Bach</surname>
+      </author>
+      <copyright>
+	<year>1996</year>
+	<holder>Bell Telephone Laboratories, Inc.</holder>
+      </copyright>
+      <publisher>
+	<publishername>Addison-Wesley Publishing Company</publishername>
+      </publisher>
+      <title>The Design of the UNIX Operating System</title>
+    </biblioentry>
+
+    <biblioentry>
+      <authorgroup>
+	<author>
+	  <firstname>Lubomir</firstname>
+	  <surname>Bic</surname>
+	</author>
+	<author>
+	  <firstname>Alan C.</firstname>
+	  <surname>Shaw</surname>
+	</author>
+      </authorgroup>
+      <copyright>
+	<year>1988</year>
+	<holder>Prentice-Hall</holder>
+      </copyright>
+      <publisher>
+	<publishername>Prentice-Hall</publishername>
+      </publisher>
+      <title>The Logical Design of Operating Systems</title>
+      <edition>2nd. ed.</edition>
+    </biblioentry>
+    </bibliodiv>
+  </bibliography>
+</article>

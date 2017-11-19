@@ -1,0 +1,220 @@
+<refentry id="VisualOS-Processes">
+<refmeta>
+<refentrytitle>Processes</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Processes</refname><refpurpose>Process Handling.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="proc-t">proc_t</link>*     <link linkend="create-process">create_process</link>                  (void);
+<link linkend="proc-t">proc_t</link>*     <link linkend="new-process">new_process</link>                     (void);
+<link linkend="void">void</link>        <link linkend="insert-process">insert_process</link>                  (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="void">void</link>        <link linkend="free-process">free_process</link>                    (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="gint">gint</link>        <link linkend="destroy-process">destroy_process</link>                 (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="proc-queue-t">proc_queue_t</link> <link linkend="get-proc-list">get_proc_list</link>                  (void);
+<link linkend="proc-t">proc_t</link>*     <link linkend="get-proc-by-pid">get_proc_by_pid</link>                 (<link linkend="gint">gint</link> pid);
+<link linkend="void">void</link>        <link linkend="select-process">select_process</link>                  (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="proc-t">proc_t</link>*     <link linkend="get-CPU-selected-proc">get_CPU_selected_proc</link>           (void);
+<link linkend="void">void</link>        <link linkend="save-processes-to-file">save_processes_to_file</link>          (void);
+<link linkend="void">void</link>        <link linkend="load-processes-from-file">load_processes_from_file</link>        (void);
+#define     <link linkend="burst">burst</link>                           (proc)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions provide general process handling. Creation, insertion into the
+system, destruction, finding a certain process...
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="create-process">create_process ()</title>
+<indexterm><primary>create_process</primary></indexterm><programlisting><link linkend="proc-t">proc_t</link>*     create_process                  (void);</programlisting>
+<para>
+Do everything necesary to  have a new process in the system.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the newly created process.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="new-process">new_process ()</title>
+<indexterm><primary>new_process</primary></indexterm><programlisting><link linkend="proc-t">proc_t</link>*     new_process                     (void);</programlisting>
+<para>
+Allocate data for new process.
+</para>
+<para>
+Note: the process will have to be inserted to have any efect.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the newly allocate process data.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="insert-process">insert_process ()</title>
+<indexterm><primary>insert_process</primary></indexterm><programlisting><link linkend="void">void</link>        insert_process                  (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Inserts process <parameter>proc</parameter> in the system.
+</para>
+<para>
+Note: <parameter>proc</parameter> can be obtained with <parameter>new_process</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="free-process">free_process ()</title>
+<indexterm><primary>free_process</primary></indexterm><programlisting><link linkend="void">void</link>        free_process                    (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Definitely free all data related to <parameter>proc</parameter>.
+</para>
+<para>
+Note: <parameter>proc</parameter> will be gone for good.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="destroy-process">destroy_process ()</title>
+<indexterm><primary>destroy_process</primary></indexterm><programlisting><link linkend="gint">gint</link>        destroy_process                 (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Start considering <parameter>proc</parameter> a terminated process and remove it from the
+system.
+</para>
+<para>
+Note: the data of <parameter>proc</parameter> is not freed, and <parameter>proc</parameter> will be saved by
+<parameter>save_processes_to_file</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-proc-list">get_proc_list ()</title>
+<indexterm><primary>get_proc_list</primary></indexterm><programlisting><link linkend="proc-queue-t">proc_queue_t</link> get_proc_list                  (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the list of all currently running processes.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-proc-by-pid">get_proc_by_pid ()</title>
+<indexterm><primary>get_proc_by_pid</primary></indexterm><programlisting><link linkend="proc-t">proc_t</link>*     get_proc_by_pid                 (<link linkend="gint">gint</link> pid);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the data of process <parameter>pid</parameter> or NULL if there is no process
+with PID <parameter>pid</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="select-process">select_process ()</title>
+<indexterm><primary>select_process</primary></indexterm><programlisting><link linkend="void">void</link>        select_process                  (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Makes <parameter>proc</parameter> the selected process.
+</para>
+<para>
+Note: some code will do things to the selected process.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-selected-proc">get_CPU_selected_proc ()</title>
+<indexterm><primary>get_CPU_selected_proc</primary></indexterm><programlisting><link linkend="proc-t">proc_t</link>*     get_CPU_selected_proc           (void);</programlisting>
+<para>
+Find out which is the currently selected process</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the currently selected process.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="save-processes-to-file">save_processes_to_file ()</title>
+<indexterm><primary>save_processes_to_file</primary></indexterm><programlisting><link linkend="void">void</link>        save_processes_to_file          (void);</programlisting>
+<para>
+Asks the user for a filename and saves all processes on the current
+session to a file, ready to be loaded in a new session.
+</para>
+<para>
+Note: Both terminated and not yet running processes will be written.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="load-processes-from-file">load_processes_from_file ()</title>
+<indexterm><primary>load_processes_from_file</primary></indexterm><programlisting><link linkend="void">void</link>        load_processes_from_file        (void);</programlisting>
+<para>
+Asks the user for a filename and loads all processes it can find it it.
+</para>
+<para>
+Note: Not all processes will be visible at once, they will be inserted
+at the right time.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="burst">burst()</title>
+<indexterm><primary>burst</primary></indexterm><programlisting>#define burst(proc) (proc-&gt;next_event.time - proc-&gt;time)
+</programlisting>
+<para>
+Calculates the current burst (time until next voluntary event) for <parameter>proc</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

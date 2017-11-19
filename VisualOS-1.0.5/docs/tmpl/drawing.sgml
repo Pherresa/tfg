@@ -1,0 +1,54 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Multiple representation facility.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This allow easy impletentation of multiple representations for the same
+subsystem.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT drawing_style_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM drawing_flags_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION create_drawing ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION register_drawing_style ##### -->
+<para>
+
+</para>
+
+@drawing: 
+@style: 
+
+
+<!-- ##### FUNCTION update_drawing ##### -->
+<para>
+
+</para>
+
+@drawing: 
+
+

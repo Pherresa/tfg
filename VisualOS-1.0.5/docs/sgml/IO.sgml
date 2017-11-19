@@ -1,0 +1,73 @@
+<refentry id="VisualOS-IO-Miscelaneous">
+<refmeta>
+<refentrytitle>IO Miscelaneous</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>IO Miscelaneous</refname><refpurpose>Other interesting functions.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="gint">gint</link>        <link linkend="io-server-init">io_server_init</link>                  (void);
+<link linkend="gint">gint</link>        <link linkend="io-block-ready-server">io_block_ready_server</link>           (<link linkend="io-request-t">io_request_t</link> *io_request);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions wouldn't make a proper section, but I believe that they are
+relevant enough to be mencioned.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="io-server-init">io_server_init ()</title>
+<indexterm><primary>io_server_init</primary></indexterm><programlisting><link linkend="gint">gint</link>        io_server_init                  (void);</programlisting>
+<para>
+Called from the subsystem's code to initialize the interface code.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-block-ready-server">io_block_ready_server ()</title>
+<indexterm><primary>io_block_ready_server</primary></indexterm><programlisting><link linkend="gint">gint</link>        io_block_ready_server           (<link linkend="io-request-t">io_request_t</link> *io_request);</programlisting>
+<para>
+Called from the subsystem's code to tell the client about a fulfilled 
+request.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>io_request</parameter>&nbsp;:</term>
+<listitem><simpara> the fulfilled request.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

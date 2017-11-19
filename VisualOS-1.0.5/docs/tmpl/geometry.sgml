@@ -1,0 +1,73 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Geometry of the device.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions serve to find out the geometry of the disk and do some
+translations based on it.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION get_IO_blocks_per_track ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_IO_max_data_block ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_IO_max_swap_block ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_IO_ntracks ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_IO_last_data_track ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION IO_request_track ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION init_IO_geometry ##### -->
+<para>
+
+</para>
+
+
+

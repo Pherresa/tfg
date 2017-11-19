@@ -1,0 +1,105 @@
+<refentry id="VisualOS-Memory-Interface">
+<refmeta>
+<refentrytitle>Memory Interface</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Memory Interface</refname><refpurpose>MEM interface to the other subsystems.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>        (<link linkend="page-ready-callback-t">*page_ready_callback_t</link>)        (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);
+<link linkend="void">void</link>        <link linkend="mem-register-page-ready">mem_register_page_ready</link>         (<link linkend="page-ready-callback-t">page_ready_callback_t</link> func);
+<link linkend="gboolean">gboolean</link>    <link linkend="mem-touch-page">mem_touch_page</link>                  (<link linkend="proc-t">proc_t</link> *proc,
+                                             <link linkend="gint">gint</link> page,
+                                             <link linkend="gboolean">gboolean</link> write);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions allow the other subsystems to interact, througth the messaging
+service, with the Memory.
+
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="page-ready-callback-t">page_ready_callback_t ()</title>
+<indexterm><primary>page_ready_callback_t</primary></indexterm><programlisting><link linkend="void">void</link>        (*page_ready_callback_t)        (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);</programlisting>
+<para>
+Function pointer type for the callback used on <parameter>mem_register_page_ready</parameter>.</para>
+<para>
+Function pointer type for the callback used on <parameter>mem_register_page_ready</parameter>.
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> the process' page which has become ready.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-register-page-ready">mem_register_page_ready ()</title>
+<indexterm><primary>mem_register_page_ready</primary></indexterm><programlisting><link linkend="void">void</link>        mem_register_page_ready         (<link linkend="page-ready-callback-t">page_ready_callback_t</link> func);</programlisting>
+<para>
+Registers <parameter>func</parameter> to be called whenever a processes page becomes available
+in physical memory.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> function to be called.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-touch-page">mem_touch_page ()</title>
+<indexterm><primary>mem_touch_page</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    mem_touch_page                  (<link linkend="proc-t">proc_t</link> *proc,
+                                             <link linkend="gint">gint</link> page,
+                                             <link linkend="gboolean">gboolean</link> write);</programlisting>
+<para>
+Access the page number <parameter>page</parameter> of process <parameter>proc</parameter>. The access will be for
+writing if <parameter>write</parameter> is TRUE.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> page we pretend to use.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>write</parameter>&nbsp;:</term>
+<listitem><simpara> are we writing to the specified page?
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> TRUE if the page was available and FALSE if a page fault ocurred
+and the process has to wait.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

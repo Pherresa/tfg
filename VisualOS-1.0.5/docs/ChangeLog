@@ -1,0 +1,137 @@
+2000-07-16 Sunday 21:46  ranty
+
+	* docs/: Bibliografia.sgml, Descripcion.sgml, Manual-es.sgml,
+	VisualOS-docs.sgml: Cosmetic update.
+
+2000-07-15 Saturday 13:40  ranty
+
+	* configure.in: this is almost done, bumped version to 0.9.0
+
+2000-07-14 Friday 16:59  ranty
+
+	* docs/Descripcion.sgml: revised by Guillermo
+
+2000-07-13 Thursday 01:26  ranty
+
+	* docs/Descripcion.sgml: Revised by Luis Quintales
+
+2000-07-11 Tuesday 21:59  ranty
+
+	* docs/screen_shots/Makefile.am: autogenerate user manual
+	screenshots
+
+2000-07-03 Monday 01:18  ranty
+
+	* src/VisualOS.glade: little interface cleanup
+
+2000-07-01 Saturday 10:34  ranty
+
+	* src/VisualOS.glade: more confortable page increment in the
+	CLOCK's time unit
+
+2000-06-30 Friday 13:43  ranty
+
+	* TODO, src/IO/algorithms/Makefile.am,
+	src/IO/algorithms/algorithms.c, src/IO/algorithms/manual.c,
+	src/IO/algorithms/manual.h: added a manual algorithm to IO
+	subsystem
+
+2000-06-25 Sunday 14:09  ranty
+
+	* docs/Descripcion.sgml: each subsystem may show in a different
+	machine
+
+2000-06-22 Thursday 18:15  ranty
+
+	* src/MEM/algorithms/fifo.c: fifo algorithm was returning locked
+	frames, should be fixed now.
+
+2000-06-22 Thursday 18:12  ranty
+
+	* src/process.c: handle nicely early process termination.
+
+2000-06-22 Thursday 14:19  ranty
+
+	* src/MEM/drawings/virtual.c: removed an annoying warning
+
+2000-06-22 Thursday 11:31  ranty
+
+	* src/CPU/queues.c: Properly set proc->nqueue in wakeup_proc.
+
+2000-06-19 Monday 18:30  ranty
+
+	* src/: VisualOS.glade, CPU/misc_menu_callbacks.c: added an about
+	dialog
+
+2000-06-16 Friday 15:30  ranty
+
+	* src/CPU/queues.c: don't allow taking processes out of the wait
+	queue before they are ready
+
+2000-06-15 Thursday 01:15  ranty
+
+	* src/: process.c, process.h, CPU/CPU.c, CPU/CPU.h,
+	CPU/cpu_config.c, CPU/cpu_config.h, CPU/simulation.c,
+	CPU/simulation.h, MEM/MEM.c, MEM/mem_config.c, MEM/mem_config.h:
+	Added documentation and little cleanup
+
+2000-06-14 Wednesday 23:56  ranty
+
+	* src/CPU/editor/memory.c: fixed compile warnings.
+
+2000-06-13 Tuesday 00:48  ranty
+
+	* src/MEM/drawings/virtual.c: include the page number on the table.
+
+2000-06-13 Tuesday 00:41  ranty
+
+	* configure.in: update version number
+
+2000-06-13 Tuesday 00:37  ranty
+
+	* src/MEM/swap.c: fixed a couple typos.
+
+2000-06-12 Monday 23:48  ranty
+
+	* src/MEM/MEM.c: Handle page bitmap loose synchronization
+	correctly; A proccess may "access" a recently lost frame because
+	the CPU didn't get the bitmap updated.
+
+2000-06-10 Saturday 13:50  ranty
+
+	* src/MEM/page_info.c: use *_bit functions
+
+2000-06-09 Friday 20:17  ranty
+
+	* src/MEM/swap.c: fixed a typo which would cause and infinite loop
+
+2000-06-09 Friday 18:59  ranty
+
+	* src/VisualOS.glade: removed useless menu entries
+
+2000-06-09 Friday 18:45  ranty
+
+	* src/CPU/drawings/overlapped_bars.c: fixed the scroll bar
+
+2000-06-09 Friday 18:28  ranty
+
+	* src/CPU/cpu_config.c: use better defaults
+
+2000-06-09 Friday 18:21  ranty
+
+	* src/VisualOS.c: each subsystem can now showup in a different X
+	display
+
+2000-06-09 Friday 12:36  ranty
+
+	* src/: VisualOS.c, VisualOS.glade, messaging.c, messaging.h,
+	CPU/misc_menu_callbacks.c: the system can be reset
+
+2000-06-08 Thursday 21:34  ranty
+
+	* src/CPU/clock.c: robustnes
+
+2000-06-08 Thursday 19:58  ranty
+
+	* src/drawing.c: drawing styles can no be detached
+

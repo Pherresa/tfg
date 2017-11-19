@@ -1,0 +1,64 @@
+<!-- ##### SECTION Title ##### -->
+info
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION get_CPU_window ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION set_CPU_window ##### -->
+<para>
+
+</para>
+
+@window: 
+
+
+<!-- ##### FUNCTION get_CPU_algorithms ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION set_CPU_algorithms ##### -->
+<para>
+
+</para>
+
+@algorithms: 
+
+
+<!-- ##### FUNCTION get_CPU_current_algorithm ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION set_CPU_current_algorithm ##### -->
+<para>
+
+</para>
+
+@algorithms: 
+
+

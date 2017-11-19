@@ -1,0 +1,217 @@
+<refentry id="VisualOS-Request-Queues">
+<refmeta>
+<refentrytitle>Request Queues</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Request Queues</refname><refpurpose>IO Request Queue Handling.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+typedef     <link linkend="io-queue-t">io_queue_t</link>;
+#define     <link linkend="DECLARE-IO-QUEUE-CAPS">DECLARE_IO_QUEUE</link>                (queue)
+#define     <link linkend="io-queue-empty">io_queue_empty</link>                  (queue)
+#define     <link linkend="io-request-data">io_request_data</link>                 (element)
+#define     <link linkend="io-queue-next">io_queue_next</link>                   (element)
+#define     <link linkend="io-queue-len">io_queue_len</link>                    (queue)
+#define     <link linkend="io-queue-init">io_queue_init</link>                   (queue)
+#define     <link linkend="io-queue-foreach">io_queue_foreach</link>                (queue, func, data)
+#define     <link linkend="io-queue-concat">io_queue_concat</link>                 (dest, orig1, orig2)
+#define     <link linkend="io-queue-remove">io_queue_remove</link>                 (queue, request)
+#define     <link linkend="io-queue-append">io_queue_append</link>                 (queue, request)
+#define     <link linkend="io-queue-end">io_queue_end</link>                    (element)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This are the functions to use when working with any queue of
+requests in the IO subsystem.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="io-queue-t">io_queue_t</title>
+<indexterm><primary>io_queue_t</primary></indexterm><para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="DECLARE-IO-QUEUE-CAPS">DECLARE_IO_QUEUE()</title>
+<indexterm><primary>DECLARE_IO_QUEUE</primary></indexterm><programlisting>#define     DECLARE_IO_QUEUE(queue)</programlisting>
+<para>
+Declares a new and empty request queue with name <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> name for the queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-empty">io_queue_empty()</title>
+<indexterm><primary>io_queue_empty</primary></indexterm><programlisting>#define     io_queue_empty(queue)</programlisting>
+<para>
+Is <parameter>queue</parameter> empty?</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> request queue involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-request-data">io_request_data()</title>
+<indexterm><primary>io_request_data</primary></indexterm><programlisting>#define     io_request_data(element)</programlisting>
+<para>
+Retrives the request data from the queue <parameter>element</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter>&nbsp;:</term>
+<listitem><simpara> request queue element involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-next">io_queue_next()</title>
+<indexterm><primary>io_queue_next</primary></indexterm><programlisting>#define     io_queue_next(element)</programlisting>
+<para>
+Gets the next element on the queue starting at <parameter>element</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter>&nbsp;:</term>
+<listitem><simpara> request queue element involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-len">io_queue_len()</title>
+<indexterm><primary>io_queue_len</primary></indexterm><programlisting>#define     io_queue_len(queue)</programlisting>
+<para>
+Calculate the number of elements on <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> request queue involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-init">io_queue_init()</title>
+<indexterm><primary>io_queue_init</primary></indexterm><programlisting>#define     io_queue_init(queue)</programlisting>
+<para>
+Initializes request queue <parameter>queue</parameter>.
+</para>
+<para>
+Note: applyed to a non empty queue will loose all its elements.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> request queue involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-foreach">io_queue_foreach()</title>
+<indexterm><primary>io_queue_foreach</primary></indexterm><programlisting>#define     io_queue_foreach(queue, func, data)</programlisting>
+<para>
+Will call <parameter>func</parameter> for every request on <parameter>queue</parameter> using the request pointer
+as the first arguemt and <parameter>data</parameter> as the second.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> request queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> function to be called.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> second argument to <parameter>func</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-concat">io_queue_concat()</title>
+<indexterm><primary>io_queue_concat</primary></indexterm><programlisting>#define     io_queue_concat(dest, orig1, orig2)</programlisting>
+<para>
+Concatenates <parameter>orig1</parameter> and <parameter>orig2</parameter> into <parameter>dest</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> Target queue.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orig1</parameter>&nbsp;:</term>
+<listitem><simpara> First source queue.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orig2</parameter>&nbsp;:</term>
+<listitem><simpara> Second source queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-remove">io_queue_remove()</title>
+<indexterm><primary>io_queue_remove</primary></indexterm><programlisting>#define     io_queue_remove(queue, request)</programlisting>
+<para>
+Remove <parameter>request</parameter> from <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> request queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>request</parameter>&nbsp;:</term>
+<listitem><simpara> request to be removed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-append">io_queue_append()</title>
+<indexterm><primary>io_queue_append</primary></indexterm><programlisting>#define     io_queue_append(queue, request)</programlisting>
+<para>
+Append <parameter>request</parameter> to <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> request queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>request</parameter>&nbsp;:</term>
+<listitem><simpara> request to be appended.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="io-queue-end">io_queue_end()</title>
+<indexterm><primary>io_queue_end</primary></indexterm><programlisting>#define io_queue_end(element) io_queue_empty(element)
+</programlisting>
+<para>
+Is this element the end of the queue?</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter>&nbsp;:</term>
+<listitem><simpara> request queue element involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

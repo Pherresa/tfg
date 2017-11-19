@@ -1,0 +1,3 @@
+?package(visualos):needs=X11 section=Apps/Technical\
+  title="VisualOS" longtitle="Visual simulator of an Operating System"\
+  command="/usr/bin/VisualOS"

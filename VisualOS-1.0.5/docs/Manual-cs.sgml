@@ -1,0 +1,1144 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+<book lang="cs">
+  <bookinfo>
+    <title>VisualOS</title>
+    <subtitle>U¾ivatelský manuál</subtitle>
+    <author>
+      <firstname>Manuel</firstname>
+      <surname>Estrada Sainz</surname>
+      <affiliation>
+        <address>
+          <email>ranty@debian.org</email>
+          <email>ranty@bigfoot.com</email>
+        </address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2000</year>
+      <year>2003</year>
+      <holder>Manuel Estrada Sainz</holder>
+    </copyright>
+  </bookinfo>
+  <chapter>
+    <title>Úvod</title>
+    <para>
+      VisualOS je simulátor operaèního systému jeho¾ cílem je urychlit
+      poznávání vnitøího uspoøádání a struktury takto slo¾itého systému.
+      VisualOS zobrazuje nejdùle¾itìj¹í mechanizmy a umo¾òuje manipulaci a
+      modifikaci chování bì¾ícího systému bez toho aby bylo nutné psát
+      jedinou øádku kódu.
+    </para>
+    <para>
+      Jeho struktura je pomìrnì jednoduchá. Na zaèátku je ka¾dý simulovaný
+      subsystém umístìn do svého vlastního okna. Procesor je centrem tohoto
+      systému a pùvodce ve¹keré aktivity po¾adujíce slu¾by po v¹ech
+      ostatních èástech.
+    </para>
+    <sect1>
+      <title>Obecná struktura</title>
+      <para>
+        V¹echny subsystémy mají podobnou strukturu a¾ na nìkteré
+        odli¹nosti, které budou vysvìtleny pozdìji.
+      </para>
+      <para>
+        Subsystémy umo¾òují výbìr algoritmu který má být pou¾it a nastavení
+        jeho parametrù, pokud nìjaké má. Nabízejí také rozliènou
+        reprezentaci toho, co se vlastnì uvnitø subsystému dìje, èasto
+        nìkolika mo¾nými zpùsoby.
+      </para>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Procesor</title>
+    <para>
+      V oknì procesoru najdete informae o procesech které jsou pùvodci
+      v¹ech dal¹ích akcí v simulátoru. Jeho prvky jsou popsány na
+      následujícím obrázku:
+    </para>
+    <figure>
+      <title>Procesor</title>
+      <graphic fileref="screen_shots/CPU" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+        <para>
+          Vytvoøení nového procesu. Vìt¹inou nabídne mo¾nost vybrat
+          parametry a vlastnosti novì vytváøeného procesu.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zmìna charakteristik vybraného procesu. Proces se vybere
+          kliknutím na na frontu nebo CPU v oknì "Fronty (Queues)".
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nahrátí jednoho nebo více procesù ze souboru. Dotyèný soubor mù¾e být
+          vytvoøen pøímo programem (volba "Ulo¾it") a nebo ruènì editovnán
+          u¾ivatelem.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Ulo¾ení aktuálnì pou¾ívaných procesù vèetnì jejich stavu do
+          souboru. Ulo¾eny budou v¹echny procesy vèetnì ukonøených a tìch
+          které je¹tì nebyly v systému spu¹tìny.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Restart systému. Vrátí systém do poèáteèního stavu - tedy
+          nastaví hodiny na 0 tikù a vyprázdní a resetuje v¹echny ostatní
+          jednotky.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          PID - ientifikace procesu, èas - kolik tikù u¾ proces bì¾el,
+          shluk - aktuální poèet tikù které proces pobì¾í ne¾ bude
+          pøeru¹en.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          PID aktuálnì be¾ícího procesu.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Fronta procesù pøipravených k bìhu. Podle konkrétního algoritmu
+          pro pøidìlování procesoru tìchto front mù¾e být i více,
+          nejèasteji je v¹ask jedna.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Fronta blokovaných procesù. Procesy v této forntì èekají na
+          dokonèení diskové operace (ètení) a nebo o¹etøení výpadku
+          stránky.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          V¹echny dostupné reprezentae pro tento subsystém.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Kliknutím na tohle tlaèítko umístíte reprezentaci subsystému do
+          vlastního okna. To umo¾ní pou¾ívat najednou více reprezentací pro
+          detailnìj¹í pøehled o stavu subsystému.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Ve stavovém oknì se objevují zprávy o dùle¾itých událostech v
+          subsystému.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Jméno aktuálnì vybraného algoritmu. Mù¾e být vybrán libovolný algoritmus z
+          nabídky, vèetnì tzv. "manuálního" ovládání, který umo¾òuje
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Vlastnosti vybraného algoritmu. V tomto pøípadì se jedná o èasové
+          kvantum po které je ka¾dému procesu povoleno vyu¾ívat procesor
+        </para>
+      </listitem>
+    </orderedlist>
+    <sect1>
+      <title>Menu</title>
+      <para>
+        Zde bude vyssvìtleno, co které polo¾ky menu znamenají:
+      </para>
+      <sect2>
+        <title>Soubor</title>
+        <figure>
+          <title>Menu Soubor</title>
+          <graphic fileref="screen_shots/CPU-Menu-File" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Vytvoøení nového procesu, vìt¹inou umo¾ní nastavení dal¹ích
+              charakteristik vytváøeného procesu.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Nahraje jeden nebo více procesù ze souboru. Tento soubor
+              mù¾e být vytvoøen prímo programem nebo ruènì editován
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Ulo¾ení aktuálnì pou¾ívaných procesù vèetnì jejich stavu do
+              souboru. Ulo¾eny budou v¹echny procesy vèetnì ukonøených a tìch
+              které je¹tì nebyly v systému spu¹tìny.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Ukonèení programu s uzavøením v¹ech ostatních subsystémù.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Zobrazit</title>
+        <para>
+          V tomhle menu je mo¾no nechat zobrazit jednotlivé dostupné
+          sybsystémy. Skrytí subsystému se provede jednodu¹e zavøením
+          jeho okna pøes ikonu správce oken.
+        </para>
+        <figure>
+          <title>Menu Zobrazit</title>
+          <graphic fileref="screen_shots/CPU-Menu-View" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Zobrazení pamìtového subsystému simulátoru.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Zobrazení diskového subsystému simulítoru.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Zobrazení subsystému pro explicitní po¾adavky na operace s
+              diskem a/nebo pamìtí. Detailní vysvìtlení bude uvedeno
+              pozdìji.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Zobrazí èasový subsystém.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Nastavení</title>
+        <figure>
+          <title>Menu Nastavení</title>
+          <graphic fileref="screen_shots/CPU-Menu-Settings" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Pokud je tato volba zapnuta, nebude pøi vytváøení nových
+              procesù nabízeno okno pro definici vlastností. V¹echny
+              vlastnosti budou vygenerovány náhodnì. Chování generátoru
+              je mo¾no ovlivnit na pøíslu¹né kartì v konfiguraci
+              simulátoru.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Tato volba zajistí zastavení hodin po ka¾dé dùleøité
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Zobrazí okno s konfigurací simulátoru jak uvidíme
+              pozdìji.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+    </sect1>
+    <sect1>
+      <title>Vlastnosti procesu</title>
+      <para>
+        Zde je mo¾no nastavovat vlastnosti konkrétního procesu a také
+        ukládat a naèítat je do/z souboru.
+      </para>
+      <sect2>
+        <title>Obecné</title>
+        <figure>
+          <title>Obecné vlastnosti</title>
+          <graphic fileref="screen_shots/CPU-Process-Properties-General" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Identifikátor procesu. -1 pokud proces je¹tì nebyl vloøen
+              do systému (èas jeho spu¹tìní je vìt¹í ne¾ aktuální
+                systémový èas)
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Procesorový èas spotøeboaný procesem (v ticích)
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+               Èas, kdy bude proces vlo¾en do systému (konkrétnì do
+               fronty pøipravených procesù)
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Procesorový èas, který má proces spotøebovat za celý svùj
+              ¾ivot.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Automaticky vyplnit (vygenerovat) parametry na této stránce.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Nahrát proces ze souboru (respektive popis procesu).
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Ulo¾it proces do souboru (respektive popis procesu).
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Akceptuje zmìny provedené v nastavení a zavøi okno s
+              vlastnostmi.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+               Zru¹í zmeny provedené v nastavení (pøípadnì zru¹í
+               vytváøení nového procesu) a zavøe okno.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Vstup/Výstup</title>
+        <para>
+          Zde je mo¾né nastavit v¹echny vlastnosti které souvisí s
+          pøístupem procesu k sekundární pamìti (disku)
+        </para>
+        <figure>
+          <title>Vlastnosti Vstypu/Výstupu</title>
+          <graphic fileref="screen_shots/CPU-Process-Properties-IO" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Pøidat novou operaci pro disk.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Nahradit aktuálnì vybranou polo¾ku v seznamu operací.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Odstranit aktuálnì vybranou polo¾ku v seznamu operací.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Blok který se pou¾ije bìhem operace.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Èas procesoru, kdy má proces o operaci po¾ádat. Jedná
+              se o èas strávený procesem ne èas systému.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Blok který bude pou¾it pøi zmìnì nebo pøidávání operace.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+               Èas bìhu procesu kdy má proces o operaci po¾ádat.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Blok pro operaci mù¾e být vybrán také liknutím na plochu disku.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Pamì»</title>
+        <para>
+          Zde se definují pøístupy do pamìti pro celou dobu ¾ivota
+          procesu.
+        </para>
+        <para>
+          Proto¾e by bylo nemyslitelné zapisovat v¹echny pøístupy
+          ruènì, je jediná mo¾nost vygenerovat je automaticky s
+          mo¾ností ovlivnìní pravdìpodobností ètení a zápisu pomocí
+          grafù.
+        </para>
+        <figure>
+          <title>Memory properties.</title>
+          <graphic fileref="screen_shots/CPU-Process-Properties-Memory" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Celkový poèet stránek které bude proces pou¾ívat.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Pravdìpdobnost, ¾e bude proces èíst ka¾dou ze stránek.
+              Osa X representuje èísla stránek a osa Y reprezentuje
+              pravdìpodobnost ètení.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Pravdìpodobnost, ¾e bude proces zapisovat do
+              jednotlivých stránek. Osa X representuje èísla stránek
+              a osa Y representuje pravdìpodobnost zápisu.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Stánka pro pøístup.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Typ pøístupu. Mù¾e být ètení (READ) nebo zápis (WRITE).
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Pokroèilé</title>
+        <para>
+          Je také mo¾né definovat vlastnosti procesu pomocí
+          jednoduchého jazyka. Stejný jazyk je pou¾it pro ukládání
+          procesù do souboru.
+        </para>
+        <figure>
+          <title>Pokroèilé nastavení</title>
+          <graphic fileref="screen_shots/CPU-Process-Properties-Advanced" format="eps" align="center">
+	</figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              V¹echny informace o procesu jsou uzavøeny do bloku "proc".
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Èas, kdy bude proces vlo¾en do systému.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Celkový èas ¾ivota procesu.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Seznam diskových operací je uzavøen v bloku "IO".
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Blok pro danou operaci.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Èas procesu kdy má dojít k po¾adavku na operaci.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Seznam pøístupù do pamìti uzavøený do bloku "MEM".
+              Obsahuje zásnam pro ka¾dou èasovou jednotku bìhu
+              procesu (tik). 
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Stránka procesu pro pøístup.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Urèuje jestli se jedná o ètení ("write=0") nebo o zápis
+              ("write=1").
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+    </sect1>
+    <sect1>
+      <title>Nastavení</title>
+      <sect2>
+        <title>Nastavení automatického generování obsahu</title>
+        <para>
+          Tyto parametry mohou být pou¾ity pro nastavení
+          vlastností automatického generování obsahu procesù.
+        </para>
+        <figure>
+          <title>Generování obsahu procesù</title>
+          <graphic fileref="screen_shots/CPU-Preferences-Process-Auto-Filling" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Prùmìrné mno¾ství stránek pou¾ité celkem
+              procesem.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Prùmerný èas mezi zádostmi o diskové operace.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Prùmìrný poèet pøístupù do pamìti. Jestli¾e je
+              "1" malé èíslo a tento parametr je nastaven na
+              vysokou hodnotu, potom bude proces provádìt mnoho
+              operací rozprostøených mezi relativnì malé
+              mno¾ství diskových blokù.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Prùmìrný èas mezi vytvoøením dvou následujících
+              procesù.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Implicitní hodnoty pro generování pøístupù do
+              pamìti.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Zobrazovací styly</title>
+        <figure>
+          <title>Grafické representace</title>
+          <graphic fileref="screen_shots/CPU-Preferences-Drawing-Styles" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Limity pro zobrazovací styly které zobrazují
+              historii systému. Tohle nastavení omezuje vyu¾ití
+              prostøedkù simulátoru.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+    </sect1>
+    <sect1>
+      <title>Zobrazovací styly</title>
+      <para>
+        Nyní si uká¾eme rùzné mo¾nosti reprezentace pro
+        subsystém procesoru a jejich význam:
+      </para>
+      <sect2>
+        <title>Fronty</title>
+        <figure>
+          <title>Fronty procesory</title>
+          <graphic fileref="screen_shots/CPU-Drawing-Queues" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Právì bì¾ící proces.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Fronta procesù pøipravených k bìhu. V závislosti
+              na pou¾itém algoritmu pro plánování èasu
+              procesoru zde mùýe být i více front.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Fronta blokovaných procesù, ¾ekajících na
+              dokonèení diskové operace.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Identifikátor procesu.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Zbývající èas bìhu procesu ne¾ dal¹í událost
+              proces zablokuje.
+            </para>
+          </listitem>
+        </orderedlist>
+        <para>
+          Procesy mohou být vybrány pomocí kliknutí my¹i na
+          nìkterou z front nebo CPU.
+        </para>
+      </sect2>
+      <sect2>
+        <title>Pruhy</title>
+        <para>
+          Pro ka¾dý proces je pøiøazena jedna barva a ka¾dý
+          proces je reprezentován v jednom pruhu. Vrchní pruh
+          reprezentuje sumarizaci v¹ech procesù (tedy práci
+          procesoru).
+        </para>
+        <para>
+          Jestli¾e proces bì¾í, tlustá èáta v jeho barvì se
+          vykresluje v jeho pruhu a také v pruhu pro
+          procesor. Pokud proces není na CPU, kreslí se tenká
+          èára v barvì dle fronty kde proces èeká - èervená
+          pro frontu pøipravených procesù a èerná pro frontu
+          blokovaných procesù.
+        </para>
+	<figure>
+	  <title>Pruhy</title>
+          <graphic fileref="screen_shots/CPU-Drawing-Bars" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Sumarizaèní pruh pro v¹echny procesy =
+              zobrazuje stav CPU.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Pruh pro ka¾dý proces.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Blokované procesy.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Bì¾ící proces.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Procesy pøipravené k bìhu.
+            </para>
+          </listitem>
+        </orderedlist>
+        <para>
+          Procesy mohou být vybrány pomocí my¹i kliknutím na
+          jejich pruh.
+        </para>
+      </sect2>
+      <sect2>
+        <title>Pøekrývané pruhy</title>
+        <para>
+          Rozdílné barvy jsou pøiøazeny jendotlivým procesùm
+          a ka¾dý proces má samostaný horizontální pruh.
+        </para>
+        <para>
+          Jestli¾e je proces pøipraven, je na jeho pruhu kreslena tlustá
+          èára co¾ reprezentuje aktuální poèet tikù, které
+          proces oèekává, ¾e pobì¾í.
+        </para>
+        <figure>
+          <title>Pøekrývané pruhy</title>
+          <graphic fileref="screen_shots/CPU-Drawing-Overlapped" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Èas který proces 3 oèekává, ¾e pobì¾í.
+            </para>
+          </listitem>
+        </orderedlist>
+        <para>
+          Proces mù¾e být vybrán pomocí my¹i kliknutím na jeho pruh.
+        </para>
+      </sect2>
+      <sect2>
+        <title>Stav procesu</title>
+        <para>
+          Sobrazuje stav aktuálnì vybraného procesu.
+        </para>
+        <figure>
+          <title>Stav procesu</title>
+          <graphic fileref="screen_shots/CPU-Drawing-State" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Bì¾ící proces.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Proces pøipraven k bìhu.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Proces blokován èekáním na nìjakou událost.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Blokovaný a pozastavený proces.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Pøipravený a pozastavený proces.
+            </para>
+          </listitem>
+        </orderedlist>
+        <para>
+          Na obrázku je proces 1 ve stavu blokován.
+        </para>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Sekundární pamì»</title> 
+    <para>
+      Vstupnì/Výstupní subsystém má jedinou funkci: pèijímat po¾adavky na
+      zápis a simulovat fyzický pøistup k mìdiu (disku) a následnì
+      informovat svého klienta (vìt¹inou CPU) o ukonèení operace.
+    </para>
+    <para>
+      Nyní popí¹eme jeho jednotlivé prvky:
+    </para>
+    <figure>
+      <title>V/V</title>
+      <graphic fileref="screen_shots/IO" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+        <para>
+          Seznam po¾adovaných blokù v poøadí tak jak pøi¹ly po¾adavky.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Seznam po¾adovaných blokù seøazen podle pou¾itého algoritmu.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Aktuálnì pou¾itý algoritmus pro øazení po¾adavkù.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Parametry aktuálního algoritmu. V tomto pøípadì prázdné.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Bloky po¾adované z odkládací oblasti.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Bloky po¾adované z datové oblati.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Pozice ètecí hlavy.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Kliknutím na tohle tlaèítko umístíte V/V sybsystém do
+          samostatného okna co¾ umo¾ní zárovìò sledovat více dostupných
+          visualizací.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zprávy o dùle¾itých událostech v subsystému.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Datová oblast.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Oblast pro odkládání stránek.
+        </para>
+      </listitem>
+    </orderedlist>
+    <sect1>
+      <title>Menu</title>
+      <para>
+         Zde bude popsán význam jednotlivých polo¾ek menu:
+      </para>
+      <figure>
+        <title>I/O Menu</title>
+        <graphic fileref="screen_shots/IO-Menu" format="eps" align="center">
+      </figure>
+      <orderedlist>
+        <listitem>
+          <para>
+            Pokud je vybrána tato volba, buou zastaveny hodiny, kdykoliv se
+            stane nìco dùle¾itého v tomto subsystému.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Pomocí této volby lze docílit chování, kdy budou v¹echny V/V
+            po¾adavky vyøizovýny bez prodlevy. To je u¾iteèné, pokud se
+            chce u¾ivatel zamìøit na jinou èást simulovaného systému.
+          </para>
+        </listitem>
+      </orderedlist>
+    </sect1>
+    <sect1>
+      <title>Zobrazovací styly</title>
+      <para>
+         Nyní se podíváme na rùzné mo¾nosti reprezentace V/V subsystému.
+      </para>
+      <sect2>
+        <title>Povrch</title>
+        <figure>
+          <title>V/V Menu</title>
+          <graphic fileref="screen_shots/IO-Drawing-Round" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Datová oblast.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Oblast pro odkládání stránek.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Bloky po¾adované z datové oblasti.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Bloky po¾adované z odkládací oblasti.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Hlavièka simulovaného disku.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Aktuální pozice hlavièky simulovaného disku.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Trasa</title>
+        <para>
+          Tento styl je urèen k zobrazení trajektorie hlavièky disku pro
+          aktuálnì naplánovanou sekvenci operací nad bloky.
+        </para>
+        <figure>
+          <title>I/O Route</title>
+          <graphic fileref="screen_shots/IO-Drawing-Route" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Po¾adované bloky.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Trajektorie hlavièky mezi jednotlivými operacemi.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Hlavní pamì»</title> 
+    <para>
+      Pamì»ový subsystém pøijímá po¾adavky na pou¾ití virtuálních adres a
+      prvádí patøièné mapování na rímce fyzické pamìti spolu s odkládáním
+      stránek v pøípadì nedostatku místa.
+    </para>
+    <para>
+      Jednotlivé komponenty jsou vidìt na následujícím obrázku:
+    </para>
+    <figure>
+      <title>Hlavní pamì»</title>
+      <graphic fileref="screen_shots/MEM" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+        <para>
+          Aktuálnì vybraný algoritmus.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Parametry aktuálnì vybraného algortimu. V tomto pøípadì prázdné.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Jedna z mo¾ných reprezentací pamì»ového subsystému.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Dostupné reprezentace pamì»ového subsystému.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Kliknutím na tohle tlaèítko umístíte reprezentaci subsystému do
+          samostatného okna.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zprávy o dùle¾itých událostech v subsystému.
+        </para>
+      </listitem>
+    </orderedlist>
+    <sect1>
+      <title>Menu</title>
+      <para>
+        Nyní se podíváme na jednotlivé polo¾ky menu:
+      </para>
+      <figure>
+        <title>Menu: Hlavní pamì»</title>
+        <graphic fileref="screen_shots/MEM-Menu" format="eps" align="center">
+      </figure>
+      <orderedlist>
+        <listitem>
+          <para>
+            Pokud je vybrána tato volba, buou zastaveny hodiny, kdykoliv se
+            stane nìco dùle¾itého v tomto subsystému.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Pokud je tato volba zapnuta, bude subsystém pøedpokládat, ¾e
+            v¹echny procesy mají v¹echny své stránky dostupné.
+            Tato vlastnost se mù¾e hodit pro situace, kdy se pamìtí nechceme zabývat.
+          </para>
+        </listitem>
+      </orderedlist>
+    </sect1>
+    <sect1>
+      <title>Zobrazovací styly</title>
+      <para>
+        Zde jsou probrány jednotlivé reprezentace dostupné pro pamì»ový
+        subsystém.
+      </para>
+      <sect2>
+        <title>Virtuální pamì»</title>
+        <figure>
+          <title>Virtuální pamì»</title>
+          <graphic fileref="screen_shots/MEM-Virtual" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Neplatná stránka. Jakýkoliv pøístup vyvolá výpadek stránky.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Platná stránka. Tato stránka nebyla modifikována od svého
+              nahrání do pamìti nebo od posledního zápisu do odkládací
+              oblasti. Proto mù¾e být v pøípadì potøeby zahozena a její
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Platná stránka. Tato stránka byla modifikována od svého
+              nahrání do pamìti nebo od posledního zápisu do odkládací
+              oblasti. okud tedy algoritmus vybere tuto stránku jako obje»,
+              bude muset být nejprve zkopírována do odkládací pamìti.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Tato stránka není platná ale byl jí pøiøazen rámec a brzy
+              platná bude (napø. po dokonèení diskové operace)
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+      <sect2>
+        <title>Fyzická pamì»</title>
+        <para>
+          Tento styl zobrazuje fyzickou pamì» - rámce tak jak jsou pøideleny k
+          jednotlivým stránkám.
+        </para>
+        <figure>
+          <title>Fyzická pamì»</title>
+          <graphic fileref="screen_shots/MEM-Physical" format="eps" align="center">
+        </figure>
+        <orderedlist>
+          <listitem>
+            <para>
+              Tento rámec je volný.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Tento rámec je pøiøazen procesu 1 a byl modifikován od té
+              doby co byl pøidìlen, tak¾e musí být zapsán na disk ne¾ bude
+              tento rámec znovupou¾itelný pro jinou stránku.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Tento rámec je pøiøazen procesu 2 a nebyl modifikován, tak¾e
+              mù¾e být zruèen bez zápisu do odkládací oblasti.
+            </para>
+          </listitem>
+        </orderedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Hodiny</title> 
+    <para>
+      Sybsystém hodin kontroluje bìh èasu pro simulovaný stroj a umo¾òuje
+      tak nastavvat rychlost bìhu jednotlivých komponent.
+    </para>
+    <para>
+      Jednotlivé komponenty jsou vidìt na následujícím obrázku:
+    </para>
+    <figure>
+      <title>Hodiny</title>
+      <graphic fileref="screen_shots/CLOCK" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+        <para>
+          Tímto tlaèítkem se spustí hodiny s rychlostí bìhu dle dal¹ího
+          nastavení.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zastavit hodiny.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Provede jeden tik hodin - urøeno pro pøesné krokování algoritmù.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zde je mo¾no zdat poèet dobu trvání jednoho tiku procesoru v
+          simulovaném sistému v milisekundách. Pro rychlej¹í bìh tedy
+          zadejte men¹í hodnotu a naopak.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Aktuální stav hodin - tedy poèet uplynulých tikù od zaèátku
+          simulace.
+        </para>
+      </listitem>
+    </orderedlist>
+  </chapter>
+  <chapter>
+    <title>Explicitní po¾adavky</title> 
+    <para>
+      Tento subsystém umo¾òuje zadávat explicitní po¾adavky pro pamì»ový a
+      V/V (diskový) subsystém. To je vhodné pro pøípad, ¾e nás zajímá jen
+      jeden konrétní subsystém a nechceme pou¾ívat procesy (a CPU).
+    </para>
+    <para>
+      Jednotlivé èásti opìt na obrázku:
+    </para>
+    <sect1>
+      <title>Po¾adavky na V/V</title>
+      <figure>
+        <title>Explicitni po¾adavky na V/V</title>
+        <graphic fileref="screen_shots/REQUESTOR-IO" format="eps" align="center">
+      </figure>
+      <orderedlist>
+        <listitem>
+          <para>
+            Blok, který je po¾adován pro operaci.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Odeslat po¾adavek V/V subsystému.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Zapnutím této volby se budou generovat náhodná èísla blokù.
+          </para>
+        </listitem>
+      </orderedlist>
+    </sect1>
+    <sect1>
+      <title>Po¾adavky na pamì»</title>
+      <figure>
+        <title>Explicitní po¾adavky na pamì»</title>
+        <graphic fileref="screen_shots/REQUESTOR-MEM" format="eps" align="center">
+      </figure>
+      <orderedlist>
+        <listitem>
+          <para>
+            Pou¾ij tuto stránku.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Operace bude provedena nad virtuálním adresovým prostorem
+            tohoto procesu.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+             Provést ètení nad vybranou stránkou v daném procesu.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+             Provést zápis nad vybranou stránkou v daném procesu.
+          </para>
+        </listitem>
+      </orderedlist>
+    </sect1>
+  </chapter>
+</book>

@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Bitmap operations.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+Confortable functions to set, test and clear bits in a bitmap.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION set_bit ##### -->
+<para>
+
+</para>
+
+@nr: 
+@addr: 
+
+
+<!-- ##### FUNCTION test_bit ##### -->
+<para>
+
+</para>
+
+@nr: 
+@addr: 
+@Returns: 
+
+
+<!-- ##### FUNCTION clear_bit ##### -->
+<para>
+
+</para>
+
+@nr: 
+@addr: 
+
+

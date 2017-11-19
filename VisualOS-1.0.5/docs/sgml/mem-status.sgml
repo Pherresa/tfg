@@ -1,0 +1,407 @@
+<refentry id="VisualOS-Memory-Status">
+<refmeta>
+<refentrytitle>Memory Status</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Memory Status</refname><refpurpose>Status of the memory.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="frame-info-t">frame_info_t</link>;
+enum        <link linkend="mem-frame-flags-t">mem_frame_flags_t</link>;
+#define     <link linkend="FRAME-LOCKED-CAPS">FRAME_LOCKED</link>                    (frame)
+#define     <link linkend="FRAME-REFERENCED-CAPS">FRAME_REFERENCED</link>                (frame)
+#define     <link linkend="FRAME-MODIFIED-CAPS">FRAME_MODIFIED</link>                  (frame)
+struct      <link linkend="proc-pages-info-t">proc_pages_info_t</link>;
+#define     <link linkend="PAGE-VALID-CAPS">PAGE_VALID</link>                      (proc_pages, page)
+#define     <link linkend="NO-FRAME-CAPS">NO_FRAME</link>
+#define     <link linkend="NO-PAGE-CAPS">NO_PAGE</link>
+#define     <link linkend="NO-PROC-CAPS">NO_PROC</link>
+#define     <link linkend="NO-BLOCK-CAPS">NO_BLOCK</link>
+<link linkend="void">void</link>        <link linkend="init-page-info">init_page_info</link>                  (void);
+<link linkend="frame-info-t">frame_info_t</link>* <link linkend="get-free-frame">get_free_frame</link>                (void);
+<link linkend="void">void</link>        <link linkend="put-free-frame">put_free_frame</link>                  (<link linkend="gint">gint</link> frame);
+<link linkend="gboolean">gboolean</link>    <link linkend="have-free-frame">have_free_frame</link>                 (void);
+<link linkend="frame-info-t">frame_info_t</link>* <link linkend="get-frame-info">get_frame_info</link>                (<link linkend="gint">gint</link> frame);
+<link linkend="frame-info-t">frame_info_t</link>* <link linkend="get-frames-list">get_frames_list</link>               (void);
+<link linkend="frame-info-t">frame_info_t</link>* <link linkend="mem-frames-next">mem_frames_next</link>               (<link linkend="frame-info-t">frame_info_t</link> *frame);
+<link linkend="proc-pages-info-t">proc_pages_info_t</link>* <link linkend="get-proc-pages">get_proc_pages</link>           (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gboolean">gboolean</link> creat);
+<link linkend="proc-pages-info-t">proc_pages_info_t</link>* <link linkend="get-proc-pages-list">get_proc_pages_list</link>      (void);
+<link linkend="proc-pages-info-t">proc_pages_info_t</link>* <link linkend="proc-pages-next">proc_pages_next</link>          (<link linkend="proc-pages-info-t">proc_pages_info_t</link> *pages);
+<link linkend="gint">gint</link>        <link linkend="virt-to-phys">virt_to_phys</link>                    (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);
+<link linkend="void">void</link>        <link linkend="mem-page-invalid">mem_page_invalid</link>                (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);
+<link linkend="gint">gint</link>        <link linkend="mem-assign-frame">mem_assign_frame</link>                (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page,
+                                             <link linkend="gint">gint</link> frame);
+<link linkend="void">void</link>        <link linkend="mem-page-valid">mem_page_valid</link>                  (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+Here is descrived show to find out the status of memory,
+the frames available, what process they belong to, valid and invalid pages...
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="frame-info-t">struct frame_info_t</title>
+<indexterm><primary>frame_info_t</primary></indexterm><programlisting>struct frame_info_t {
+		/* what there is to know about a frame */
+	gint frame;		/* frame number */
+	gint proc;		/* process it belongs to or NO_PROC */
+	gint page;		/* page it belongs to of NO_PAGE */
+	guint32 flags;		/* See mem_frame_flags_t */
+	guint32 private_flags;	/* algorithm dependet flags */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="mem-frame-flags-t">enum mem_frame_flags_t</title>
+<indexterm><primary>mem_frame_flags_t</primary></indexterm><programlisting>typedef enum {			/* bit indexes for frame flags */
+	MEM_FRAME_LOCKED=0,	/* frame is locked and should not be
+				   stolen of assigned */
+	MEM_FRAME_REFERENCED,	/* frame has been referenced recently */
+	MEM_FRAME_MODIFIED	/* frame is modified and should be writen to
+				   swap if stolen */
+} mem_frame_flags_t;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="FRAME-LOCKED-CAPS">FRAME_LOCKED()</title>
+<indexterm><primary>FRAME_LOCKED</primary></indexterm><programlisting>#define FRAME_LOCKED(frame) (test_bit(MEM_FRAME_LOCKED, &amp;frame-&gt;flags))
+</programlisting>
+<para>
+Test whether <parameter>frame</parameter> is locked.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> frame involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="FRAME-REFERENCED-CAPS">FRAME_REFERENCED()</title>
+<indexterm><primary>FRAME_REFERENCED</primary></indexterm><programlisting>#define FRAME_REFERENCED(frame) (test_bit(MEM_FRAME_REFERENCED, &amp;frame-&gt;flags))
+</programlisting>
+<para>
+Test whether <parameter>frame</parameter> has been referenced.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> frame involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="FRAME-MODIFIED-CAPS">FRAME_MODIFIED()</title>
+<indexterm><primary>FRAME_MODIFIED</primary></indexterm><programlisting>#define FRAME_MODIFIED(frame) (test_bit(MEM_FRAME_MODIFIED, &amp;frame-&gt;flags))
+</programlisting>
+<para>
+Test whether <parameter>frame</parameter> has been modified.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> frame involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-pages-info-t">struct proc_pages_info_t</title>
+<indexterm><primary>proc_pages_info_t</primary></indexterm><programlisting>struct proc_pages_info_t {
+			/* memory related information for a
+					   process */
+	gint pid;			/* process id of the process */
+	gint n_pages;			/* number of pages its using */
+	guint32 bitmap;			/* bitmap of valid pages */
+	frame_info_t *frame[MAX_PAGES];	/* frames where the pages are stored*/
+	gint block[MAX_PAGES];		/* swap blocks assigned to pages */
+	GSList *node;			/* GSList link this struct is hanging
+					   from */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="PAGE-VALID-CAPS">PAGE_VALID()</title>
+<indexterm><primary>PAGE_VALID</primary></indexterm><programlisting>#define PAGE_VALID(proc_pages, page) (proc_pages-&gt;bitmap &amp; (1&lt;&lt;page))
+</programlisting>
+<para>
+Test whether <parameter>page</parameter> is valid in <parameter>proc_pages</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc_pages</parameter>&nbsp;:</term>
+<listitem><simpara> process memory information.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> page involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="NO-FRAME-CAPS">NO_FRAME</title>
+<indexterm><primary>NO_FRAME</primary></indexterm><programlisting>#define NO_FRAME -1	/* frame number when there is no frame */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="NO-PAGE-CAPS">NO_PAGE</title>
+<indexterm><primary>NO_PAGE</primary></indexterm><programlisting>#define NO_PAGE -1	/* page number when there is no page */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="NO-PROC-CAPS">NO_PROC</title>
+<indexterm><primary>NO_PROC</primary></indexterm><programlisting>#define NO_PROC -1	/* process number when there is no process */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="NO-BLOCK-CAPS">NO_BLOCK</title>
+<indexterm><primary>NO_BLOCK</primary></indexterm><programlisting>#define NO_BLOCK -1	/* block number when there is no block */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="init-page-info">init_page_info ()</title>
+<indexterm><primary>init_page_info</primary></indexterm><programlisting><link linkend="void">void</link>        init_page_info                  (void);</programlisting>
+<para>
+Initialize the code which keeps track of pages and frames.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="get-free-frame">get_free_frame ()</title>
+<indexterm><primary>get_free_frame</primary></indexterm><programlisting><link linkend="frame-info-t">frame_info_t</link>* get_free_frame                (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a free frame if any, NULL otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="put-free-frame">put_free_frame ()</title>
+<indexterm><primary>put_free_frame</primary></indexterm><programlisting><link linkend="void">void</link>        put_free_frame                  (<link linkend="gint">gint</link> frame);</programlisting>
+<para>
+Give back a frame to be returned by <parameter>get_free_frame</parameter> later.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> frame to return.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="have-free-frame">have_free_frame ()</title>
+<indexterm><primary>have_free_frame</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    have_free_frame                 (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> TRUE if we have free memory frames available.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-frame-info">get_frame_info ()</title>
+<indexterm><primary>get_frame_info</primary></indexterm><programlisting><link linkend="frame-info-t">frame_info_t</link>* get_frame_info                (<link linkend="gint">gint</link> frame);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> frame involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> <parameter>frame</parameter>'s information data.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-frames-list">get_frames_list ()</title>
+<indexterm><primary>get_frames_list</primary></indexterm><programlisting><link linkend="frame-info-t">frame_info_t</link>* get_frames_list               (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the first element on the list of frame information structures.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-frames-next">mem_frames_next ()</title>
+<indexterm><primary>mem_frames_next</primary></indexterm><programlisting><link linkend="frame-info-t">frame_info_t</link>* mem_frames_next               (<link linkend="frame-info-t">frame_info_t</link> *frame);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> a frame information structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the next frame information structure or NULL if <parameter>frame</parameter> is
+the last element.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-proc-pages">get_proc_pages ()</title>
+<indexterm><primary>get_proc_pages</primary></indexterm><programlisting><link linkend="proc-pages-info-t">proc_pages_info_t</link>* get_proc_pages           (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gboolean">gboolean</link> creat);</programlisting>
+<para>
+Retrives the memory related information for <parameter>pid</parameter>.
+</para>
+<para>
+If there is no memory information for <parameter>pid</parameter> and <parameter>creat</parameter> is TRUE the
+information will be created.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>creat</parameter>&nbsp;:</term>
+<listitem><simpara> it TRUE a process information structure will be created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> memory information for <parameter>pid</parameter> if applyable of NULL otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-proc-pages-list">get_proc_pages_list ()</title>
+<indexterm><primary>get_proc_pages_list</primary></indexterm><programlisting><link linkend="proc-pages-info-t">proc_pages_info_t</link>* get_proc_pages_list      (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the first element of the memory infomation structures.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-pages-next">proc_pages_next ()</title>
+<indexterm><primary>proc_pages_next</primary></indexterm><programlisting><link linkend="proc-pages-info-t">proc_pages_info_t</link>* proc_pages_next          (<link linkend="proc-pages-info-t">proc_pages_info_t</link> *pages);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pages</parameter>&nbsp;:</term>
+<listitem><simpara> a process' memory information structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> then next memory information structure or NULL if <parameter>pages</parameter> is
+the last element.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="virt-to-phys">virt_to_phys ()</title>
+<indexterm><primary>virt_to_phys</primary></indexterm><programlisting><link linkend="gint">gint</link>        virt_to_phys                    (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> a page in <parameter>pid</parameter>'s virtual memory.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the frame number coresponding to <parameter>page</parameter> in <parameter>pid</parameter>'s address space
+or NO_FRAME if there is non assigned.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-page-invalid">mem_page_invalid ()</title>
+<indexterm><primary>mem_page_invalid</primary></indexterm><programlisting><link linkend="void">void</link>        mem_page_invalid                (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);</programlisting>
+<para>
+Makes <parameter>page</parameter> of <parameter>pid</parameter>'s address space invalid so <parameter>pid</parameter> will incure a page
+fault if it tryes to use it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> invalid page.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-assign-frame">mem_assign_frame ()</title>
+<indexterm><primary>mem_assign_frame</primary></indexterm><programlisting><link linkend="gint">gint</link>        mem_assign_frame                (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page,
+                                             <link linkend="gint">gint</link> frame);</programlisting>
+<para>
+Assings <parameter>frame</parameter> to <parameter>page</parameter> in <parameter>pid</parameter>'s address space.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> a page in <parameter>pid</parameter>'s address space.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>frame</parameter>&nbsp;:</term>
+<listitem><simpara> a free frame.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> 0 if all went well -1 otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-page-valid">mem_page_valid ()</title>
+<indexterm><primary>mem_page_valid</primary></indexterm><programlisting><link linkend="void">void</link>        mem_page_valid                  (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);</programlisting>
+<para>
+Makes <parameter>page</parameter> of <parameter>pid</parameter>'s address space valid for <parameter>pid</parameter> to use.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> valid page.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

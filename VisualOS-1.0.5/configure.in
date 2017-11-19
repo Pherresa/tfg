@@ -1,0 +1,150 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/VisualOS.c)
+AM_CONFIG_HEADER(src/config.h)
+AC_CANONICAL_HOST
+
+AM_INIT_AUTOMAKE(VisualOS,1.0.5)
+AM_MAINTAINER_MODE
+
+GNOME_COMMON_INIT
+
+AC_ARG_WITH(html-dir, [  --with-html-dir=PATH path to installed docs ])
+
+if test "x$with_html_dir" = "x" ; then
+  HTML_DIR='${datadir}/VisualOS-docs/html'
+else
+  HTML_DIR=$with_html_dir
+fi
+
+AC_SUBST(HTML_DIR)
+
+
+AC_ARG_ENABLE(static, [  --enable-static         make static binary [default=no]],, enable_static="no")
+if test "x$enable_static" = "xyes"; then
+	LDFLAGS="-static $LDFLAGS"
+fi
+echo "program will be staticly linked... $enable_static"
+
+AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],, enable_debug="no")
+if test "x$enable_debug" = "xyes"; then
+	CFLAGS="$CFLAGS -g"
+	AC_DEFINE(DEBUG)
+fi
+
+AC_ARG_ENABLE(mesg-debug, [  --enable-mesg-debug     enable debugging on mesg subsystem [default=no]],, enable_mesg_debug="no")
+if test "x$enable_mesg_debug" = "xyes"; then
+	AC_DEFINE(MESG_DEBUG)
+fi
+dnl We need to know if we are using gcc now
+AC_PROG_CC
+
+AC_ARG_ENABLE(warning, [  --enable-warning        enable compiler warnings [default=yes]],, [
+if test "x$GCC" = "xyes" ; then
+	enable_warning="yes"
+else
+	enable_warning="no"
+fi
+	])
+if test "x$enable_warning" = "xyes"; then
+	CFLAGS="$CFLAGS -Wall"
+fi
+
+AC_ARG_ENABLE(opt, [  --enable-opt            enable compiler optimizations [default=no]],, enable_opt="no")
+if test "x$enable_opt" = "xyes"; then
+	CFLAGS="$CFLAGS -m486 -O2"
+fi
+
+AC_ARG_ENABLE(doc, [  --enable-doc            build documentation [default=no]]
+,, enable_doc="no")
+AM_CONDITIONAL(BUILD_DOC, test x$enable_doc = xyes)
+
+AC_ARG_ENABLE(buggy-select, [  --enable-buggy-select   implementation of select() is buggy ] ,,[
+case $host_os in
+irix6.2)
+	enable_buggy_select="yes";;
+*)
+	enable_buggy_select="no";;
+esac]
+)
+if test "x$enable_buggy_select" = "xyes"; then
+	AC_DEFINE(BUGGY_SELECT)
+fi
+echo "enabling \"buggy select\" workaround... $enable_buggy_select"
+
+
+AC_DEFINE(_REENTRANT)
+
+dnl Checks for programs.
+AC_ISC_POSIX
+AM_PROG_CC_STDC
+AC_PROG_RANLIB
+
+AC_C_CONST
+AC_C_INLINE
+dnl Checks for libraries.
+
+dnl Checks for header files.
+AC_HEADER_STDC
+
+ALL_LINGUAS="es it fr cs"
+AM_GNU_GETTEXT_VERSION(0.10.40)
+AM_GNOME_GETTEXT
+AC_PROG_LIBTOOL
+
+GNOME_INIT
+GNOME_COMPILE_WARNINGS
+
+INCLUDES="$INCLUDES $GNOME_INCLUDEDIR"
+AM_PATH_GTK(1.2.1)
+AM_PATH_LIBGLADE(,,gnome)
+if test "x$LIBGLADE_LIBS" = "x"; then
+	AC_MSG_ERROR("libglade is requiered")
+fi
+LIBS="$GTK_LIBS $LIBGLADE_LIBS $LIBS"
+CFLAGS="$CFLAGS $GTK_CFLAGS $LIBGLADE_CFLAGS"
+
+dnl AC_CHECK_HEADERS(fcntl.h sys/time.h unistd.h)
+
+dnl check O_ASYNC symbol and if not found try using FASYNC
+CHECK_O_ASYNC_IN_FCNTL_H
+
+AC_CHECK_PROG(ac_fig2dev_present, fig2dev , yes , no)
+if test  x$ac_fig2dev_present != xyes; then
+	echo "**************************************************************"
+	echo "* couldn't find 'fig2dev' which is needed to build the images*"
+	echo "* in the documentation, if you are not going to build the    *"
+	echo "* documentation you can ignore this message or get the       *"
+	echo "* 'transfig' package otherwise.                              *"
+	echo "**************************************************************"
+fi
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+dnl AC_HEADER_TIME
+
+dnl Checks for library functions.
+AC_TYPE_SIGNAL
+dnl AC_CHECK_FUNCS(select)
+
+AC_OUTPUT(
+	Makefile
+	src/Makefile
+	doc/Makefile
+	docs/Makefile
+	docs/screen_shots/Makefile
+	src/IO/Makefile
+	src/IO/drawings/Makefile
+	src/IO/algorithms/Makefile
+	src/MEM/Makefile
+	src/MEM/drawings/Makefile
+	src/MEM/algorithms/Makefile
+	src/CPU/Makefile
+	src/CPU/drawings/Makefile
+	src/CPU/algorithms/Makefile
+	src/CPU/editor/Makefile
+	src/CLOCK/Makefile
+	src/REQUESTOR/Makefile
+	intl/Makefile
+	po/Makefile.in
+	debian/Makefile
+)

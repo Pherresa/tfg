@@ -1,0 +1,126 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+
+<article lang="es">
+  <articleinfo>
+    <title>VisualOS</title>
+    <subtitle>Especificación de requisitos</subtitle>
+  </articleinfo>
+  <sect1>
+    <title>Descripción</title>
+    <para>
+      El proyecto consistirá en el diseño y desarrollo de un entorno
+      gráfico que permita el estudio y comprensión de algunos de los
+      algoritmos clásicos estudiados en la asignatura de Sistemas
+      Operativos:
+      <itemizedlist>
+	<listitem>
+	  <para>Algoritmos de planificación de CPU.</para>
+	</listitem>
+	<listitem>
+	  <para>Algoritmos de planificación de acceso a disco magnético.</para>
+	</listitem>
+	<listitem>
+	  <para>Algoritmos de remplazo de página</para>
+	</listitem>
+      </itemizedlist>
+    </para>
+  </sect1>
+  <sect1>
+    <title>Algoritmos a implementar</title>
+    <para>
+      <itemizedlist>
+	<listitem>
+	  <para>Planificación de CPU.</para>
+	  <itemizedlist>
+	    <listitem>
+	      <para>First Come First Served</para>
+	    </listitem>
+	    <listitem>
+	      <para>Round Robin</para>
+	    </listitem>
+	    <listitem>
+	      <para>Sortest Process Next</para>
+	    </listitem>
+	    <listitem>
+	      <para>Sortest Remaining Time</para>
+	    </listitem>
+	    <listitem>
+	      <para>Highest Response Ration Next</para>
+	    </listitem>
+	  </itemizedlist>
+	</listitem>
+	<LISTITEM>
+	  <para>Reemplazo de pagina</para>
+	  <ITEMIZEDLIST>
+	    <LISTITEM>
+	      <para>FIFO</para>
+	    </listitem>
+	    <listitem>
+	      <para>Second Change</para>
+	    </listitem>
+	    <LISTITEM>
+	      <para>Clock</para>
+	    </listitem>
+	  </itemizedlist>
+	</listitem>
+	<listitem>
+	  <para>Acceso a disco magnético</para>
+	  <ITEMIZEDLIST>
+	    <LISTITEM>
+	      <para>First Come First Served</para>
+	    </listitem>
+	    <LISTITEM>
+	      <para>Shortest Seek Time First</para>
+	    </listitem>
+	    <LISTITEM>
+	      <para>Scan</para>
+	    </listitem>
+	    <LISTITEM>
+	      <para>N Step Scan</para>
+	    </listitem>
+	  </itemizedlist>
+	</listitem>
+      </itemizedlist>
+    </para>
+  </sect1>
+  <SECT1>
+    <TITLE>Requisitos del desarrollo:</title>
+    <ITEMIZEDLIST>
+      <LISTITEM>
+	<para>
+	  Tendrá que ser un entorno visual e intuitivo que resulte
+	  amigable al usuario.
+	</para>
+      </listitem>
+      <LISTITEM>
+	<para>
+	  Las estructuras de datos mas importantes de dicho
+	  sistema operativo se representarán gráficamente para su mejor
+	  comprensión.
+	</para>
+      </listitem>
+      <LISTITEM>
+	<para>
+	  Tendrá que permitir la observación de las interacciones del
+	  sistema completo, así como de cada una de sus partes por
+	  separado.
+	</para>
+      </listitem>
+      <LISTITEM>
+	<para>
+	  Tendrá que ser modular y fácilmente modificable, en
+	  especial tendrá que ser sencillo añadir nuevos algoritmos.
+	</para>
+      </listitem>
+      <LISTITEM>
+	<para>
+	  La aplicación será software libre, y tendrá que ser
+	  desarrollada utilizando tan solo software libre y
+	  estándares abiertos.
+	</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+</article>
+  
+  

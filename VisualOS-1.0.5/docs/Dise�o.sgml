@@ -1,0 +1,278 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+<article lang="es">
+  <articleinfo>
+    <title>VisualOS</title>
+    <subtitle>Diseño</subtitle>
+  </articleinfo>
+  <sect1>
+    <title>Introducción</title>
+    <para>
+      Este documento intenta describir la estructura interna de la
+      aplicación a un nivel abstracto. Esto permitirá luego una
+      comprensión más fácil del manual del programador y del propio
+      código.
+    </para>
+    <para>
+      Para entender el funcionamiento de la aplicación se recomienda
+      leer primero este documento y, a continuación, el manual del
+      programador junto con el código.
+    </para>
+  </sect1>
+  <sect1>
+    <title>Visión Global</title>
+    <para>
+      La aplicación consta de distintos subsistemas (Procesador, Memoria,
+      Disco) interconectados a través del sistema de mensajería que se
+      encarga de gestionar la comunicación. 
+    </para>
+    <para>
+      En todos los casos en que aparecen algoritmos y
+      representaciones, el patrón es el mismo. Existen unas estructuras
+      de datos, gestionadas por el algoritmo elegido, que representan el
+      estado del subsistema. De esta manera, el código que dibuja cada
+      representación no tiene más que utilizar esta misma estructura
+      de datos como referencia.
+    </para>
+    <para>
+      Cada subsistema es un objeto que ejemplifica cada una de las
+      cuatro partes de la arquitectura Von Newmann, a la vez que los
+      métodos de gestión impuestos por un sistema operativo moderno.
+    </para>
+    <para>
+      Dichos objetos implementan una interfaz bien definida,
+      comunicándose a través del sistema de mensajería y ofrecen unos
+      servicios que generalmente pueden solicitar, de igual manera,
+      cualquiera de los demás.
+      <figure float="1">
+	<title>Diagrama de bloques</title>
+	<graphic fileref="Block-Diagram-real" align="center" scale="130">
+      </figure>
+    </para>
+    <sect2>
+      <title>Reloj</title>
+      <para>
+	Este subsistema marca el ritmo de ejecución de los demás. Su
+	simulación es importante porque viene a representar el
+	carácter síncrono del ordenador y permite al usuario elegir la
+	velocidad a la que transcurre la simulación.
+      </para>
+      <sect3>
+	<title>Servicios que ofrece</title>
+	<itemizedlist>
+	  <listitem>
+	    <para>Señala el paso del tiempo.</para>
+	  </listitem>
+	  <listitem>
+	    <para>Se detiene a petición del cliente.</para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+    </sect2>
+    <sect2>
+      <title>Procesador</title>
+      <para>
+	Simboliza la gestión que el SO hace de la capacidad de proceso
+	de la máquina.
+      </para>
+      <sect3>
+	<title>Servicios que ofrece</title>
+	<itemizedlist>
+	  <listitem>
+	    <para>Informa de la creación y destrucción de procesos.</para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Termina anticipadamente los procesos a petición del
+	      cliente.
+	    </para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+      <sect3>
+	<title>Servicios que utiliza</title>
+	<ITEMIZEDLIST>
+	  <LISTITEM>
+	    <para>Produce fallos de página y accesos a la memoria
+	      principal.</para>
+	  </listitem>
+	  <LISTITEM>
+	    <para>Solicita bloques de datos del disco.</para>
+	  </listitem>
+	  <LISTITEM>
+	    <para>Recibe la referencia de tiempo del reloj</para>
+	  </listitem>
+	  <LISTITEM>
+	    <para>Detiene el reloj en ciertas situaciones</para> 
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+    </sect2>
+    <sect2>
+      <title>Memoria</title>
+      <para>
+	Representa la gestión de memoria principal con las técnicas
+	más comúnmente empleadas para aumentar su eficiencia
+	(paginación, memoria. virtual, swap)
+      </para>
+      <sect3>
+	<title>Servicios que ofrece</title>
+	<itemizedlist>
+	  <listitem>
+	    <para>Recibe fallos de página.</para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Comunica cuándo un fallo de página ha sido resuelto.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>Recibe accesos a páginas disponibles.</para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Informa cuándo cambia la disponibilidad de páginas de un
+	      proceso.
+	    </para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+      <sect3>
+	<title>Servicios que utiliza</title>
+	<ITEMIZEDLIST>
+	  <LISTITEM>
+	    <para>Realiza accesos al disco para escribir en el área de
+	      swap las páginas que "roba" a los distintos procesos y
+	      poder devolvérselas después.</para>
+	  </listitem>
+	  <LISTITEM>
+	    <para>Recibe la referencia de tiempo del reloj.</para>
+	  </listitem>
+	  <LISTITEM>
+	    <para>Recibe notificación del procesador cuando se crean o
+	      destruyen procesos.</para>
+	  </listitem>
+	  <LISTITEM>
+	    <para>Solicita la terminación anticipada de procesos al
+	    procesador cuando no hay recursos suficientes. </para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+    </sect2>
+    <sect2>
+      <title>Disco</title>
+      <para>
+	En un sistema real, la memoria principal (rápida y volátil) se
+	ve complementada por una memoria secundaria (comúnmente en
+	forma de disco magnético) que es persistente, más lenta y
+	barata, y que le confiere al sistema capacidad de almacenar la
+	información necesaria para funcionar (sistema operativo y
+	datos de usuario).
+      </para>
+      <sect3>
+	<title>Servicios que ofrece</title>
+	<itemizedlist>
+	  <listitem>
+	    <para>
+	      Acepta peticiones de acceso a los distintos bloques de
+	      datos y swap.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Informa (al cliente que lo solicitó) cuándo un acceso ha
+	      sido completado.
+	    </para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+      <sect3>
+	<title>Servicios que utiliza</title>
+	<ITEMIZEDLIST>
+	  <LISTITEM>
+	    <para>Recibe la referencia de tiempos del reloj.</para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+    </sect2>
+
+    <sect2>
+      <title>Mensajero</title>
+      <para>
+	Este elemento se encarga de gestionar la comunicación entre
+	los demás.
+      </para>
+      <sect3>
+	<title>Servicios que ofrece</title>
+	<itemizedlist>
+	  <listitem>
+	    <para>Reinicia todo el sistema a petición del cliente</para>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+    </sect2>
+
+    <sect2>
+      <title>Diagrama de bloques simplificado</title>
+      <para>
+	En la figura se muestra un diagrama simplificado del sistema,
+	suponiendo que la comunicación ocurre directamente sin tener en
+	cuanta al mensajero.
+	<figure float="1">
+	  <title>Diagrama de bloques simplificado</title>
+	  <graphic fileref="Block-Diagram" align="center" scale="100">
+	</figure>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Algoritmos</title>
+    <para>
+      En todos los casos en que entraban en juego distintos algoritmos
+      estos se han implementado en forma de objetos con su interfaz
+      bien definido. En cada caso, tienen datos y métodos distintos
+      (Ver el Manual del programador) pero en todos los casos todo
+      queda encapsulado detrás del interfaz.
+    </para>
+    <para>
+      De esta manera, para añadir un algoritmo nuevo sólo es necesario
+      añadir un archivo nuevo con el código específico de este y una
+      llamada a su función de inicialización (donde se tendrá que
+      registrar como algoritmo) en el archivo "main.c" del mismo
+      directorio.
+    </para>
+  </sect1>
+  <sect1>
+    <title>Representaciones</title>
+    <para>
+      También en el caso de las representaciones se ha tratado de
+      mantener la encapsulación. Son objetos cuyo único método es
+      "actualizar". Para el resto del código, es totalmente
+      transparente la representación que ha elegido el usuario o si
+      está viendo una o varias a la vez.
+    </para>
+    <para>
+      En este caso, al igual que en el anterior, para añadir una
+      representación nueva no hay más que añadir un archivo con el
+      código que la dibuja y una llamada a su función de
+      inicialización (donde se tendrá que registrar como
+      representación) en el archivo "main.c" del mismo directorio.
+    </para>
+  </sect1>
+  <sect1>
+    <title>Eventos del sistema</title>
+    <para>
+      Para que cualquier parte del código pueda "saber" cuando ocurren
+      ciertas cosas que le son interesantes (ej. el cambio de estado
+      de un proceso para la representación de estados del procesador),
+      se ha implementado una infraestructura para la difusión de
+      eventos.
+    </para>
+    <para>
+      El código donde se produce el evento lo hace público para quien
+      lo quiera y el código que necesita conocer del evento sólo tiene
+      que registrar una función para ser llamada siempre que ocurra el
+      evento elegido (Ver el manual del programador).
+    </para>
+  </sect1>
+  
+</article>

@@ -1,0 +1,7 @@
+INCLUDES = \
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-I$(includedir) $(GNOME_INCLUDEDIR) \
+	-DPKGDATADIR=\""$(pkgdatadir)"\" 
+LIBS = \
+	$(LIBGLADE_LIBS) \
+	$(GNORBA_LIBS)

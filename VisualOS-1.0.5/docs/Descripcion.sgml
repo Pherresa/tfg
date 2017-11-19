@@ -1,0 +1,711 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+<book lang="es">
+  <bookinfo>
+    <title>VisualOS</title>
+    <subtitle>Descripción del proyecto</subtitle>
+    <author>
+      <firstname>Manuel</firstname>
+      <surname>Estrada Sainz</surname>
+      <affiliation>
+	<address>
+	  <email>ranty@debian.org</email>
+	  <email>ranty@bigfoot.com</email>
+	</address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2000</year>
+      <year>2003</year>
+      <holder>Manuel Estrada Sainz</holder>
+    </copyright>
+  </bookinfo>
+  <chapter>
+    <title>Introducción</title>
+    <para>
+      El propósito de este proyecto es desarrollar una herramienta
+      gráfica que permita el estudio y comprensión del funcionamiento
+      real de un sistema operativo moderno.
+    </para>
+    <para>
+      El programa que se presenta permite observar los aspectos más
+      relevantes de un sistema operativo en funcionamiento. También
+      permite ver cómo funcionan y cómo interactúan los tres sistemas
+      mas importantes: planificación de procesos, gestión de memoria y
+      Entrada/Salida. Las representaciones son dinámicas pudiendo
+      capturarse algunas de las gráficas, para su posterior estudio,
+      mostrar el funcionamiento del sistema en "vivo" o experimentar
+      directamente con él.
+    </para>
+    <para>
+      Un sistema operativo consta de muchas partes íntimamente
+      relacionadas, de manera que su buen funcionamiento depende
+      tanto del correcto funcionamiento de cada una de ellas como de
+      su correcta interacción. Este programa permite tanto su estudio
+      global como el estudio concreto de alguna de sus partes.
+    </para>
+    <para>
+      Tradicionalmente cada parte de un sistema operativo se estudia
+      por separado, siendo muy difícil ofrecer una visión global e
+      integrada de todas ellas, así como de los problemas de la
+      concurrencia, debido a la difícil representación del sistema en
+      funcionamiento.
+    </para>
+    <para>
+      Hasta ahora la única manera de comprender realmente estos
+      conceptos era escribiendo y modificando el código de un sistema
+      operativo real para luego analizar su funcionamiento. Con este
+      propósito se escribieron sistemas operativos como MINIX, NACHOS
+      o TUNIX. El problema que tiene este método es que requiere mucho
+      tiempo, y para ser realmente útil se necesita un gran dominio
+      del lenguaje de programación utilizado, que permita centrarse en
+      la lógica del problema. Esta nueva herramienta permitirá la
+      realización de laboratorios en los cuales se podrá, en poco
+      tiempo, comprender conceptos fundamentales del funcionamiento
+      real de los sistemas operativos.
+    </para>
+    <para>
+      En el ámbito docente, el presente programa convierte en más
+      sencillas las tareas anteriores. Facilita al profesor el trabajo
+      de realizar gráficas y otras representaciones que expliquen los
+      conceptos importantes del sistema operativo, y permite que el
+      alumno los vea más claramente, porque podrá realmente ver, por
+      ejemplo, cómo los distintos procesos se disputan el procesador y
+      la memoria a la vez que pretenden ser los primeros en leer del
+      disco y cómo es el sistema el que gestiona estos recursos. Todo
+      lo verán en conjunto y no fragmentado como se puede explicar en
+      una clase tradicional. Por supuesto también se pueden desactivar
+      algunas de las partes para poder ver más claramente el
+      funcionamiento de las demás. Incluso se pueden mostrar los
+      distintos subsistemas en máquinas diferentes para realizar
+      prácticas en las que distintos alumnos se hagan cargo de cada
+      uno, eligiendo el algoritmo que quiere utilizar o incluso
+      tomando las decisiones manualmente.
+    </para>
+    <figure>
+      <title>VisualOS 0.9.0</title>
+      <graphic fileref="screen_shots/VisualOS-0_9_0" scale="60" align="center">
+    </figure>
+    <para>
+      Por otro lado, también se podrá utilizar como banco de pruebas,
+      haciendo más fácil y flexible el método de modificar y escribir
+      código, ya que la aplicación está escrita de forma modular y
+      tomando especial interés en hacer lo mas sencillo posible la
+      adición de nuevos algoritmos o modificación de los ya
+      existentes. Para poder hacer esto no será necesaria la
+      comprensión del resto del código, solamente será necesario
+      aprender el interfaz que los algoritmos en cuestión utilizan,
+      una estructura de datos y algunas funciones. Incluso se han
+      escrito funciones para ocultar al implementador de los
+      algoritmos la utilización de GTK+ como librería de elementos
+      gráficos.
+    </para>
+    <para>
+      Para hacer lo más fácil posible el mantenimiento de la
+      documentación interna y asegurar así la calidad de esta, se ha
+      utilizado un sistema que genera código DocBook (SGML) a partir
+      de comentarios estructurados en el código fuente del programa
+      denominado "gtk-doc". DocBook, es un estándar en la industria
+      (SUN MicroSystems, Hewlett Packard, O'Reilly ...), y por su
+      carácter semántico permite escribir los documentos una sola vez
+      y de forma automática obtenerlos en diferentes formatos: HTML,
+      PostScript, PDF, DVI, Braille ...
+    </para>
+    <para>
+      El sistema de control de versiones utilizado ha sido CVS
+      (Concurrent Version System), que es el estándar <EMPHASIS>de
+      facto</emphasis> en el ámbito del software libre. El CVS permite
+      gestionar los cambios de colecciones completas de archivos.
+    </para>
+    <para>
+      Gracias a las herramientas "automake" y "autoconf" la
+      compilación del programa es muy sencilla, ya que se detectan las
+      peculiaridades del entorno de forma automática y sin
+      intervención del usuario.
+    </para>
+    <para>
+      Se ha considerado importante la utilización de estándares
+      abiertos y herramientas libremente disponibles para facilitar la
+      colaboración en el futuro por parte de los propios estudiantes o
+      de cualquier otra persona que lo desee a lo largo de todo el
+      mundo (mediante Internet). Para lograr estos objetivos se han
+      utilizado herramientas como DocBook (SGML) como formato de
+      documentación, el API de programación GNOME/GTK+, el compilador
+      GCC (GNU C COMPILER) y el sistema de control de versiones CVS
+      (Concurrent Version System).
+    </para>
+  </chapter>
+  <chapter>
+    <title>Objetivos</title>
+    <para>
+      El propósito de este proyecto, es crear un entorno visual en el
+      cual se pueda experimentar fácilmente con un sistema operativo.
+    <para>
+    <para>
+      Deberá cumplir los siguientes requisitos:
+      <ITEMIZEDLIST>
+	<LISTITEM>
+	  <para>
+	    Tendrá que ser un entorno visual e intuitivo que resulte
+	    amigable al usuario.
+	  </para>
+	</listitem>
+	<LISTITEM>
+	  <para>
+	    Las estructuras de datos mas importantes de dicho
+	    sistema operativo se representarán gráficamente para su mejor
+	    comprensión.
+	  </para>
+	</listitem>
+	<LISTITEM>
+	  <para>
+	    Tendrá que permitir la observación de las interacciones del
+	    sistema completo, así como de cada una de sus partes por
+	    separado.
+	  </para>
+	</listitem>
+	<LISTITEM>
+	  <para>
+	    Tendrá que ser modular y fácilmente modificable, en
+	    especial tendrá que ser sencillo añadir nuevos algoritmos.
+	  </para>
+	</listitem>
+	<LISTITEM>
+	  <para>
+	    La aplicación será software libre, y tendrá que ser
+	    desarrollada utilizando tan solo software libre y
+	    estándares abiertos.
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      Teniendo en cuenta los requisitos anteriores, se deberán
+      representar los siguientes mecanismos:
+      
+      <itemizedlist spacing="compact">
+	<listitem><para>Planificación de procesos.</para></listitem>
+	<listitem><para>Planificación de memoria.</para></listitem>
+	<listitem><para>Planificación de disco.</para></listitem>
+      </itemizedlist>
+    </para>
+  </chapter>
+  <chapter>
+    <title>Conceptos teóricos</title>
+    <para>
+	Los conceptos teóricos utilizados para la realización propia
+	del sistema son los conceptos básicos de programación que no
+	es necesario comentar, pero los conceptos que se pretenden
+	ilustrar sí que merecen mención.
+    </para>
+    <para>
+	El sistema operativo está hecho para dar vida a los procesos,
+	así que comenzaré por ellos. Un proceso, no es más que una
+	lista de instrucciones que están en ejecución y se aplican a
+	datos en memoria principal y secundaria. Además, en los
+	sistemas informáticos actuales, las propias instrucciones
+	también se guardan en memoria secundaria para su
+	almacenamiento y en memoria principal para su ejecución.
+    </para>
+    <para>
+	La vida de un proceso comienza con la carga de sus
+        instrucciones en memoria principal desde la memoria secundaria
+        y el inicio de su ejecución a partir de su primera
+        instrucción. A lo largo de su vida típicamente necesitará
+        datos de memoria secundaria que almacenará en memoria
+        principal para su procesamiento y posteriormente escribirá los
+        datos resultantes en memoria secundaria y se terminará.
+    </para>
+    <para>
+	En los primeros tiempos de los ordenadores de arquitectura Von
+	Newmann era directamente el hardware el que cargaba las
+	instrucciones del proceso en memoria e iniciaba su ejecución,
+	el procesador se dedicada enteramente a la ejecución de este
+	único proceso y este disponía de toda la memoria principal y
+	podía utilizar la memoria secundaria libremente.
+    </para>
+    <para>
+	Actualmente el problema es que pretendemos que varios procesos
+	convivan en la misma máquina, de manera que se aproveche más
+	el hardware disponible (ej. un proceso puede hacer cálculos
+	mientras otro intenta leer de memoria secundaria) y se puedan
+	realizar varias tareas simultáneamente en el tiempo
+	(multitarea) e incluso que varios usuarios puedan compartir la
+	misma máquina (multiusuario).  Sin añadir elementos nuevos al
+	sistema, la complejidad a la hora de programar crecería
+	exponencialmente con el numero de procesos, para poder
+	compartir recursos y el fallo de uno solo de los procesos
+	podría afectar gravemente a los demás. Es necesario, pues, una
+	coordinación.
+    </para>
+    <para>
+	La figura del sistema operativo se introduce inicialmente para
+	realizar la tarea de intermediario entre los distintos
+	procesos. Será cargado en memoria principal y ejecutado por el
+	hardware y será el sistema operativo el que se ocupe de dar
+	vida a los procesos y de repartir los recursos disponibles
+	entre ellos. Al menos tendrá que realizar las siguientes
+	labores:
+      <itemizedlist>
+	<listitem>
+	  <para>Cargar en memoria principal los distintos
+	  procesos.</para>
+	</listitem>
+	<listitem>
+	  <para>Decidir cuál de los procesos es asignado al
+	    procesador para ser ejecutado en cada momento.</para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Cuando alguno de los procesos solicite memoria será él
+	    quien decida qué memoria utilizar, incluso podrá decidir
+	    quitársela a otro proceso. De hecho, utilizar memoria
+	    libre es sencillo, el problema surge cuando es necesario
+	    "robar" memoria a otro proceso, en cuyo caso el contenido
+	    será escrito en memoria secundaria, y entregada al que la
+	    necesita. Así que son los algoritmos de selección de
+	    "víctima" los que se estudian.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Cuando alguno de los procesos solicite leer de memoria
+	    secundaria será él quien lo haga, coordinando y ordenando
+	    las lecturas de los distintos procesos para mejorar el
+	    rendimiento. Siendo lo más importante en este caso el
+	    orden en que se leen los datos.
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      Este programa ilustra los distintos algoritmos utilizados para
+      estas tareas. Concretamente los algoritmos actualmente
+      implementados son:
+    </para>
+    <sect1>
+      <title>Asignación del procesador</title> <variablelist>
+	<varlistentry><term>First Come First Served: (Primero en
+	    llegar, primero en ser servido)</term>
+	  <listitem>
+	    <para> El primer proceso en condiciones de
+	      ejecutarse será el asignado al procesador y permanece
+	      asignado hasta no poder ejecutarse más por tener que
+	      esperar a algún evento o por haber terminado.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Round Robin</term>
+	  <listitem>
+	    <para>
+	      Se establece un tiempo máximo de ejecución o cuanto y se
+	      ejecuta cada proceso hasta que exceda su cuanto o no
+	      quiera ejecutarse más, entonces se asigna otro y así
+	      sucesivamente. Los procesos en espera de ejecución
+	      forman una cola circular.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Shortest Process Next: (El proceso más
+	corto el próximo)</term>
+	  <listitem>
+	    <para>
+	      Se ejecuta el proceso más breve de los que estén
+	      preparados, y permanece asignado hasta no poder
+	      ejecutarse más, momento en el cual se volverá a elegir
+	      el proceso más corto.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Shortest Remaining Time: (El tiempo
+	restante
+	    más corto)</term>
+	  <listitem>
+	    <para>
+	      Se ejecuta el proceso más corto de los que estén
+	      preparados, pero a diferencia del SPN el esquema es
+	      apropiativo, de manera que siempre que surja otro
+	      proceso listo para ejecutarse se comprobará si va a
+	      tardar menos en ejecutarse que el actual y si es así
+	      será el nuevo proceso el que se asigne y el actual
+	      tendrá que esperar.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Highest Response Ratio Next: (El de mayor
+	tasa de respuesta el próximo)</term>
+	  <listitem>
+	    <para>
+	      Para cada proceso, basado en el tiempo que va a ocupar
+	      el procesador(s) y el tiempo que lleva esperando para
+	      ocuparlo (w), Se calcula w+s/s, una vez echo esto el
+	      proceso que tenga un valor mayor será asignado al
+	      procesador. Este algoritmo es bastante bueno, por que
+	      además de dar preferencia a los procesos cortos también
+	      tiene en cuenta el envejecimiento de los procesos para
+	      evitar así la "inanición".
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist></sect1>
+    <sect1>
+      <title>Utilización de la memoria: (Algoritmos de selección de
+	víctima)</title>
+      <variablelist>
+	<varlistentry><term>First In First Out: (Primero en entrar
+	    primero en salir)</term>
+	  <listitem><para> Se "roban" los fragmentos de memoria de
+	      forma cíclica sin tener en cuenta a quién pertenecen o
+	      su frecuencia de utilización.
+	    </para></listitem>
+	</varlistentry>
+	<varlistentry><term>Second Chance: (Segunda
+	  oportunidad)</term>
+	  <listitem>
+	    <para>
+	      Siempre que un proceso utiliza un fragmento de memoria,
+	      éste se señala como utilizado. Al mismo tiempo, para
+	      elegir un fragmento se busca uno que no esté señalado y
+	      se elimina esta en los que la tienen.
+	    </para>
+	    <para>
+	      De esta manera se les da una "segunda oportunidad" a los
+	      procesos. Si utilizan el fragmento de memoria enseguida,
+	      no lo perderán.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Clock: (reloj)</term>
+	  <listitem>
+	    <para>
+	      Es similar al "Second Chance" pero en este caso también
+	      tiene en cuenta si los datos de los fragmentos han sido
+	      modificados desde que fueron cargados en memoria
+	      principal. Si no es así, podrán ser descartados evitando
+	      un acceso a memoria secundaria. Por lo tanto, intenta
+	      evitar el "robo" de fragmentos modificados.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect1>
+    <sect1>
+      <title>Planificación de accesos a memoria secundaria</title>
+      <variablelist>
+	<varlistentry><term>First Come First Served (Primero en llegar
+	    primero en ser servido)</term>
+	  <listitem>
+	    <para>
+	      Se realizan los accesos en el mismo orden en que son
+	      solicitados.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Shortest Seek Time First (El
+	desplazamiento
+	    de cabezal más corto el primero)</term>
+	  <listitem>
+	    <para>
+	      Se ordenan los accesos minimizando el movimiento del
+	      cabezal lector, puesto que es la acción más costosa.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>Scan</term>
+	  <listitem>
+	    <para>
+	      Se ordenan los accesos de manera que el cabezal lector
+	      se desplace de un extremo a otro de la superficie del
+	      disco, evitando cambiar de sentido mientras haya una
+	      petición referente a una zona más adelante.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry><term>N-Step-Scan</term>
+	  <listitem>
+	    <para>
+	      Se ordenan los accesos igual que en el caso anterior,
+	      pero sólo teniendo en cuenta un determinado número de
+	      ellos, y por lo tanto nunca se realizará un acceso
+	      posterior a ese número aunque se encuentre en el camino
+	      del cabezal.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Técnicas y herramientas</title> <variablelist>
+      <varlistentry><term>Sistema de Documentación:
+      SGML(DocBook v3.1)/gtk-doc-tools v0.3</term>
+	<listitem>
+	  <para>
+	    He utilizado SGML (Standard Generalized Markup Language)
+	    por su flexibilidad, este sistema permite dar significado
+	    a las distintas partes de un documento de manera que
+	    posteriormente se pueden mecanizar muchas de las tareas de
+	    elaboración. Ya que el documento no tiene formato sino
+	    significado, se pueden asignar distintos estilos de
+	    formato según sea el soporte de destino: Papel, Paginas
+	    web, PostScript, Portable Document Format, Braille... etc.
+	  </para>
+	  <para>
+	    Concretamente he elegido el DTD (Document Type Definition)
+	    DocBook ya que parece ser el estándar <EMPHASIS>de
+	    facto</emphasis> en la documentación de productos
+	    software, utilizado por empresas como Hewelt Packart, SUN
+	    MicroSystems u O'Reilly.
+	  </para>
+	  <para>
+	    Por ser un estándar internacional (ISO 8879) es totalmente
+	    independiente del software utilizado y totalmente
+	    portable, al contrario que otros formatos propietarios
+	    como Word, WordPerfect, QuarkXpress...
+	  </para>
+	  <para>
+	    Como ventaja adicional, es un formato basado en texto, y
+	    no en caracteres binarios no imprimibles, lo que permite
+	    un control de cambios más fácil, especialmente con
+	    herramientas como CVS (Concurrent Version System).
+	  </para>
+	  <para>
+	    También he utilizado gtk-doc-tools, un sistema de
+	    generación de documentación SGML a partir de comentarios
+	    estructurados dentro del código fuente del programa. Es el
+	    sistema utilizado en GTK+ y GNOME para la creación del
+	    manual de referencia del API.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry><term>API de programación:
+      GNOME v1.2.4/GTK+ v1.2.8/Xwindow v3.3.6</term>
+	<listitem>
+	  <para>
+	    GTK+, una biblioteca de elementos gráficos inicialmente
+	    apoyada en Xwindow, que está siendo portada a Win32, fue
+	    originalmente desarrollada para satisfacer las necesidades
+	    del magnífico programa de tratamiento fotográfico GIMP
+	    (GNU Image Manipulation Program) y progresivamente se ha
+	    convertido en el estándar <EMPHASIS>de facto</emphasis>
+	    para la programación de aplicaciones gráficas en el mundo
+	    del software libre, desplazando a la todopoderosa Motif.
+	    Posteriormente surgió la iniciativa, de manos de Miguel de
+	    Icaza de crear un entorno de programación más cómodo y
+	    flexible que denominó GNOME (GNU Network Object Model
+	    Environment) que utilizo GTK+ para dibujar ventanas,
+	    botones y demás elementos gráficos.
+	  </para>
+	  <para>
+	    Este entorno, goza de toda la flexibilidad del sistema
+	    Xwindow ( ejecución remota, independencia del gestor de
+	    ventanas ...)  y además está libremente disponible,
+	    incluido todo su código fuente y proporciona documentación
+	    gratuita en múltiples formatos (la editan en SGML).
+	  </para>
+	  <para>
+	    Además estas herramientas están hechas para ser
+	    portables, por supuesto a través de la mayoría de los
+	    sistemas de tipo UN*X y muy pronto Win32 (Microsoft
+	    Windows 95/98/NT).
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry><term>Editor: vi/emacs</term>
+	<listitem>
+	  <para>
+	    Para la mayor parte del programa he utilizado una versión
+	    mejorada del clásico VI (Visual Interactive:) denominada
+	    VIM (VI iMproved).
+	  </para>
+	  <para>
+	    Posteriormente para la edición de la memoria a partir de
+	    las notas he utilizado emacs, con un paquete de extensión
+	    para documentos SGML.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry><term> Compilador: GCC v2.95.2 (GNU C Compiler)</term>
+	<listitem>
+	  <para>
+	    Es un compilador muy portable, también de libre
+	    distribución que es capaz de compilar C, C++, Java, Pascal
+	    y Fortran. Está disponible para casi todas las plataformas
+	    UN*X, Win32, Beos, DOS, y puede que otras.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry><term> Depurador: gdb v4.18 (GNU Debuger)/DDD
+	  v3.2.1(Data Display Debuger)</term>
+	<listitem>
+	  <para>
+	    Para la depuración he utilizado el programa de consola gdb
+	    y a menudo su "front end" gráfico DDD.  </para></listitem>
+      </varlistentry>
+      <varlistentry><term> Control de Versiones: CVS v1.20.8 (Concurrent
+	  Version System)</term>
+	<listitem>
+	  <para>
+	    Este es el sistema de control de versiones "estándar" en
+	    el mundo del software libre. Permite registrar los cambios
+	    de colecciones completas de archivos, pudiendo señalar
+	    momentos importantes del desarrollo para su posterior
+	    examen, y el mantenimiento de distintas ramas de
+	    desarrollo. También permite acceso remoto a las
+	    colecciones de archivos para facilitar la colaboración a
+	    través de Internet.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <VARLISTENTRY>
+	<TERM>Sistema de compilación: automake v1.4/autoconf v2.13</term>
+	<LISTITEM>
+	  <para>
+	    "Automake" genera de forma semiautomática todo el sistema de
+	    compilación (archivos Makefile) ricos en funcionalidad y
+	    de acuerdo con los estándares de GNU.
+	  </para>
+	  <para>
+	    "Autoconf" es capaz de detectar las distintas
+	    peculiaridades el entorno de desarrollo permitiendo una
+	    compilación fácil a todo tipo de usuarios en todas las
+	    plataformas soportadas.
+	  </para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </chapter>
+  <chapter>
+    <title>Aspectos relevantes del desarrollo</title>
+    <para>
+      El ciclo de vida elegido ha sido el incremental. En primer lugar
+      se ha realizado la infraestructura del sistema para luego
+      diseñar e implementar cada uno de los subsistemas: procesador,
+      memoria y entrada/salida.
+    </para>
+    <para>
+      En todo momento se ha tenido en cuenta la genericidad del código.
+      Siempre que ha sido implementada alguna funcionalidad se ha
+      realizado de manera que pudiera ser utilizada en otras
+      circunstancias similares y por otros subsistemas.
+    </para>
+    <para>
+      Para minimizar los posibles efectos secundarios y dada la
+      característica concurrente del proyecto, cada subsistema se
+      ejecuta en un proceso diferente y se comunica mediante paso de
+      mensajes (actualmente mediante sockets).
+    </para>
+    <para>
+      El Reloj (CLOCK) es el encargado de dar una referencia de tiempo
+      común a los demás subsistemas. El tiempo se expresa en "Unidades
+      de tiempo" que representan el tiempo mínimo que puede
+      transcurrir entre dos eventos consecutivos. Esto quiere decir
+      que se pueden ejecutan varias instrucciones en cada "unidad de
+      tiempo". En el caso de la memoria secundaria la cabeza lectora
+      tarda en volar por encima de una pista una "unidad de tiempo" y
+      otra en cada acceso lo que no es muy realista, pues tendría que
+      ser más lento. Esto, sin embargo, no quita generalidad y resulta
+      más didáctico.
+    </para>
+  </chapter>
+  <chapter>
+    <title>Trabajos relacionados</title>
+    <para>
+      Este podría ser el primer entorno visual concebido para
+      facilitar la comprensión de un sistema operativo moderno.
+    </para>
+    <para>
+      Hasta ahora la única manera de comprender realmente estos
+      conceptos era escribiendo y modificando el código de un sistema
+      operativo real para luego analizar su funcionamiento. Con este
+      propósito se escribieron sistemas operativos como MINIX, NACHOS
+      o TUNIX.
+    </para>
+    <para>
+      Hay que resaltar, que el método de modificar el código de un
+      sistema operativo real es muy tedioso e incomodo. Además, el
+      resultado de las modificaciones a de ser depurado, con las
+      dificultades que conlleva depurar un sistema operativo.
+    </para>
+  </chapter>
+  <chapter>
+    <title>Conclusiones y trabajo futuro</title>
+    <para>
+      En resumen, estos son los principales logros de este proyecto:
+    </para>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  Se ha logrado un entorno visual e intuitivo para la
+	  experimentación con los sistemas operativos.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  El código es modular lo que permite hacer cambios sin
+	  necesidad de tener en cuenta todo el contexto.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Gracias a su modularidad es muy fácil añadir algoritmos y
+	  representaciones nuevos sin necesidad de entender el resto
+	  del programa.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  El programa es portable según el estándar POSIX, y gracias a
+	  las herramientas "automake" y "autoconf" detecta
+	  automáticamente las peculiaridades del entorno de desarrollo
+	  permitiendo una compilación fácil para todo tipo de usuarios.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Se ha utilizado control de versiones desde el primer momento
+	  del desarrollo por lo que ha quedado reflejada toda la
+	  historia del proyecto. Esto ha permitido la obtención
+	  automática de una lista de cambios detallada y la
+	  posibilidad recuperar el código perteneciente a cualquier
+	  momento del desarrollo.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  La utilización de un interfaz vistoso y con colorido hace el
+	  programa mas atractivo y ameno para el usuario.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Se ha dedicado especial esfuerzo en escribir código claro,
+	  modular y genérico lo que hace la aplicación mas mantenible.
+	</para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      En cuanto a trabajos futuros hay que resaltar que una vez
+      expuesto este proyecto, será publicado en Internet para su
+      desarrollo ulterior. Por esta razón el manual del programador
+      está escrito en inglés.
+    </para>
+    <para>
+      Concretamente se podría implementar un buffer caché, extender el
+      programa para ilustrar un sistema multiprocesador o hacer que
+      cada subsistema se ejecute en una máquina distinta a través de
+      una red.  Ya es posible mostrar cada subsistema en una máquina
+      distinta gracias a la flexibilidad de Xwindow pero de momento
+      todo se ejecuta en el mismo lugar.
+    </para>
+    <para>
+      Cuando la adaptación de GTK+ a Win32 esté suficientemente
+      terminada, se podrían generar binarios para este sistema
+      operativo. Esto facilitaría, al menos en un primer momento, el acceso
+      al programa a los posibles usuarios de este sistema.
+    </para>
+    <para>
+      Aspectos más concretos con respecto al trabajo futuro se pueden
+      encontrar en el archivo "TODO" de la distribución software.
+    </para>
+  </chapter>
+</book>

@@ -1,0 +1,59 @@
+<refentry id="VisualOS-Glib">
+<refmeta>
+<refentrytitle>Glib</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Glib</refname><refpurpose>Glib addons</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="GSList">GSList</link>*     <link linkend="g-slist-dup">g_slist_dup</link>                     (<link linkend="GSList">GSList</link> *list);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This is the functionality which I wanted from Glib but wasn't there.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="g-slist-dup">g_slist_dup ()</title>
+<indexterm><primary>g_slist_dup</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*     g_slist_dup                     (<link linkend="GSList">GSList</link> *list);</programlisting>
+<para>
+Duplicates <parameter>list</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara> GSList to duplicate.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the new list.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

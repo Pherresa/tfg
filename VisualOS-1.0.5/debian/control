@@ -1,0 +1,13 @@
+Source: visualos
+Section: gnome
+Priority: optional
+Maintainer: Manuel Estrada Sainz <ranty@debian.org>
+Build-Depends: libglade-gnome0-dev, libgnome-dev, debhelper (>= 3.0.0), help2man, gettext ( >= 0.11.3), cvs
+Standards-Version: 3.5.2
+
+Package: visualos
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Visual Simulator of an Operating System
+ VisualOS is a visual representation of the more general concepts in an
+ operating system (CPU scheduling, memory management and IO reordering)

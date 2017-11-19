@@ -1,0 +1,100 @@
+<refentry id="VisualOS-BitOps">
+<refmeta>
+<refentrytitle>BitOps</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>BitOps</refname><refpurpose>Bitmap operations.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>        <link linkend="set-bit">set_bit</link>                         (<link linkend="gint">gint</link> nr,
+                                             <link linkend="guint32">guint32</link> *addr);
+<link linkend="gboolean">gboolean</link>    <link linkend="test-bit">test_bit</link>                        (<link linkend="gint">gint</link> nr,
+                                             <link linkend="guint32">guint32</link> *addr);
+<link linkend="void">void</link>        <link linkend="clear-bit">clear_bit</link>                       (<link linkend="gint">gint</link> nr,
+                                             <link linkend="guint32">guint32</link> *addr);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+Confortable functions to set, test and clear bits in a bitmap.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="set-bit">set_bit ()</title>
+<indexterm><primary>set_bit</primary></indexterm><programlisting><link linkend="void">void</link>        set_bit                         (<link linkend="gint">gint</link> nr,
+                                             <link linkend="guint32">guint32</link> *addr);</programlisting>
+<para>
+Set bit number <parameter>nr</parameter> in the bitmap pointed by <parameter>addr</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nr</parameter>&nbsp;:</term>
+<listitem><simpara> index of the bit to be set to 1.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>addr</parameter>&nbsp;:</term>
+<listitem><simpara> address of the bitmap.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="test-bit">test_bit ()</title>
+<indexterm><primary>test_bit</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    test_bit                        (<link linkend="gint">gint</link> nr,
+                                             <link linkend="guint32">guint32</link> *addr);</programlisting>
+<para>
+Test if bit number <parameter>nr</parameter> of the bitmap pointed by <parameter>addr</parameter> is 1 or 0.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nr</parameter>&nbsp;:</term>
+<listitem><simpara> index of the bit to be tested.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>addr</parameter>&nbsp;:</term>
+<listitem><simpara> address of the bitmap.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> TRUE if the bit is 1 and FALSE otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="clear-bit">clear_bit ()</title>
+<indexterm><primary>clear_bit</primary></indexterm><programlisting><link linkend="void">void</link>        clear_bit                       (<link linkend="gint">gint</link> nr,
+                                             <link linkend="guint32">guint32</link> *addr);</programlisting>
+<para>
+Clear bit number <parameter>nr</parameter> in the bitmap pointed by <parameter>addr</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nr</parameter>&nbsp;:</term>
+<listitem><simpara> index of the bit to be cleard to 0.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>addr</parameter>&nbsp;:</term>
+<listitem><simpara> address of the bitmap.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,249 @@
+<refentry id="VisualOS-Process-Queues">
+<refmeta>
+<refentrytitle>Process Queues</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Process Queues</refname><refpurpose>Process Queue Handling.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+typedef     <link linkend="proc-queue-t">proc_queue_t</link>;
+#define     <link linkend="DECLARE-PROC-QUEUE-CAPS">DECLARE_PROC_QUEUE</link>              (queue)
+#define     <link linkend="proc-queue-empty">proc_queue_empty</link>                (queue)
+#define     <link linkend="proc-data">proc_data</link>                       (element)
+#define     <link linkend="proc-queue-next">proc_queue_next</link>                 (element)
+#define     <link linkend="proc-queue-find">proc_queue_find</link>                 (queue, proc)
+#define     <link linkend="proc-queue-len">proc_queue_len</link>                  (queue)
+#define     <link linkend="proc-queue-init">proc_queue_init</link>                 (queue)
+#define     <link linkend="proc-queue-foreach">proc_queue_foreach</link>              (queue, func, data)
+#define     <link linkend="proc-queue-concat">proc_queue_concat</link>               (dest, orig1, orig2)
+#define     <link linkend="proc-queue-remove">proc_queue_remove</link>               (queue, proc)
+#define     <link linkend="proc-queue-append">proc_queue_append</link>               (queue, proc)
+#define     <link linkend="proc-queue-nth">proc_queue_nth</link>                  (queue, n)
+#define     <link linkend="proc-queue-end">proc_queue_end</link>                  (element)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This are the functions to use when working with any queue of processes in the
+CPU.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="proc-queue-t">proc_queue_t</title>
+<indexterm><primary>proc_queue_t</primary></indexterm><para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="DECLARE-PROC-QUEUE-CAPS">DECLARE_PROC_QUEUE()</title>
+<indexterm><primary>DECLARE_PROC_QUEUE</primary></indexterm><programlisting>#define     DECLARE_PROC_QUEUE(queue)</programlisting>
+<para>
+Declares a new and empty process queue with name <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> name for the queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-empty">proc_queue_empty()</title>
+<indexterm><primary>proc_queue_empty</primary></indexterm><programlisting>#define     proc_queue_empty(queue)</programlisting>
+<para>
+Is <parameter>queue</parameter> empty?</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-data">proc_data()</title>
+<indexterm><primary>proc_data</primary></indexterm><programlisting>#define     proc_data(element)</programlisting>
+<para>
+Retrives the process data from the queue <parameter>element</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter>&nbsp;:</term>
+<listitem><simpara> process queue element involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-next">proc_queue_next()</title>
+<indexterm><primary>proc_queue_next</primary></indexterm><programlisting>#define     proc_queue_next(element)</programlisting>
+<para>
+Gets the next element on the queue starting at <parameter>element</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter>&nbsp;:</term>
+<listitem><simpara> process queue element involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-find">proc_queue_find()</title>
+<indexterm><primary>proc_queue_find</primary></indexterm><programlisting>#define     proc_queue_find(queue, proc)</programlisting>
+<para>
+Find the queue element for process <parameter>proc</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-len">proc_queue_len()</title>
+<indexterm><primary>proc_queue_len</primary></indexterm><programlisting>#define     proc_queue_len(queue)</programlisting>
+<para>
+Calculate the number of elements on <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-init">proc_queue_init()</title>
+<indexterm><primary>proc_queue_init</primary></indexterm><programlisting>#define     proc_queue_init(queue)</programlisting>
+<para>
+Initializes process queue <parameter>queue</parameter>.
+</para>
+<para>
+Note: applyed to a non empty queue will loose all its elements.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-foreach">proc_queue_foreach()</title>
+<indexterm><primary>proc_queue_foreach</primary></indexterm><programlisting>#define     proc_queue_foreach(queue, func, data)</programlisting>
+<para>
+Will call <parameter>func</parameter> for every process on <parameter>queue</parameter> using the process pointer
+as the first arguemt and <parameter>data</parameter> as the second.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> function to be called.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> second argument to <parameter>func</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-concat">proc_queue_concat()</title>
+<indexterm><primary>proc_queue_concat</primary></indexterm><programlisting>#define     proc_queue_concat(dest, orig1, orig2)</programlisting>
+<para>
+Concatenates <parameter>orig1</parameter> and <parameter>orig2</parameter> into <parameter>dest</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> Target queue.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orig1</parameter>&nbsp;:</term>
+<listitem><simpara> First source queue.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>orig2</parameter>&nbsp;:</term>
+<listitem><simpara> Second source queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-remove">proc_queue_remove()</title>
+<indexterm><primary>proc_queue_remove</primary></indexterm><programlisting>#define     proc_queue_remove(queue, proc)</programlisting>
+<para>
+Remove <parameter>proc</parameter> from <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process to be removed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-append">proc_queue_append()</title>
+<indexterm><primary>proc_queue_append</primary></indexterm><programlisting>#define     proc_queue_append(queue, proc)</programlisting>
+<para>
+Append <parameter>proc</parameter> to <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> process queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process to be appended.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-nth">proc_queue_nth()</title>
+<indexterm><primary>proc_queue_nth</primary></indexterm><programlisting>#define     proc_queue_nth(queue, n)</programlisting>
+<para>
+Get element number <parameter>n</parameter> from <parameter>queue</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>queue</parameter>&nbsp;:</term>
+<listitem><simpara> queue involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n</parameter>&nbsp;:</term>
+<listitem><simpara> element index.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="proc-queue-end">proc_queue_end()</title>
+<indexterm><primary>proc_queue_end</primary></indexterm><programlisting>#define proc_queue_end(element) proc_queue_empty(element)
+</programlisting>
+<para>
+Is this element the end of the queue?</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter>&nbsp;:</term>
+<listitem><simpara> process queue element involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

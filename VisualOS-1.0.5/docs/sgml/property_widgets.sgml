@@ -1,0 +1,173 @@
+<refentry id="VisualOS-property-widgets">
+<refmeta>
+<refentrytitle>Property Widget Facility</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Property Widget Facility</refname><refpurpose>Easy property widget creation.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="property-t">property_t</link>;
+<link linkend="properties-t">properties_t</link>* <link linkend="properties-create">properties_create</link>             (const <link linkend="property-t">property_t</link> property[],
+                                             const <link linkend="gint">gint</link> num_properties,
+                                             <link linkend="void">void</link> (*notify) (void));
+<link linkend="gint">gint</link>        <link linkend="properties-destroy">properties_destroy</link>              (<link linkend="properties-t">properties_t</link> *properties);
+<link linkend="GtkWidget">GtkWidget</link>*  <link linkend="properties-get-widget">properties_get_widget</link>           (const <link linkend="properties-t">properties_t</link> *properties);
+<link linkend="gfloat">gfloat</link>*     <link linkend="properties-get-values">properties_get_values</link>           (const <link linkend="properties-t">properties_t</link> *properties);
+<link linkend="gint">gint</link>        <link linkend="properties-set-values">properties_set_values</link>           (<link linkend="properties-t">properties_t</link> *properties,
+                                             const <link linkend="gfloat">gfloat</link> value[]);
+struct      <link linkend="properties-t">properties_t</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions allow the creation and management of a widget to show and get
+numerical properties from the user without having to learn how to create a
+widget with Gtk+.
+
+It is specialy usefull within algorithms allowing the user with no Gtk+
+knowledge to write algorithms which properties.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="property-t">struct property_t</title>
+<indexterm><primary>property_t</primary></indexterm><programlisting>struct property_t {
+
+	gchar *label;	/* Some text to identify de value */
+	gfloat min;	/* The minimun value */
+	gfloat max;	/* The maximun value */
+	gfloat step;	/* Value increments allowed */
+};
+</programlisting>
+<para>
+Descrives a single property value.
+</para></refsect2>
+<refsect2>
+<title><anchor id="properties-create">properties_create ()</title>
+<indexterm><primary>properties_create</primary></indexterm><programlisting><link linkend="properties-t">properties_t</link>* properties_create             (const <link linkend="property-t">property_t</link> property[],
+                                             const <link linkend="gint">gint</link> num_properties,
+                                             <link linkend="void">void</link> (*notify) (void));</programlisting>
+<para>
+Creates a GtkWidget for the properties described in <parameter>property</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>property</parameter>&nbsp;:</term>
+<listitem><simpara> properties descriptions.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_properties</parameter>&nbsp;:</term>
+<listitem><simpara> number of elemente in <parameter>property</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>notify</parameter>&nbsp;:</term>
+<listitem><simpara> to be called when the properties change.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a pointer which identifies the newly created <link linkend="properties-t"><type>properties_t</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="properties-destroy">properties_destroy ()</title>
+<indexterm><primary>properties_destroy</primary></indexterm><programlisting><link linkend="gint">gint</link>        properties_destroy              (<link linkend="properties-t">properties_t</link> *properties);</programlisting>
+<para>
+Destroys the properties widget, freeing all it's memory.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>properties</parameter>&nbsp;:</term>
+<listitem><simpara> a properties pointer obtained with <link linkend="properties-create"><type>properties_create</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing interesting.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="properties-get-widget">properties_get_widget ()</title>
+<indexterm><primary>properties_get_widget</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*  properties_get_widget           (const <link linkend="properties-t">properties_t</link> *properties);</programlisting>
+<para>
+Retrives the widget created to hold all the properties.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>properties</parameter>&nbsp;:</term>
+<listitem><simpara> a properties pointer obtained with <link linkend="properties-create"><type>properties_create</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> A pointer to the widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="properties-get-values">properties_get_values ()</title>
+<indexterm><primary>properties_get_values</primary></indexterm><programlisting><link linkend="gfloat">gfloat</link>*     properties_get_values           (const <link linkend="properties-t">properties_t</link> *properties);</programlisting>
+<para>
+Retrives the current values of all the properties representied in
+<parameter>properties</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>properties</parameter>&nbsp;:</term>
+<listitem><simpara> a properties pointer obtained with <link linkend="properties-create"><type>properties_create</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> An array with the values.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="properties-set-values">properties_set_values ()</title>
+<indexterm><primary>properties_set_values</primary></indexterm><programlisting><link linkend="gint">gint</link>        properties_set_values           (<link linkend="properties-t">properties_t</link> *properties,
+                                             const <link linkend="gfloat">gfloat</link> value[]);</programlisting>
+<para>
+Sets the values of all the properties stored in <parameter>properties</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>properties</parameter>&nbsp;:</term>
+<listitem><simpara> a properties pointer obtained with <link linkend="properties-create"><type>properties_create</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara> and array with the values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing interesting.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="properties-t">struct properties_t</title>
+<indexterm><primary>properties_t</primary></indexterm><programlisting>struct properties_t {
+
+	void (*notify)(void);	/* will be called when ever a properties
+				 * change.*/
+	GtkWidget *widget;	/* is the main widget.*/
+	gint num_properties;	/* number of entry and value elements */
+	GtkWidget **entry;	/* is an array of all entry widgets */
+	gfloat *value;		/* is an array of all property values */
+};
+</programlisting>
+<para>
+Descrives everything there is to know about a properties widget.
+</para>
+<para>
+NOTE: it's fields should not be accessed directly.
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

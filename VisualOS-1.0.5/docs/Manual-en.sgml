@@ -1,0 +1,1146 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+<book lang="en">
+  <bookinfo>
+    <title>VisualOS</title>
+    <subtitle>User Manual</subtitle>
+    <author>
+      <firstname>Manuel</firstname>
+      <surname>Estrada Sainz</surname>
+      <affiliation>
+	<address>
+	  <email>ranty@debian.org</email>
+	  <email>ranty@bigfoot.com</email>
+	</address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2000</year>
+      <year>2003</year>
+      <holder>Manuel Estrada Sainz</holder>
+    </copyright>
+  </bookinfo>
+  <chapter>
+    <title>Introduction</title>
+    <para>
+      VisualOS is an operating system simulator with the purpose of
+      allowing easier and faster learning of such a beast's
+      internals. It shows visually the most important mechanisms and
+      allows manipulation the running system without writing a
+      single line of code.
+    </para>
+    <para>
+      It's structure is quite simple. Initially each simulated
+      subsystem is located in it's own window. The CPU is the center
+      of the system and the originator of all activity requesting
+      services from all others.
+    </para>
+    <sect1>
+      <title>Common structure</title>
+      <para>
+	All subsystems have a similar structure and certain
+	peculiarities which will be explained later.
+      </para>
+      <para>
+	All of them allow the selection of the algorithm to be used
+	and it's parameters, if it has any. They also offer different
+	representations of what is going on inside.
+      </para>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>The CPU</title>
+    <para>
+      In the CPU you can find processes which are the originators of
+      all action. It's elements are described below:
+    </para>
+    <figure>
+      <title>The processor</title>
+      <graphic fileref="screen_shots/CPU" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+	<para>
+	  Create a new process, it will usually allow selection of
+	  it's characteristics.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Modify the characteristics of the currently selected process.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Load one of more processes from a file. This file may be
+	  created by the program or hand written by the user.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Save current session with all it's processes to a file. All
+	  processes will be saved, including already terminated
+	  processes and processes not yet inserted in the system.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Reset system; returns the system to it's initial state,
+	  ready to start a new session.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  PID, execution time, and current burst of the currently
+	  selected process.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Currently running process.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  "Ready to run" process queue; Multiple queues of this type
+	  are allowed depending on the algorithm in use.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Blocked process queue, waiting for a disk read or a page
+	  fault to complete.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  All different representations available for the systems.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Click on this button to put the subsystem representation in
+	  it's own window, which allows multiple simultaneous
+	  representations of the same subsystem to be visible at the
+	  same time.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Messages telling interesting events.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  The currently selected algorithm's name. Any of the
+	  algorithms in the combo may be selected, including the
+	  manual "algorithm" which allows the user to make the
+	  choices.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  The currently selected algorithm's properties. In this case
+	  it is the time slice that each process is allowed to run at
+	  once.
+	</para>
+      </listitem>
+    </orderedlist>
+    <sect1>
+      <title>The menus</title>
+      <para>
+	Here we will see what the options on each menu mean:
+      </para>
+      <sect2>
+	<title>File</title>
+	<figure>
+	  <title>File Menu.</title>
+	  <graphic fileref="screen_shots/CPU-Menu-File" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Create a new process, it will usually allow selection of
+	      it's characteristics.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Load one of more processes from a file. This file may be
+	      created by the program or hand written by the user.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Save current session with all it's processes to a
+	      file. All processes will be saved, including already
+	      terminated processes and processes not yet inserted in
+	      the system.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Exit the program closing all subsystems.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>View</title>
+	<para>
+	  This menu allow showing the main windows from the other
+	  subsystems when they have been hidden.
+	</para>
+	<figure>
+	  <title>Menu view.</title>
+	  <graphic fileref="screen_shots/CPU-Menu-View" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Shows the memory subsystem.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Shows the disk subsystem.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Shows the "Requestor" subsystem (We will explain this
+	      one later).
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Show the clock subsystem.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>Settings</title>
+	<figure>
+	  <title>Menu Settingsón.</title>
+	  <graphic fileref="screen_shots/CPU-Menu-Settings" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      When this is checked, the process properties window will
+	      not pop up when creating one. Its properties will be
+	      filled automatically based on "auto-filling" properties.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      When this is checked, the processor stops the clock
+	      whenever something interesting happens.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Show the preferences window, which we will see later.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+    </sect1>
+    <sect1>
+      <title>Process properties</title>
+      <para>
+	This window allows the specification of a process' properties,
+	and also loading and saving a single process to file.
+      </para>
+      <sect2>
+	<title>General</title>
+	<figure>
+	  <title>General properties.</title>
+	  <graphic fileref="screen_shots/CPU-Process-Properties-General" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Process identifier, -1 if the process has not yet been
+	      inserted into the system.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Processor time spent by the process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Time at which the process will be inserted into the
+	      system.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Processor time that the process will spend within all
+	      it's lifetime.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Auto-fill current properties page.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Load the process from file.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Save the process to file.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Accept the changes made to the properties.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Cancel changes made to the properties and if we are
+	      creating a new process, cancel its creating.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>I/O</title>
+	<para>
+	  This are the accesses to secondary memory ("I/O") that the
+	  process will do in all it's lifetime.
+	</para>
+	<figure>
+	  <title>Input/Output properties.</title>
+	  <graphic fileref="screen_shots/CPU-Process-Properties-IO" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Add a new access.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Replace the currently selected access in the list.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Remove the currently selected access from the list.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Block which the access refers to.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Time at which the access will happen. This time refers
+	      to time spent by the process, not to system time.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Block which will be used when adding or replacing an I/O
+	      access.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Time which will be used when adding or replacing an I/O
+	      access.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The block for an access can also be selected clicking
+	      here.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>Memory</title>
+	<para>
+	  This are the accesses to main memory of the process, through
+	  out all it's lifetime.
+	</para>
+	<para>
+	  As it would be a pain to write all this by hand, the only
+	  way to fill it is choosing read and write probabilities on
+	  the graphs and clicking on "Auto Fill" button.
+	</para>
+	<figure>
+	  <title>Memory properties.</title>
+	  <graphic fileref="screen_shots/CPU-Process-Properties-Memory" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Total number of pages that this process will use.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Probability of the process reading each of its pages. X
+	      axis represents page numbers and Y axis represents
+	      probability.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Probability of the process writing to each of its
+	      pages. X axis represents page numbers and Y axis
+	      represents probability.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Page of the access.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Type of access, it may be READ or WRITE.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>Advanced</title>
+	<para>
+	  It is also possible to manually define all properties of the
+	  process with a simple language, the same used to write
+	  processes to file.
+	</para>
+	<figure>
+	  <title>Advanced properties.</title>
+	  <graphic fileref="screen_shots/CPU-Process-Properties-Advanced" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      All information for the process is enclosed in the block
+	      "proc".
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Time at which the process is inserted into the system.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Total process lifetime.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The list of disk accesses is enclosed within the block
+	      "IO".
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Block used in this access.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Time at which the block is accessed, measured in process
+	      execution time, not global system time.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The list of memory accesses is enclosed within the block
+	      "MEM" and shown have an item for each "time unit" that
+	      the process runs.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Page for the access.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      States weather the access is a read, "write=0", or a
+	      write, "write=1".
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+    </sect1>
+    <sect1>
+      <title>Preferences</title>
+      <sect2>
+	<title>Process Auto-Filling</title>
+	<para>
+	  This parameters are used to generate processes automatically.
+	</para>
+	<figure>
+	  <title>Process Auto-filling</title>
+	  <graphic fileref="screen_shots/CPU-Preferences-Process-Auto-Filling" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Average number of blocks to be used by the process in total.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Average time between disk accesses.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Average number of memory accesses. If "1" is low and
+	      this parameter high, then there will be many accesses
+	      spread over a few blocks.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Average time between the creation of two consecutive
+	      processes.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Default values for memory access auto-filling.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>Drawing styles</title>
+	<figure>
+	  <title>Graphical representations</title>
+	  <graphic fileref="screen_shots/CPU-Preferences-Drawing-Styles" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Limit for the drawing styles which maintain history of
+	      the system. This prevents VisualOS from eating up all
+	      resources over time.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+    </sect1>
+    <sect1>
+      <title>Drawing Styles</title>
+      <para>
+	We will now see the different representations available for
+	the processor and their meanings:
+      </para>
+      <sect2>
+	<title>Queues</title>
+	<figure>
+	  <title>CPU queues.</title>
+	  <graphic fileref="screen_shots/CPU-Drawing-Queues" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Currently running process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      "Ready to run" process queue; Multiple queues of this
+	      type are allowed depending on the algorithm in use.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Blocked process queue, waiting for a disk read or a page
+	      fault to complete.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Process identifier.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Remaining time until the next event which will block the
+	      process.
+	    </para>
+	  </listitem>
+	</orderedlist>
+	<para>
+	  Processes may be selected clicking on them with the mouse.
+	</para>
+      </sect2>
+      <sect2>
+	<title>Bars</title>
+	<para>
+	  A different color is assigned to each process, and each one
+	  is represented in a different horizontal bar. The upper bar
+	  is a resume of all processes.
+	</para>
+	<para>
+	  When a process is running, a thick line is drawn with it's
+	  color on it's bar and the upper bar. And when it is not
+	  running, a thin line is drawn, a red one if the process is
+	  blocked, a green one if it is "ready to run" and a black one
+	  if the process is finished.
+	</para>
+	<figure>
+	  <title>Bars</title>
+	  <graphic fileref="screen_shots/CPU-Drawing-Bars" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Resume bar of all processes.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Bars of each process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Blocked process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Running process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      "Ready to run" process.
+	    </para>
+	  </listitem>
+	</orderedlist>
+	<para>
+	  Processes may be selected clicking on their bar.
+	</para>
+      </sect2>
+      <sect2>
+	<title>Overlapped Bars</title>
+	<para>
+	  A different color is assigned to each process, and each one
+	  is represented in a different horizontal bar.
+	</para>
+	<para>
+	  When a process becomes ready a thick line with it's color is
+	  drawn on its bar, representing the CPU burst which the
+	  process pretends to run.
+	</para>
+	<figure>
+	  <title>Overlapped Bars</title>
+	  <graphic fileref="screen_shots/CPU-Drawing-Overlapped" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Burst which process 3 pretends to run.
+	    </para>
+	  </listitem>
+	</orderedlist>
+	<para>
+	  Processes may be selected clicking on their bar with the
+	  mouse.
+	</para>
+      </sect2>
+      <sect2>
+	<title>Process status</title>
+	<para>
+	  Shows the state of the currently selected process.
+	</para>
+	<figure>
+	  <title>State</title>
+	  <graphic fileref="screen_shots/CPU-Drawing-State" format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Running process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      "Ready to run" process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Process blocked waiting for some event.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Blocked and suspended process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      "Ready to run" and suspended process.
+	    </para>
+	  </listitem>
+	</orderedlist>
+	<para>
+	  In the picture, process 1 is blocked.
+	</para>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Secondary memory.</title> 
+    <para>
+      The input/output subsystem has the only function of: accept
+      access requests, simulate the physical access and informing it's
+      client (usually the CPU) when an access is completed.
+    </para>
+    <para>
+      We will now describe it's elements:
+    </para>
+    <figure>
+      <title>I/O</title>
+      <graphic fileref="screen_shots/IO" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+	<para>
+	  List of requested blocks in order of arrival.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  List of requested blocks sorted by the current algorithm.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Currently selected algorithm.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Currently selected algorithm's parameters. None, in this
+	  case.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Blocks requested from the swap area.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Blocks requested from the data area.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Reader head location.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Click on this button to put the subsystem representation in
+	  it's own window, which allows multiple simultaneous
+	  representations of the same subsystem to be visible at the
+	  same time.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Messages telling interesting events.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Data area.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Swap area.
+	</para>
+      </listitem>
+    </orderedlist>
+    <sect1>
+      <title>The menus</title>
+      <para>
+	Here we will see what the options on each menu mean:
+      </para>
+      <figure>
+	<title>I/O Menu</title>
+	<graphic fileref="screen_shots/IO-Menu" format="eps"
+	align="center">
+      </figure>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    When this is checked, the clock will be stopped whenever
+	    something interesting happens.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    When this is checked, I/O accesses will complete
+	    immediately, allowing the user to concentrate in some
+	    other aspect of the system.
+	  </para>
+	</listitem>
+      </orderedlist>
+    </sect1>
+    <sect1>
+      <title>Drawing styles</title>
+      <para>
+        We will now see the different representations available for
+	the I/O subsystem.
+      </para>
+      <sect2>
+	<title>Round</title>
+	<figure>
+	  <title>I/O Menu</title>
+	  <graphic fileref="screen_shots/IO-Drawing-Round"
+	  format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Data area.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Swap area.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Blocks requested from the data area.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Blocks requested from the swap area.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	     Reader head.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Current placement of the reader head.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>Route</title>
+	<para>
+	  This style, pretends to clearly show the trajectory which
+	  will follow the reader head to access all requested blocks
+	  depending on the selected algorithm.
+	</>
+	<figure>
+	  <title>I/O Route</title>
+	  <graphic fileref="screen_shots/IO-Drawing-Route"
+	  format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Requested Blocks.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Trajectory between block reads.
+	    </>
+	  </>
+	</orderedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Main memory.</title> 
+    <para>
+      The memory subsystem has the only function of accepting memory
+      usage requests and assigning physical memory frames to
+      processes.
+    </para>
+    <para>
+      We will now describe it's elements:
+    </para>
+    <figure>
+      <title>Main memory</title>
+      <graphic fileref="screen_shots/MEM" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+	<para>
+	  Currently used algorithm.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Parameters for the currently used algorithm. In this case none.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  One of the possible representations.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Available representations on this subsystem.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Click on this button to place the representation on it's own
+	  window. This way you can see more than one simultaneously.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Messages telling interesting events.
+	</para>
+      </listitem>
+    </orderedlist>
+    <sect1>
+      <title>The menus</title>
+      <para>
+        Here we will see what the options on each menu mean:
+      </para>
+      <figure>
+	<title>Main Memory</title>
+	<graphic fileref="screen_shots/MEM-Menu" format="eps"
+	align="center">
+      </figure>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    If enabled, the clock will be stopped whenever something
+	    interesting happens on this subsystem.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    If enabled, this subsystem will pretend that all processes
+	    have all their pages; Something like having infinite
+	    memory. This is useful to concentrate on other aspects of
+	    the system.
+	  </para>
+	</listitem>
+      </orderedlist>
+    </sect1>
+    <sect1>
+      <title>Drawing styles</title>
+      <para>
+        We will now see the different representations available for
+	the Memory subsystem.
+      </para>
+      <sect2>
+	<title>Virtual Memory</title>
+	<figure>
+	  <title>Virtual Representation</title>
+	  <graphic fileref="screen_shots/MEM-Virtual"
+	  format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      Not valid page. Any access will cause a page fault.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Valid page. This page has not been modified since it was
+	      loaded into memory or since the last time it was written
+	      to swap space. So it could be discarded if needed and
+	      it's frame given to another page.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Valid page. This page has been modified since it was
+	      loaded into memory or since the last time it was written
+	      to swap space. So it we need the memory frame for a
+	      different page we would have to write it to swap space
+	      before reassigning it.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      This page is not valid, but a frame as been assigned to
+	      it and will soon be valid.
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect2>
+      <sect2>
+	<title>Physical Memory</title>
+	<para>
+	  This represents physical memory frames which get assigned to
+	  process' pages.
+	</para>
+	<figure>
+	  <title>Physical Representation</title>
+	  <graphic fileref="screen_shots/MEM-Physical"
+	  format="eps" align="center">
+	</figure>
+	<orderedlist>
+	  <listitem>
+	    <para>
+	      This frame is free.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      This frame is assigned to process 1 and has been modified
+	      since it was loaded, so it will have to be written in
+	      swap space before it can be reused for a different page.
+	    </>
+	  </>
+	  <listitem>
+	    <para>
+	      This frame is assigned to process 2 and was not modified
+	      since it was loaded, so it may be discarded without
+	      writing it to swap space if needed.
+	    </>
+	  </>
+	</orderedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>The Clock</title> 
+    <para>
+      The clock subsystem has the only task of controlling time, making
+      other subsystems work faster, slower or stopping them.
+    </para>
+    <para>
+      We will now describe it's elements:
+    </para>
+    <figure>
+      <title>The Clock</title>
+      <graphic fileref="screen_shots/CLOCK" format="eps" align="center">
+    </figure>
+    <orderedlist>
+      <listitem>
+	<para>
+	  Clicking on this button the clock will start counting one
+	  time unit every time the selected milliseconds go by.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Clicking on this button the clock will stop.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Clicking on this button the clock will count a single "time
+	  unit".
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  This is the number of milliseconds equivalent to a "time
+	  unit", a lower number makes the time go faster and a higher
+	  number makes time go slower.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  The number of "time units" elapsed until now.
+	</para>
+      </listitem>
+    </orderedlist>
+    </chapter>
+  <chapter>
+    <title>The Requestor</title> 
+    <para>
+      This subsystem has the only task of making requests to main
+      memory and I/O subsystems. This way you don't have to create
+      processes to play which those subsystems when we don't care
+      about the CPU.
+    </para>
+    <para>
+      We will now describe it's elements:
+    </para>
+    <sect1>
+      <title>Requests to main memory</>
+      <figure>
+	<title>The Requestor IO</title>
+	<graphic fileref="screen_shots/REQUESTOR-IO" format="eps"
+		 align="center">
+      </figure>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    This is the block which will be requested.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Clicking here the chosen block will be requested.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    This enabled, random blocks will be requested when
+	    clicking the button.
+	  </para>
+	</listitem>
+      </orderedlist>
+    </sect1>
+    <sect1>
+      <title>Main memory requests</>
+      <figure>
+	<title>The Requestor MEM</title>
+	<graphic fileref="screen_shots/REQUESTOR-MEM" format="eps"
+		 align="center">
+      </figure>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    We will use this page.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    The request will apply to this process' virtual memory space.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Clicking here a read request is made.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Clicking here a write request is made.
+	  </para>
+	</listitem>
+      </orderedlist>
+    </sect1>
+  </chapter>
+</book>

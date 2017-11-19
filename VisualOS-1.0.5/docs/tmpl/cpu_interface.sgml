@@ -1,0 +1,57 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+CPU interface to the other subsystems.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions allow the other subsystems to interact, througth the messaging
+service, with the CPU.
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION cpu_register_proc_creat ##### -->
+<para>
+
+</para>
+
+@func: 
+
+
+<!-- ##### FUNCTION cpu_register_proc_finish ##### -->
+<para>
+</para>
+
+@func: 
+
+
+<!-- ##### USER_FUNCTION proc_creat_callback_t ##### -->
+<para>
+Function pointer type for the callback used on @cpu_register_proc_creat.
+</para>
+
+@pid: Process ID of the created process.
+
+
+<!-- ##### USER_FUNCTION proc_finish_callback_t ##### -->
+<para>
+Function pointer type for the callback used on @cpu_register_proc_finish.
+</para>
+
+@pid: Process ID of the terminated process.
+
+
+<!-- ##### FUNCTION CPU_terminate_proc ##### -->
+<para>
+
+</para>
+
+@pid: 
+
+

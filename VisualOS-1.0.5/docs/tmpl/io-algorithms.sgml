@@ -1,0 +1,71 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Interface for Algorithms.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+Great effort has been devoted to making the addicion of new algorithms as easy
+as posible, here is documented what there is to know to be able to write your
+own algorithms.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+<variablelist>
+
+<varlistentry>
+<term>#IO Simulation</term>
+<listitem><para>How to inspect and manage requests.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>#Geometry</term>
+<listitem><para>How manage geometry.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>#Property Widget Facility</term>
+<listitem><para>How to hadle numerical algorithm properties with the user
+	without learning GTK+.
+	</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>#Request Queues</term>
+<listitem><para>How to hadle request queues.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+
+<!-- ##### STRUCT io_algorithm_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION get_IO_current_algorithm ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION init_IO_algorithms ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION register_IO_algorithm ##### -->
+<para>
+
+</para>
+
+@algorithm: 
+@Returns: 
+
+

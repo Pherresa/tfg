@@ -1,0 +1,46 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+MEM interface to the other subsystems.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions allow the other subsystems to interact, througth the messaging
+service, with the Memory.
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### USER_FUNCTION page_ready_callback_t ##### -->
+<para>
+Function pointer type for the callback used on @mem_register_page_ready.
+</para>
+
+@pid: the process involved.
+@page: the process' page which has become ready.
+
+
+<!-- ##### FUNCTION mem_register_page_ready ##### -->
+<para>
+
+</para>
+
+@func: 
+
+
+<!-- ##### FUNCTION mem_touch_page ##### -->
+<para>
+
+</para>
+
+@proc: 
+@page: 
+@write: 
+@Returns: 
+
+

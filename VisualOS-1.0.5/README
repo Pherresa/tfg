@@ -1,0 +1,37 @@
+DESCRIPTION
+	VisualOS is an "visual simulator of and operating system", that
+	will help study and understand the way a real sistem works.
+
+	It allows the user to insert processes in the running system,
+	assigning them properties (memory usage, processing bursts, IO
+	accesses) and VisualOS will dynamically show different graphical
+	representations of each subsystem. It is also posible to select the
+	algorithm to be used in each case.
+
+REQUIREMENTS: 
+	Note: This are the verions I am using, other version may work.
+	
+	* GTK+ (1.2.x)
+	* GNOME (1.2.x)
+	* libglade (0.16)
+	* transfig (3.2.3.b) 
+		for the images in the documentation.
+	* help2man (1.24)
+		to generate the manpage.
+	* cygnus-stylesheets (0.10.2) and sgml-tools (1.0.9-12)
+		For SGML documentation.
+	* bison (1.28-5) or maybe yacc
+		If src/CPU/editor/parser.y is changed.
+
+HOMEPAGE:
+	http://visualos.sourceforge.net/
+
+MAIL-LISTS:
+	visualos-user@lists.sourceforge.net
+		For user support
+	visualos-devel@lists.sourceforge.net
+		For developer comunication
+	
+REPORT BUGS TO:
+	visualos-devel@lists.sourceforge.net
+

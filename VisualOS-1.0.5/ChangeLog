@@ -1,0 +1,1746 @@
+2004-06-02  rrey  <rrey@debian>
+
+	* NEWS, configure.in: Preparing 1.0.5 release
+
+	* CONTRIBUTORS: Updated Spanish translation
+
+	* po/es.po: Updated Spanish translation.
+
+	* src/MEM/algorithms/second_chance.c, src/MEM/algorithms/second_chance.h, src/MEM/drawings/main.c, src/MEM/drawings/main.h, src/MEM/drawings/physical.c, src/MEM/drawings/physical.h, src/MEM/drawings/virtual.c, src/MEM/drawings/virtual.h, src/REQUESTOR/main.c, src/REQUESTOR/main.h, src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/main.c, src/CLOCK/main.h, src/CPU/CPU.c, src/CPU/CPU.h, src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/fcfs.h, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/hrrn.h, src/CPU/algorithms/manual.c, src/CPU/algorithms/manual.h, src/CPU/algorithms/rr.c, src/CPU/algorithms/rr.h, src/CPU/algorithms/spn.c, src/CPU/algorithms/spn.h, src/CPU/algorithms/srt.c, src/CPU/algorithms/srt.h, src/CPU/algorithms/test.c, src/CPU/algorithms/test.h, src/CPU/clock.c, src/CPU/clock.h, src/CPU/combos.c, src/CPU/combos.h, src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/drawings/bars.c, src/CPU/drawings/bars.h, src/CPU/drawings/main.c, src/CPU/drawings/main.h, src/CPU/drawings/new4.c, src/CPU/drawings/new4.h, src/CPU/drawings/original.c, src/CPU/drawings/original.h, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/overlapped_bars.h, src/CPU/drawings/shared.c, src/CPU/drawings/shared.h, src/CPU/drawings/state.c, src/CPU/drawings/state.h, src/CPU/editor/advanced.c, src/CPU/editor/advanced.h, src/CPU/editor/dump.c, src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/editor/file.c, src/CPU/editor/file.h, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/parser.h, src/CPU/editor/util.h, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c, src/CPU/main.h, src/CPU/misc_menu_callbacks.c, src/CPU/misc_menu_callbacks.h, src/CPU/queues.c, src/CPU/queues.h, src/CPU/simulation.c, src/CPU/simulation.h, src/CPU/stats.c, src/CPU/stats.h, src/CPU/status.c, src/CPU/status.h, src/IO/IO.c, src/IO/IO.h, src/IO/algorithms/algorithm_api.h, src/IO/algorithms/algorithms.c, src/IO/algorithms/algorithms.h, src/IO/algorithms/fcfs.c, src/IO/algorithms/fcfs.h, src/IO/algorithms/manual.c, src/IO/algorithms/manual.h, src/IO/algorithms/nsscan.c, src/IO/algorithms/nsscan.h, src/IO/algorithms/scan.c, src/IO/algorithms/scan.h, src/IO/algorithms/sstf.c, src/IO/algorithms/sstf.h, src/IO/algorithms/test.c, src/IO/algorithms/test.h, src/IO/combo.c, src/IO/combo.h, src/IO/delay.c, src/IO/delay.h, src/IO/drawings/main.c, src/IO/drawings/main.h, src/IO/drawings/new.c, src/IO/drawings/new.h, src/IO/drawings/round.c, src/IO/drawings/round.h, src/IO/geometry.c, src/IO/geometry.h, src/IO/info.c, src/IO/info.h, src/IO/io_config.c, src/IO/io_config.h, src/IO/main.c, src/IO/main.h, src/IO/queues.c, src/IO/queues.h, src/IO/simulation.c, src/IO/simulation.h, src/IO/status.c, src/IO/status.h, src/MEM/MEM.c, src/MEM/MEM.h, src/MEM/algorithms/algorithm_api.h, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/clock.h, src/MEM/algorithms/fifo.c, src/MEM/algorithms/fifo.h, src/MEM/algorithms/manual.c, src/MEM/algorithms/manual.h, src/MEM/combo.c, src/MEM/combo.h, src/MEM/info.c, src/MEM/info.h, src/MEM/main.c, src/MEM/main.h, src/MEM/mem_config.c, src/MEM/mem_config.h, src/MEM/misc_menu_callbacks.c, src/MEM/misc_menu_callbacks.h, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/status.c, src/MEM/status.h, src/MEM/swap.c, src/MEM/swap.h, src/property_widgets.c, src/property_widgets.h, src/signals.c, src/signals.h, src/util.c, src/util.h, src/process.h, src/SCHED.c, src/SCHED.h, src/VisualOS.c, src/bitops.c, src/bitops.h, src/drawing.c, src/drawing.h, src/events.c, src/events.h, src/file-dialog.c, src/file-dialog.h, src/gdk-helper.c, src/gdk-helper.h, src/interface.h, src/messaging.c, src/messaging.h, src/process.c:
+	Update copyright notice and spelling fix
+
+2003-08-04  ranty  <ranty@debian>
+
+	* po/es.po: Revised by Ramón Rey Vicente
+
+	* src/MEM/drawings/virtual.h, src/REQUESTOR/main.c, src/REQUESTOR/main.h, src/CPU/editor/advanced.h, src/CPU/editor/dump.c, src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/editor/file.c, src/CPU/editor/file.h, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/parser.h, src/CPU/editor/util.h, src/IO/IO.c, src/IO/IO.h, src/IO/algorithms/algorithm_api.h, src/IO/algorithms/algorithms.c, src/IO/algorithms/algorithms.h, src/IO/algorithms/fcfs.c, src/IO/algorithms/fcfs.h, src/IO/algorithms/manual.c, src/IO/algorithms/manual.h, src/IO/algorithms/nsscan.c, src/IO/algorithms/nsscan.h, src/IO/algorithms/scan.c, src/IO/algorithms/scan.h, src/IO/algorithms/sstf.c, src/IO/algorithms/sstf.h, src/IO/algorithms/test.c, src/IO/algorithms/test.h, src/IO/combo.c, src/IO/combo.h, src/IO/delay.c, src/IO/delay.h, src/IO/drawings/main.c, src/IO/drawings/main.h, src/IO/drawings/new.c, src/IO/drawings/new.h, src/IO/drawings/round.c, src/IO/drawings/round.h, src/IO/geometry.c, src/IO/geometry.h, src/IO/info.c, src/IO/info.h, src/IO/io_config.c, src/IO/io_config.h, src/IO/main.c, src/IO/main.h, src/IO/queues.c, src/IO/queues.h, src/IO/simulation.c, src/IO/simulation.h, src/IO/status.c, src/IO/status.h, src/MEM/MEM.c, src/MEM/MEM.h, src/MEM/algorithms/algorithm_api.h, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/clock.h, src/MEM/algorithms/fifo.c, src/MEM/algorithms/fifo.h, src/MEM/algorithms/manual.c, src/MEM/algorithms/manual.h, src/MEM/algorithms/second_chance.c, src/MEM/algorithms/second_chance.h, src/MEM/combo.c, src/MEM/combo.h, src/MEM/drawings/main.c, src/MEM/drawings/main.h, src/MEM/drawings/physical.c, src/MEM/drawings/physical.h, src/MEM/drawings/virtual.c, src/MEM/info.c, src/MEM/info.h, src/MEM/main.c, src/MEM/main.h, src/MEM/mem_config.c, src/MEM/mem_config.h, src/MEM/misc_menu_callbacks.c, src/MEM/misc_menu_callbacks.h, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/status.c, src/MEM/status.h, src/MEM/swap.c, src/MEM/swap.h, acconfig.h, debian/copyright, docs/Descripcion.sgml, docs/Manual-cs.sgml, docs/Manual-en.sgml, docs/Manual-es.sgml, docs/VisualOS-docs.sgml, docs/VisualOS.man-include, po/cs.po, po/es.po, po/it.po, src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/main.c, src/CLOCK/main.h, src/CPU/CPU.c, src/CPU/CPU.h, src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/fcfs.h, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/hrrn.h, src/CPU/algorithms/manual.c, src/CPU/algorithms/manual.h, src/CPU/algorithms/rr.c, src/CPU/algorithms/rr.h, src/CPU/algorithms/spn.c, src/CPU/algorithms/spn.h, src/CPU/algorithms/srt.c, src/CPU/algorithms/srt.h, src/CPU/algorithms/test.c, src/CPU/algorithms/test.h, src/CPU/clock.c, src/CPU/clock.h, src/CPU/combos.c, src/CPU/combos.h, src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/drawings/bars.c, src/CPU/drawings/bars.h, src/CPU/drawings/main.c, src/CPU/drawings/main.h, src/CPU/drawings/new4.c, src/CPU/drawings/new4.h, src/CPU/drawings/original.c, src/CPU/drawings/original.h, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/overlapped_bars.h, src/CPU/drawings/shared.c, src/CPU/drawings/shared.h, src/CPU/drawings/state.c, src/CPU/drawings/state.h, src/CPU/editor/advanced.c, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c, src/CPU/main.h, src/CPU/misc_menu_callbacks.c, src/CPU/misc_menu_callbacks.h, src/CPU/queues.c, src/CPU/queues.h, src/CPU/simulation.c, src/CPU/simulation.h, src/CPU/stats.c, src/CPU/stats.h, src/CPU/status.c, src/CPU/status.h, src/SCHED.c, src/SCHED.h, src/VisualOS.c, src/bitops.c, src/bitops.h, src/drawing.c, src/drawing.h, src/events.c, src/events.h, src/file-dialog.c, src/file-dialog.h, src/gdk-helper.c, src/gdk-helper.h, src/interface.h, src/messaging.c, src/messaging.h, src/process.c, src/process.h, src/property_widgets.c, src/property_widgets.h, src/signals.c, src/signals.h, src/util.c, src/util.h:
+	Copyright updates thanks to Ramón Rey Vicente.
+
+	* debian/changelog, debian/control: Changed Debian section to gnome
+
+2003-03-30  ranty  <ranty@debian>
+
+	* NEWS: *** empty log message ***
+
+	* CONTRIBUTORS, NEWS: Reflect the DocBook update.
+
+	* docs/Resumen.sgml, docs/VisualOS-docs.sgml, docs/Bibliografia.sgml, docs/Descripcion.sgml, docs/Diseño.sgml, docs/Especificacion_de_requisitos.sgml, docs/Lista_de_cambios.sgml, docs/Manual-cs.sgml, docs/Manual-en.sgml, docs/Manual-es.sgml:
+	Updated to DocBook 4.1 thanks to Ramón Rey Vicente <rrey@augcyl.org>
+
+2003-02-23  ranty  <ranty@debian>
+
+	* CONTRIBUTORS, src/CLOCK/main.c, src/CPU/algorithms/manual.c, src/CPU/algorithms/test.c, src/CPU/drawings/bars.c, src/CPU/drawings/new4.c, src/CPU/drawings/original.c, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/state.c, src/CPU/editor/editor.c, src/CPU/queues.c, src/CPU/stats.c, src/IO/algorithms/manual.c, src/IO/drawings/main.c, src/IO/info.c, src/IO/main.c, src/MEM/algorithms/clock.c, src/MEM/algorithms/manual.c, src/MEM/drawings/main.c, src/MEM/main.c, src/REQUESTOR/main.c, src/VisualOS.c, src/messaging.c:
+	Warning fixes by Ramón Rey Vicente <ramon.rey@hispalinux.es>.
+
+2003-01-10  ranty  <ranty@debian>
+
+	* docs/Makefile.am:
+	Set SP_ENCODING=ISO-8859-2 for Czech document generation.
+
+	* docs/Manual-cs.sgml: Spelling.
+
+	* po/cs.po: Update for new wellcome string.
+
+	* src/IO/status.c, src/MEM/status.c, src/CPU/status.c:
+	Changed wellcome string to be more translator friendly.
+
+2003-01-05  ranty  <ranty@debian>
+
+	* src/CLOCK/CLOCK.c, src/CPU/editor/editor.c, src/CPU/editor/parser.y, src/CPU/editor/util.h, src/CPU/status.c, src/IO/status.c, src/MEM/status.c, src/property_widgets.c, src/signals.c, TODO, src/VisualOS.c:
+	Misc polishing to make compiler happier when using '--enable-iso-c' configure
+	option.
+
+	* configure.in, docs/Makefile.am, docs/Manual-cs.sgml, po/cs.po, src/CPU/algorithms/manual.c, src/CPU/drawings/bars.c, src/CPU/drawings/new4.c, src/CPU/drawings/original.c, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/state.c, src/CPU/editor/editor.c, src/CPU/status.c, src/IO/IO.c, src/IO/combo.c, src/IO/drawings/new.c, src/IO/drawings/round.c, src/IO/status.c, src/MEM/MEM.c, src/MEM/algorithms/manual.c, src/MEM/drawings/physical.c, src/MEM/drawings/virtual.c, src/MEM/status.c, src/drawing.c, src/process.c, src/property_widgets.c, CONTRIBUTORS:
+	Added Czech Translation and some misc NLS related changes.
+
+	* po/es.po, po/fr.po, po/it.po: Automatic gettext changes.
+
+2002-10-26  ranty  <ranty@debian>
+
+	* autogen.sh, configure.in, debian/control:
+	Updated to work with gettext 0.11.
+
+	* po/es.po, po/fr.po, po/it.po:
+	Updated Content-Type and Content-Transfer-Encoding fields.
+
+	* src/CPU/editor/parser.y: Updated for bison 1.75
+
+2002-10-21  ranty  <ranty@debian>
+
+	* TODO: Should port to MacOS X/Fink.
+
+	* debian/changelog: New debian release.
+
+2002-05-25  ranty  <ranty@debian>
+
+	* debian/copyright, po/es.po, po/fr.po, po/it.po, src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/main.c, src/CLOCK/main.h, src/CPU/CPU.c, src/CPU/CPU.h, src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/fcfs.h, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/hrrn.h, src/CPU/algorithms/manual.c, src/CPU/algorithms/manual.h, src/CPU/algorithms/rr.c, src/CPU/algorithms/rr.h, src/CPU/algorithms/spn.c, src/CPU/algorithms/spn.h, src/CPU/algorithms/srt.c, src/CPU/algorithms/srt.h, src/CPU/algorithms/test.c, src/CPU/algorithms/test.h, src/CPU/clock.c, src/CPU/clock.h, src/CPU/combos.c, src/CPU/combos.h, src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/drawings/bars.c, src/CPU/drawings/bars.h, src/CPU/drawings/main.c, src/CPU/drawings/main.h, src/CPU/drawings/new4.c, src/CPU/drawings/new4.h, src/CPU/drawings/original.c, src/CPU/drawings/original.h, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/overlapped_bars.h, src/CPU/drawings/shared.c, src/CPU/drawings/shared.h, src/CPU/drawings/state.c, src/CPU/drawings/state.h, src/CPU/editor/advanced.c, src/CPU/editor/advanced.h, src/CPU/editor/dump.c, src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/editor/file.c, src/CPU/editor/file.h, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/parser.h, src/CPU/editor/util.h, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c, src/CPU/main.h, src/CPU/misc_menu_callbacks.c, src/CPU/misc_menu_callbacks.h, src/CPU/queues.c, src/CPU/queues.h, src/CPU/simulation.c, src/CPU/simulation.h, src/CPU/stats.c, src/CPU/stats.h, src/CPU/status.c, src/CPU/status.h, src/IO/IO.c, src/IO/IO.h, src/IO/algorithms/algorithm_api.h, src/IO/algorithms/algorithms.c, src/IO/algorithms/algorithms.h, src/IO/algorithms/fcfs.c, src/IO/algorithms/fcfs.h, src/IO/algorithms/manual.c, src/IO/algorithms/manual.h, src/IO/algorithms/nsscan.c, src/IO/algorithms/nsscan.h, src/IO/algorithms/scan.c, src/IO/algorithms/scan.h, src/IO/algorithms/sstf.c, src/IO/algorithms/sstf.h, src/IO/algorithms/test.c, src/IO/algorithms/test.h, src/IO/combo.c, src/IO/combo.h, src/IO/delay.c, src/IO/delay.h, src/IO/drawings/main.c, src/IO/drawings/main.h, src/IO/drawings/new.c, src/IO/drawings/new.h, src/IO/drawings/round.c, src/IO/drawings/round.h, src/IO/geometry.c, src/IO/geometry.h, src/IO/info.c, src/IO/info.h, src/IO/io_config.c, src/IO/io_config.h, src/IO/main.c, src/IO/main.h, src/IO/queues.c, src/IO/queues.h, src/IO/simulation.c, src/IO/simulation.h, src/IO/status.c, src/IO/status.h, src/MEM/MEM.c, src/MEM/MEM.h, src/MEM/algorithms/algorithm_api.h, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/clock.h, src/MEM/algorithms/fifo.c, src/MEM/algorithms/fifo.h, src/MEM/algorithms/manual.c, src/MEM/algorithms/manual.h, src/MEM/algorithms/second_chance.c, src/MEM/algorithms/second_chance.h, src/MEM/combo.c, src/MEM/combo.h, src/MEM/drawings/main.c, src/MEM/drawings/main.h, src/MEM/drawings/physical.c, src/MEM/drawings/physical.h, src/MEM/drawings/virtual.c, src/MEM/drawings/virtual.h, src/MEM/info.c, src/MEM/info.h, src/MEM/main.c, src/MEM/main.h, src/MEM/mem_config.c, src/MEM/mem_config.h, src/MEM/misc_menu_callbacks.c, src/MEM/misc_menu_callbacks.h, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/status.c, src/MEM/status.h, src/MEM/swap.c, src/MEM/swap.h, src/REQUESTOR/main.c, src/REQUESTOR/main.h, src/SCHED.c, src/SCHED.h, src/VisualOS.c, src/VisualOS.glade, src/bitops.c, src/bitops.h, src/drawing.c, src/drawing.h, src/events.c, src/events.h, src/file-dialog.c, src/file-dialog.h, src/gdk-helper.c, src/gdk-helper.h, src/interface.h, src/libglade_strings.h, src/messaging.c, src/messaging.h, src/process.c, src/process.h, src/property_widgets.c, src/property_widgets.h, src/signals.c, src/signals.h, src/util.c, src/util.h, AUTHORS, acconfig.h:
+	Updated copyright information (bye bye atdot.org).
+
+	* CONTRIBUTORS: Raquel's email change.
+
+2002-05-19  ranty  <ranty@debian>
+
+	* NEWS, configure.in, debian/changelog: Getting ready for release 1.0.4
+
+	* po/es.po, po/fr.po, po/it.po: Side effects of the spelling fixes.
+
+	* docs/Descripcion.sgml, docs/Manual-en.sgml, docs/Manual-es.sgml, docs/VisualOS-docs.sgml, docs/VisualOS.man-include:
+	Updated email and copyright year.
+
+	* docs/Makefile.am:
+	Make sure that the end user will be able to compile the documentation;
+	more EXTRA_DIST stuff.
+
+2002-05-18  ranty  <ranty@debian>
+
+	* po/es.po, po/fr.po, po/it.po, src/CPU/combos.c, src/IO/combo.c, src/MEM/combo.c, src/VisualOS.glade, src/libglade_strings.h:
+	Some english spelling fixes thanks to Laurent Bonnaud <Laurent.Bonnaud@inpg.fr>
+
+	* docs/Makefile.am: I duplicated EXTRA_DIST by mistake: fixed.
+
+	* docs/Makefile.am: EXTRA_DIST Block-Diagram* pictures.
+
+	* configure.in:
+	use libtool (one day it will allow pluginization of algorithms);
+	more POSIX compliant shellscript.
+
+	* docs/Makefile.am:
+	Use my own stylesheets with docbook-utils (jw) for sgml compilation;
+	keep using sgmltools for compilation into .txt (gives better results);
+	use .png instead of .gif as much a posible;
+	added all-doc target;
+	other misc cleanups.
+
+	* docs/VisualOS-docs.sgml: fix unfinished <sect1>
+
+	* docs/Resumen.sgml, docs/Lista_de_cambios.sgml:
+	jadetex doesn't handle dots in graphycs filenames.
+
+	* docs/Diseño.sgml:
+	Move a dot to it's place and add a section for the simplified diagram so it
+	compiles again.
+
+	* docs/Descripcion.sgml:
+	jadetex doesn't handle dots in graphyc filenames.
+
+	* docs/Bibliografia.sgml:
+	Add an empty paragraph before the bibliograpy and affiliation markup so it
+	compiles again.
+
+	* docs/html-png.dsl, docs/print-eps.dsl, docs/print-png.dsl:
+	Use my own stylesheet so I can freely choose the graphycs file extension.
+
+	* docs/screen_shots/Makefile.am:
+	changed 'clean' into CLEANFILES variable.
+	Added support for pdf graphics.
+
+	* docs/screen_shots/Makefile.am: cleanup using some makefile magic;
+	make compatibility symlinks since jadetex doesn't handle dots in filenames.
+
+2002-01-17  ranty  <ranty@debian>
+
+	* README:
+	'make install' has been working for quite a while. Remove the outdated
+	comment.
+
+2002-01-10  ranty  <ranty@debian>
+
+	* configure.in: Fail at ./configure if libglade is not available.
+
+2001-11-22  ranty  <ranty@debian>
+
+	* NEWS: User manual is finaly translated into english.
+
+	* debian/changelog: new debian release.
+
+2001-11-15  ranty  <ranty@debian>
+
+	* Makefile.am:
+	Simplified ChangeLog generation and use the more standard rcs2log instead of
+	cvs2cl.
+
+2001-11-13  ranty  <ranty@debian>
+
+	* src/CLOCK/Makefile.am: The newline was not enough.
+
+	* debian/changelog:
+	Rebuilt agains current binutils to take advantage of combreloc.
+
+	* TODO: And even more things TODO.
+
+	* src/CLOCK/Makefile.am:
+	The last newline is requiered or else make will join the next line and break
+	compilation.
+
+	* po/ChangeLog, po/es.po, po/fr.po, po/it.po:
+	Automatic format changes by gettext.
+
+	* docs/Makefile.am: Now there is an english user manual.
+
+	* Makefile.am, autogen.sh, configure.in, macros/.cvsignore, macros/ChangeLog, macros/Makefile.am, macros/aclocal-include.m4, macros/autogen.sh, macros/compiler-flags.m4, macros/curses.m4, macros/gnome-bonobo-check.m4, macros/gnome-common.m4, macros/gnome-cxx-check.m4, macros/gnome-fileutils.m4, macros/gnome-gettext.m4, macros/gnome-ghttp-check.m4, macros/gnome-gnorba-check.m4, macros/gnome-guile-checks.m4, macros/gnome-libgtop-check.m4, macros/gnome-objc-checks.m4, macros/gnome-orbit-check.m4, macros/gnome-pilot.m4, macros/gnome-print-check.m4, macros/gnome-pthread-check.m4, macros/gnome-support.m4, macros/gnome-undelfs.m4, macros/gnome-vfs.m4, macros/gnome-x-checks.m4, macros/gnome-xml-check.m4, macros/gnome.m4, macros/gperf-check.m4, macros/linger.m4, macros/need-declaration.m4:
+	Start using gnome-common package so I don't have to worry for gnome .m4 files.
+
+2001-11-05  ranty  <ranty@debian>
+
+	* docs/Manual-en.sgml: Finised translating.
+
+	* docs/Manual-es.sgml: Fixed some typos while translating.
+
+	* docs/Manual-es.sgml: Fixed a typo.
+
+2001-07-05  ranty  <ranty@debian>
+
+	* docs/Manual-en.sgml: a bit more translation
+
+2001-05-21  ranty  <ranty@debian>
+
+	* debian/changelog, debian/control: hopefully fixed build depends
+
+2001-04-21  ranty  <ranty@debian>
+
+	* debian/changelog, debian/control:
+	depend on the first debhelper having dh_installman;
+	changed maintainer address to ranty@debian.org.
+
+2001-04-02  ranty  <ranty@debian>
+
+	* debian/control: Added libglade-gnome0-dev to Build-Depends
+
+2001-03-29  ranty  <ranty@debian>
+
+	* Makefile.am:
+	For some reason automake stoped including the changelog on make dist
+
+	* debian/control: updated debian standards version
+
+	* debian/control: build depend on help2man
+
+	* debian/changelog: I will also release a new upstream tarball
+
+	* configure.in: bumped the version number
+
+	* README: I use help2man now
+
+	* .cvsignore, NEWS, debian/changelog, debian/copyright, debian/dirs, debian/docs, debian/rules, docs/Makefile.am, docs/Manual-en.sgml, docs/VisualOS.man-include, docs/screen_shots/Makefile.am, po/.cvsignore, docs/.cvsignore, macros/.cvsignore:
+	.cvsignore
+
+	* macros/gperf-check.m4, macros/gnome-pilot.m4, macros/gnome-cxx-check.m4, macros/autogen.sh, macros/Makefile.am, macros/ChangeLog, macros/curses.m4, macros/gnome-bonobo-check.m4, macros/gnome-common.m4, macros/gnome-gettext.m4, macros/gnome-ghttp-check.m4, macros/gnome-libgtop-check.m4, macros/gnome-objc-checks.m4, macros/gnome-print-check.m4, macros/gnome-vfs.m4, macros/gnome-xml-check.m4, macros/gnome.m4, macros/linger.m4, macros/need-declaration.m4, configure.in, autogen.sh, Makefile.am:
+	Updated macros directory to latest gnome version.
+
+2001-03-28  ranty  <ranty@debian>
+
+	* po/it.po, po/fr.po, po/es.po: automatic updates on comments.
+
+2001-03-15  ranty  <ranty@debian>
+
+	* .cvsignore: added intl
+
+	* debian/.cvsignore: .cvsignore
+
+	* CONTRIBUTORS: updated
+
+	* debian/cron.d.ex, debian/emacsen-install.ex, debian/emacsen-remove.ex, debian/emacsen-startup.ex, debian/ex.doc-base.package, debian/init.d.ex, debian/manpage.1.ex, debian/manpage.sgml.ex, debian/postinst.ex, debian/postrm.ex, debian/preinst.ex, debian/prerm.ex, debian/watch.ex:
+	removed unneeded sample files
+
+	* debian/changelog: changed my name on the email
+
+	* debian/control: Updated section;
+	Changed my name on the email;
+	Added build depends.
+
+	* src/CPU/drawings/new4.c, src/CPU/drawings/state.c, src/IO/drawings/new.c, src/IO/drawings/round.c, src/MEM/drawings/physical.c, src/MEM/drawings/virtual.c:
+	Fixed gdk_font problem with XF4
+
+2001-03-07  ranty  <ranty@debian>
+
+	* README: added libglade to the REQUIREMENTS
+
+2000-12-01  ranty  <ranty@debian>
+
+	* NEWS, TODO: *** empty log message ***
+
+2000-10-27  ranty  <ranty@debian>
+
+	* src/events.c:
+	struct funcs conflicted with X11/Xlib.h for some user, renamed it
+
+	* src/CLOCK/CLOCK.c, src/CPU/CPU.c, src/CPU/algorithms/hrrn.c, src/CPU/combos.c, src/CPU/drawings/bars.c, src/CPU/editor/file.c, src/CPU/queues.c, src/CPU/simulation.c, src/CPU/stats.c, src/IO/IO.c, src/IO/combo.c, src/IO/delay.c, src/MEM/MEM.c, src/SCHED.c, src/drawing.c, src/messaging.c, src/process.c, src/process.h, src/property_widgets.c:
+	code cleanups
+
+	* TODO: more things TODO
+
+2000-10-21  ranty  <ranty@debian>
+
+	* NEWS, TODO, configure.in, debian/changelog: New revision 1.0.2
+
+	* debian/docs: include CONTRIBUTORS file in debian packages
+
+	* Makefile.am, configure.in, debian/Makefile.am:
+	'make dist' properly handles debian directory
+
+	* debian/prerm.debhelper, debian/files: shouldn't be in CVS
+
+	* Makefile.am: CONTRIBUTORS file is no distributed
+
+	* debian/rules: added undocumented manpage link
+
+	* debian/postinst.debhelper: shouldn't be in CVS
+
+	* debian/menu, debian/menu.ex: filled menu.ex and moved it to menu
+
+	* debian/substvars: shouldn't be in CVS
+
+2000-10-11  ranty  <ranty@debian>
+
+	* src/CLOCK/Makefile.am, src/CPU/Makefile.am, src/CPU/algorithms/Makefile.am, src/CPU/drawings/Makefile.am, src/CPU/editor/Makefile.am, src/IO/Makefile.am, src/IO/algorithms/Makefile.am, src/IO/drawings/Makefile.am, src/MEM/Makefile.am, src/MEM/algorithms/Makefile.am, src/MEM/drawings/Makefile.am, src/Make.defaults, src/Makefile.am, src/REQUESTOR/Makefile.am, TODO, configure.in:
+	hopefully fixed the makefiles
+
+	* po/.cvsignore: .cvsignore
+
+	* CONTRIBUTORS, configure.in, po/fr.po: added french translation
+
+	* po/es.po, po/it.po: misc revision
+
+2000-09-13  ranty  <ranty@debian>
+
+	* CONTRIBUTORS, configure.in, po/it.po: Added italian translation
+
+	* po/ChangeLog, po/POTFILES.in, po/es.po, src/CLOCK/main.c, src/CPU/CPU.c, src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/manual.c, src/CPU/algorithms/rr.c, src/CPU/combos.c, src/CPU/drawings/bars.c, src/CPU/drawings/new4.c, src/CPU/drawings/original.c, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/state.c, src/CPU/editor/editor.c, src/CPU/editor/general.c, src/CPU/editor/memory.c, src/CPU/queues.c, src/CPU/status.c, src/IO/IO.c, src/IO/algorithms/algorithm_api.h, src/IO/algorithms/manual.c, src/IO/algorithms/nsscan.c, src/IO/combo.c, src/IO/drawings/new.c, src/IO/drawings/round.c, src/IO/status.c, src/MEM/MEM.c, src/MEM/algorithms/algorithm_api.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/fifo.c, src/MEM/algorithms/manual.c, src/MEM/algorithms/second_chance.c, src/MEM/combo.c, src/MEM/drawings/physical.c, src/MEM/drawings/virtual.c, src/MEM/page_info.c, src/MEM/status.c, src/Makefile.am, src/REQUESTOR/main.c, src/VisualOS.c, src/VisualOS.glade, src/drawing.c, src/drawing.h, src/file-dialog.c, src/libglade_strings.h, src/messaging.c, src/property_widgets.c, Makefile.am, NEWS, acconfig.h, autogen.sh, configure.in, debian/changelog, debian/files, debian/rules, debian/substvars, docs/Makefile.am:
+	Fixed 'make install';
+	Added i18n support;
+	Added and spanish translation.
+
+2000-09-12  ranty  <ranty@debian>
+
+	* README: updated the REQUIREMENTS
+
+2000-09-11  ranty  <ranty@debian>
+
+	* README: added a README file :)
+
+	* NEWS: *** empty log message ***
+
+	* configure.in: the presence of fig2dev is autodetected now.
+
+2000-09-10  ranty  <ranty@debian>
+
+	* configure.in: bumped version number to 1.0.1
+
+	* debian/changelog, debian/control, debian/copyright, debian/cron.d.ex, debian/dirs, debian/docs, debian/emacsen-install.ex, debian/emacsen-remove.ex, debian/emacsen-startup.ex, debian/ex.doc-base.package, debian/files, debian/init.d.ex, debian/manpage.1.ex, debian/manpage.sgml.ex, debian/menu.ex, debian/postinst.debhelper, debian/postinst.ex, debian/postrm.ex, debian/preinst.ex, debian/prerm.debhelper, debian/prerm.ex, debian/rules, debian/substvars, debian/watch.ex:
+	added debian directory.
+
+	* docs/Makefile.am:
+	no need for those big .pdf files on the main distribution file, they can be generated from source and I will distribute them separately anyway.
+
+	* Makefile.am: debian directory should be distributed.
+
+	* docs/screen_shots/VisualOS-0.9.0.fig, docs/screen_shots/VisualOS-0.9.0-clean.gif, docs/screen_shots/VisualOS-0.0.0.fig, docs/screen_shots/VisualOS-0.0.0-clean.gif:
+	Forgot the -kb flag.
+
+	* docs/screen_shots/VisualOS-0.0.0-clean.gif, docs/screen_shots/VisualOS-0.0.0.fig, docs/screen_shots/VisualOS-0.9.0-clean.gif, docs/screen_shots/VisualOS-0.9.0.fig:
+	*** empty log message ***
+
+	* docs/screen_shots/VisualOS-0.9.0.fig, docs/screen_shots/VisualOS-0.9.0-clean.gif, docs/screen_shots/VisualOS-0.0.0.fig, docs/screen_shots/VisualOS-0.0.0-clean.gif:
+	Added screenshots of the application in early and late development.
+
+	* docs/Makefile.am:
+	Temporal files are now removed when generating the documents.
+
+	* docs/Resumen.sgml: Added a resume.
+
+	* docs/screen_shots/CPU-Process-Properties-Advanced.fig, docs/screen_shots/CPU-Process-Properties-Advanced-clean.gif:
+	Now shows a full example of the process description language.
+
+	* docs/Manual-es.sgml: Spellcheking.
+
+	* docs/Makefile.am:
+	Enhanced the makefile for easier document generation.
+
+	* docs/Lista_de_cambios.sgml, docs/ChangeLog:
+	A full changelog was too much.
+
+	* docs/Especificacion_de_requisitos.sgml: more practical requisites.
+
+	* docs/Diseño.sgml: spell checking.
+
+	* docs/Descripcion.sgml: revised by Gyermo.
+
+	* docs/Block-Diagram.dia: Cosmetic enhancement.
+
+	* configure.in:
+	Bumped version to 1.0.0; debuging is disable by default.
+
+2000-07-24  ranty  <ranty@debian>
+
+	* docs/Bibliografia.sgml: Added more web pages.
+
+	* src/MEM/page_info.c, src/MEM/MEM.c:
+	Some requests where not being answered when MEM was disabled.
+
+2000-07-22  ranty  <ranty@debian>
+
+	* src/VisualOS.c: It will now find the glade interface when installed.
+
+2000-07-17  ranty  <ranty@debian>
+
+	* src/CPU/simulation.c, src/MEM/swap.c:
+	Removed some debugging messages when debuging is disabled
+
+2000-07-16  ranty  <ranty@debian>
+
+	* docs/screen_shots/Makefile.am:
+	Updated the build system to make the distribution package smaller.
+
+	* docs/Makefile.am:
+	Updated the build system to make the distribution package smaller.
+		Now includes new documents.
+
+	* docs/Diseño.sgml:
+	Fix a typo which prevented que diagrams from appearing.
+
+	* docs/VisualOS-docs.sgml, docs/Manual-es.sgml, docs/Descripcion.sgml, docs/Bibliografia.sgml:
+	Cosmetic update.
+
+	* docs/Manual-es.sgml, docs/Lista_de_cambios.sgml, docs/Descripcion.sgml:
+	More spell checking.
+
+	* docs/Especificacion_de_requisitos.sgml:
+	Wrote the requirements specification.
+
+	* docs/Diseño.sgml: Wrote a document descriving the design.
+
+	* docs/Block-Diagram.dia, docs/Block-Diagram-real.dia:
+	Translated and changed the size of the diagrams.
+
+	* docs/Block-Diagram-real.dia:
+	added a block diagram including the messanger system.
+
+2000-07-15  ranty  <ranty@debian>
+
+	* docs/Lista_de_cambios.sgml:
+	Encapsulated the ChangeLog in an sgml file with a couple of screen shots.
+
+	* configure.in: this is almost done, bumped version to 0.9.0
+
+	* docs/Notes.txt: Descripcion.sgml already contains this notes.
+
+	* docs/Bibliografia.sgml: wrote the bibliography
+
+2000-07-14  ranty  <ranty@debian>
+
+	* docs/Descripcion.sgml: revised by Guillermo
+
+2000-07-13  ranty  <ranty@debian>
+
+	* docs/Descripcion.sgml: Added conclusions
+
+2000-07-12  ranty  <ranty@debian>
+
+	* docs/Descripcion.sgml: Revised by Luis Quintales
+
+	* src/MEM/algorithms/manual.c, TODO, src/VisualOS.c, src/events.h:
+	MEM subsystem now quits properly when the manual algorithm is selected and has pending page faults
+
+	* src/MEM/algorithms/manual.c:
+	MEM subsystem would quit when selecting more frames then needed in its manual algorithm.
+
+2000-07-11  ranty  <ranty@debian>
+
+	* docs/screen_shots/.cvsignore: *** empty log message ***
+
+	* docs/screen_shots/Makefile.am: autogenerate user manual screenshots
+
+	* docs/Makefile.am:
+	autogenerate and distribute documents in .pdf and text formats
+
+2000-07-03  ranty  <ranty@debian>
+
+	* docs/Manual-es.sgml: fixed spelling
+
+	* configure.in, docs/.cvsignore, docs/Makefile.am, docs/Manual-es.sgml, docs/screen_shots/CLOCK-clean.gif, docs/screen_shots/CLOCK.fig, docs/screen_shots/CPU-Drawing-Bars-clean.gif, docs/screen_shots/CPU-Drawing-Bars.fig, docs/screen_shots/CPU-Drawing-Overlapped-Bars-clean.gif, docs/screen_shots/CPU-Drawing-Overlapped.fig, docs/screen_shots/CPU-Drawing-Queues-clean.gif, docs/screen_shots/CPU-Drawing-Queues.fig, docs/screen_shots/CPU-Drawing-State-clean.gif, docs/screen_shots/CPU-Drawing-State.fig, docs/screen_shots/CPU-Menu-Edit-clean.gif, docs/screen_shots/CPU-Menu-File-clean.gif, docs/screen_shots/CPU-Menu-File.fig, docs/screen_shots/CPU-Menu-Settings-clean.gif, docs/screen_shots/CPU-Menu-Settings.fig, docs/screen_shots/CPU-Menu-View-clean.gif, docs/screen_shots/CPU-Menu-View.fig, docs/screen_shots/CPU-Preferences-Drawing-Styles-clean.gif, docs/screen_shots/CPU-Preferences-Drawing-Styles.fig, docs/screen_shots/CPU-Preferences-Process-Auto-Filling-clean.gif, docs/screen_shots/CPU-Preferences-Process-Auto-Filling.fig, docs/screen_shots/CPU-Process-Properties-Advanced-clean.gif, docs/screen_shots/CPU-Process-Properties-Advanced.fig, docs/screen_shots/CPU-Process-Properties-General-clean.gif, docs/screen_shots/CPU-Process-Properties-General.fig, docs/screen_shots/CPU-Process-Properties-IO-clean.gif, docs/screen_shots/CPU-Process-Properties-IO.fig, docs/screen_shots/CPU-Process-Properties-Memory-clean.gif, docs/screen_shots/CPU-Process-Properties-Memory.fig, docs/screen_shots/CPU-Properties-Drawing-Styles-clean.gif, docs/screen_shots/CPU-Properties-Process-Auto-Filling-clean.gif, docs/screen_shots/CPU-Properties-Process-General-clean.gif, docs/screen_shots/CPU-clean.gif, docs/screen_shots/CPU.fig, docs/screen_shots/IO-Drawing-Round-clean.gif, docs/screen_shots/IO-Drawing-Round.fig, docs/screen_shots/IO-Drawing-Route-clean.gif, docs/screen_shots/IO-Drawing-Route.fig, docs/screen_shots/IO-Menu-clean.gif, docs/screen_shots/IO-Menu.fig, docs/screen_shots/IO-clean.gif, docs/screen_shots/IO.fig, docs/screen_shots/MEM-Menu-clean.gif, docs/screen_shots/MEM-Menu.fig, docs/screen_shots/MEM-Physical-clean.gif, docs/screen_shots/MEM-Physical.fig, docs/screen_shots/MEM-Virtual-clean.gif, docs/screen_shots/MEM-Virtual.fig, docs/screen_shots/MEM-clean.gif, docs/screen_shots/MEM.fig, docs/screen_shots/REQUESTOR-IO-clean.gif, docs/screen_shots/REQUESTOR-IO.fig, docs/screen_shots/REQUESTOR-MEM-clean.gif, docs/screen_shots/REQUESTOR-MEM.fig:
+	Wrote a user manual
+
+	* NEWS: updated NEWS file
+
+2000-07-02  ranty  <ranty@debian>
+
+	* src/VisualOS.glade: little interface cleanup
+
+2000-07-01  ranty  <ranty@debian>
+
+	* src/IO/drawings/new.c:
+	no need to draw the current track, it gets in the way.
+
+	* TODO, docs/VisualOS-sections.txt, docs/tmpl/mem-status.sgml, src/MEM/MEM.h, src/MEM/algorithms/manual.c, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/swap.c:
+	the situation where frames become available while MEM manual algorithm is making a choise is now handled properly
+
+	* src/VisualOS.glade:
+	more confortable page increment in the CLOCK's time unit
+
+2000-06-30  ranty  <ranty@debian>
+
+	* TODO, src/IO/algorithms/Makefile.am, src/IO/algorithms/algorithms.c, src/IO/algorithms/manual.c, src/IO/algorithms/manual.h:
+	added a manual algorithm to IO subsystem
+
+2000-06-28  ranty  <ranty@debian>
+
+	* TODO, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/manual.c, src/MEM/algorithms/manual.h, src/MEM/drawings/physical.c, src/MEM/algorithms/Makefile.am, src/events.h:
+	Added a Manual algorithm to the Memory subsystem
+
+	* docs/Descripcion.sgml: correct spelling and misc changes
+
+	* docs/Block-Diagram.dia: updated the block diagram
+
+2000-06-25  ranty  <ranty@debian>
+
+	* docs/Block-Diagram.dia: made a block diagram
+
+	* docs/Descripcion.sgml: more complete description
+
+	* Makefile.am:
+	make ChangeLog will work event if there is no previeous ChangeLog file
+
+	* docs/VisualOS-docs.sgml, docs/VisualOS-sections.txt, docs/tmpl/VisualOS-unused.sgml, docs/tmpl/cpu-status.sgml, docs/tmpl/drawing.sgml, docs/tmpl/mem-algorithms.sgml, docs/tmpl/mem-status.sgml, docs/tmpl/system-events.sgml, src/IO/algorithms/algorithms.c, src/MEM/MEM.c, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/fifo.c, src/MEM/algorithms/second_chance.c, src/MEM/combo.c, src/MEM/info.c, src/MEM/info.h, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/swap.c, src/SCHED.h, src/drawing.h, src/events.c, src/events.h:
+	the programer's reference is complete
+
+	* docs/Descripcion.sgml: each subsystem may show in a different machine
+
+2000-06-24  ranty  <ranty@debian>
+
+	* src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/manual.c, src/CPU/algorithms/rr.c, src/CPU/algorithms/spn.c, src/CPU/algorithms/srt.c, src/CPU/algorithms/test.c, src/CPU/clock.c, src/CPU/clock.h, src/CPU/combos.c, src/CPU/combos.h, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c, src/CPU/queues.c, src/CPU/queues.h, src/IO/IO.h, src/IO/algorithms/algorithms.c, src/IO/algorithms/algorithms.h, src/IO/algorithms/fcfs.c, src/IO/algorithms/nsscan.c, src/IO/algorithms/scan.c, src/IO/algorithms/sstf.c, src/IO/algorithms/test.c, src/IO/combo.c, src/IO/info.c, src/IO/info.h, src/IO/queues.c, src/IO/simulation.c, src/IO/simulation.h, src/MEM/MEM.c, src/MEM/MEM.h, src/pixmaps/io_editor_disk.xpm, src/util.c, .cvsignore, NEWS, TODO, docs/.cvsignore, docs/VisualOS-docs.sgml, docs/VisualOS-sections.txt, docs/tmpl/CLOCK-interface.sgml, docs/tmpl/VisualOS-unused.sgml, docs/tmpl/bitops.sgml, docs/tmpl/combos.sgml, docs/tmpl/cpu-algorithms.sgml, docs/tmpl/cpu-status.sgml, docs/tmpl/drawing.sgml, docs/tmpl/gdk-helper.sgml, docs/tmpl/glib-helper.sgml, docs/tmpl/io-algorithms.sgml, docs/tmpl/io-request-queues.sgml, docs/tmpl/messaging.sgml, docs/tmpl/process-queues.sgml, src/.cvsignore, src/bitops.c, src/drawing.c, src/drawing.h, src/gdk-helper.c, src/messaging.c, src/messaging.h, src/process.c:
+	more documentation and cleanup
+
+2000-06-23  ranty  <ranty@debian>
+
+	* src/Makefile.am, src/bitops.c, src/bitops.h:
+	moved bitops functions to a .c file; we don't need to take eficiency that far and this way it is more compatible with gtk-doc
+
+	* docs/VisualOS-sections.txt, docs/tmpl/VisualOS-unused.sgml, docs/tmpl/clock.sgml, docs/tmpl/cpu_interface.sgml:
+	more documentation
+
+2000-06-22  ranty  <ranty@debian>
+
+	* NEWS: added a NEWS file
+
+	* src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/swap.c:
+	terminate the process if not enougth physical memory or swap space is available
+
+	* src/MEM/algorithms/second_chance.c, src/MEM/algorithms/clock.c:
+	don't complaing if we don't find a suitable frame, just return NO_FRAME.
+
+	* src/MEM/algorithms/fifo.c:
+	fifo algorithm was returning locked frames, should be fixed now.
+
+	* src/CPU/CPU.h, src/CPU/CPU.c:
+	allow other subsystems to terminate processes.
+
+	* src/process.c: handle nicely early process termination.
+
+	* src/MEM/drawings/virtual.c: removed an annoying warning
+
+	* docs/tmpl/mem_interface.sgml, docs/tmpl/IO-simulation.sgml, docs/tmpl/IO-interface.sgml:
+	More documentation.
+
+	* src/CPU/queues.c: Properly set proc->nqueue in wakeup_proc.
+
+	* src/CPU/clock.c, src/CPU/clock.h, src/IO/IO.c, src/IO/IO.h, src/IO/geometry.c, src/IO/simulation.c, src/IO/simulation.h, src/MEM/MEM.h, src/MEM/swap.c, src/REQUESTOR/main.c:
+	added documentation and little cleanup
+
+2000-06-21  ranty  <ranty@debian>
+
+	* src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/fcfs.h, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/hrrn.h, src/CPU/algorithms/manual.c, src/CPU/algorithms/manual.h, src/CPU/algorithms/rr.c, src/CPU/algorithms/rr.h, src/CPU/algorithms/spn.c, src/CPU/algorithms/spn.h, src/CPU/algorithms/srt.c, src/CPU/algorithms/srt.h, src/CPU/algorithms/test.c, src/CPU/algorithms/test.h, src/CPU/drawings/bars.c, src/CPU/drawings/bars.h, src/CPU/drawings/main.c, src/CPU/drawings/main.h, src/CPU/drawings/new4.c, src/CPU/drawings/new4.h, src/CPU/drawings/original.c, src/CPU/drawings/original.h, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/overlapped_bars.h, src/CPU/drawings/shared.c, src/CPU/drawings/shared.h, src/CPU/drawings/state.c, src/CPU/drawings/state.h, src/CPU/editor/advanced.c, src/CPU/editor/advanced.h, src/CPU/editor/dump.c, src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/editor/file.c, src/CPU/editor/file.h, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/parser.h, src/CPU/editor/util.h, src/CPU/info.h, src/CPU/main.c, src/CPU/main.h, src/CPU/misc_menu_callbacks.c, src/CPU/misc_menu_callbacks.h, src/CPU/queues.c, src/CPU/queues.h, src/CPU/simulation.c, src/CPU/simulation.h, src/CPU/stats.c, src/CPU/stats.h, src/CPU/status.c, src/CPU/status.h, src/IO/IO.c, src/IO/IO.h, src/IO/algorithms/algorithm_api.h, src/IO/algorithms/algorithms.c, src/IO/algorithms/algorithms.h, src/IO/algorithms/fcfs.c, src/IO/algorithms/fcfs.h, src/IO/algorithms/nsscan.c, src/IO/algorithms/nsscan.h, src/IO/algorithms/scan.c, src/IO/algorithms/scan.h, src/IO/algorithms/sstf.c, src/IO/algorithms/sstf.h, src/IO/algorithms/test.c, src/IO/algorithms/test.h, src/IO/combo.c, src/IO/combo.h, src/IO/delay.c, src/IO/delay.h, src/IO/drawings/main.c, src/IO/drawings/main.h, src/IO/drawings/new.c, src/IO/drawings/new.h, src/IO/drawings/round.c, src/IO/drawings/round.h, src/IO/geometry.c, src/IO/geometry.h, src/IO/info.c, src/IO/info.h, src/IO/io_config.c, src/IO/io_config.h, src/IO/main.c, src/IO/main.h, src/IO/queues.h, src/IO/simulation.c, src/IO/simulation.h, src/IO/status.c, src/IO/status.h, src/MEM/MEM.c, src/MEM/MEM.h, src/MEM/algorithms/algorithm_api.h, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/clock.h, src/MEM/algorithms/fifo.c, src/MEM/algorithms/fifo.h, src/MEM/algorithms/second_chance.c, src/MEM/algorithms/second_chance.h, src/MEM/combo.c, src/MEM/combo.h, src/MEM/drawings/main.c, src/MEM/drawings/main.h, src/MEM/drawings/physical.c, src/MEM/drawings/physical.h, src/MEM/drawings/virtual.c, src/MEM/drawings/virtual.h, src/MEM/info.c, src/MEM/info.h, src/MEM/main.c, src/MEM/main.h, src/MEM/mem_config.c, src/MEM/mem_config.h, src/MEM/misc_menu_callbacks.c, src/MEM/misc_menu_callbacks.h, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/status.c, src/MEM/status.h, src/MEM/swap.c, src/MEM/swap.h, src/REQUESTOR/main.c, src/REQUESTOR/main.h, acconfig.h, src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/main.c, src/CLOCK/main.h, src/CPU/CPU.c, src/CPU/CPU.h, src/CPU/clock.c, src/CPU/clock.h, src/CPU/combos.c, src/CPU/combos.h, src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/info.c, src/SCHED.c, src/SCHED.h, src/VisualOS.c, src/bitops.h, src/drawing.c, src/drawing.h, src/events.c, src/events.h, src/file-dialog.c, src/file-dialog.h, src/gdk-helper.c, src/gdk-helper.h, src/interface.h, src/messaging.c, src/messaging.h, src/process.c, src/process.h, src/property_widgets.c, src/property_widgets.h, src/signals.c, src/signals.h, src/util.c, src/util.h:
+	added a copyright notice to all code files
+
+2000-06-19  ranty  <ranty@debian>
+
+	* src/CPU/misc_menu_callbacks.c, src/VisualOS.glade:
+	added an about dialog
+
+2000-06-16  ranty  <ranty@debian>
+
+	* TODO: more things to do
+
+	* src/CPU/algorithms/manual.c:
+	don't allow taking processes out of the wait queue
+
+	* src/CPU/queues.c:
+	don't allow taking processes out of the wait queue before they are ready
+
+	* src/CPU/algorithms/manual.c:
+	only stop the clock if the user whants and misc cleanup.
+
+2000-06-14  ranty  <ranty@debian>
+
+	* TODO: More things to do.
+
+	* src/CPU/CPU.c, src/CPU/CPU.h, src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/simulation.c, src/CPU/simulation.h, src/MEM/MEM.c, src/MEM/mem_config.c, src/MEM/mem_config.h, src/process.c, src/process.h:
+	Added documentation and little cleanup
+
+	* src/MEM/status.c: This may be the start of a log.
+
+	* docs/tmpl/process-queues.sgml, docs/tmpl/process.sgml, docs/tmpl/queues.sgml, docs/tmpl/round.sgml, docs/tmpl/rr.sgml, docs/tmpl/scan.sgml, docs/tmpl/second_chance.sgml, docs/tmpl/shared.sgml, docs/tmpl/signals.sgml, docs/tmpl/simulation.sgml, docs/tmpl/spn.sgml, docs/tmpl/srt.sgml, docs/tmpl/sstf.sgml, docs/tmpl/state.sgml, docs/tmpl/stats.sgml, docs/tmpl/status.sgml, docs/tmpl/support.sgml, docs/tmpl/swap.sgml, docs/tmpl/test.sgml, docs/tmpl/util.sgml, docs/tmpl/virtual.sgml, docs/tmpl/CLOCK-interface.sgml, docs/tmpl/CLOCK.sgml, docs/tmpl/CPU-simulation.sgml, docs/tmpl/IO-interface.sgml, docs/tmpl/IO-simulation.sgml, docs/tmpl/IO.sgml, docs/tmpl/MEM.sgml, docs/tmpl/VisualOS-unused.sgml, docs/tmpl/advanced.sgml, docs/tmpl/algorithm_api.sgml, docs/tmpl/algorithms.sgml, docs/tmpl/bars.sgml, docs/tmpl/callbacks.sgml, docs/tmpl/combo.sgml, docs/tmpl/config.sgml, docs/tmpl/cpu_config.sgml, docs/tmpl/cpu_interface.sgml, docs/tmpl/delay.sgml, docs/tmpl/drawing.sgml, docs/tmpl/editor.sgml, docs/tmpl/events.sgml, docs/tmpl/fcfs.sgml, docs/tmpl/fifo.sgml, docs/tmpl/file.sgml, docs/tmpl/gdk-helper.sgml, docs/tmpl/general.sgml, docs/tmpl/geometry.sgml, docs/tmpl/hrrn.sgml, docs/tmpl/info.sgml, docs/tmpl/interface.sgml, docs/tmpl/io.sgml, docs/tmpl/main.sgml, docs/tmpl/manual.sgml, docs/tmpl/mem_config.sgml, docs/tmpl/mem_interface.sgml, docs/tmpl/memory.sgml, docs/tmpl/messaging.sgml, docs/tmpl/misc_menu_callbacks.sgml, docs/tmpl/new.sgml, docs/tmpl/new4.sgml, docs/tmpl/nsscan.sgml, docs/tmpl/original.sgml, docs/tmpl/overlapped_bars.sgml, docs/tmpl/page_info.sgml, docs/tmpl/parser.sgml, docs/tmpl/physical.sgml, docs/VisualOS-sections.txt, docs/VisualOS-docs.sgml:
+	This starts to look good.
+
+	* src/CPU/editor/memory.c: fixed compile warnings.
+
+	* docs/Descripcion.sgml: changed some notes into DocBook markup
+
+2000-06-12  ranty  <ranty@debian>
+
+	* src/MEM/drawings/virtual.c: include the page number on the table.
+
+	* configure.in: update version number
+
+	* src/MEM/swap.c: fixed a couple typos.
+
+	* src/MEM/swap.h, src/MEM/swap.c, src/MEM/page_info.c:
+	Handle properly a page fault of a swapping out page;
+	More robustness for multiple clients.
+
+	* src/MEM/MEM.c: Handle page bitmap loose synchronization correctly;
+	A proccess may "access" a recently lost frame because the CPU didn't get the bitmap updated.
+
+	* src/VisualOS.glade: cosmetic update
+
+2000-06-10  ranty  <ranty@debian>
+
+	* src/MEM/page_info.c: use *_bit functions
+
+2000-06-09  ranty  <ranty@debian>
+
+	* src/messaging.c: ifdef'ed an annoying warning
+
+	* src/MEM/swap.c: fixed a typo which would cause and infinite loop
+
+	* src/VisualOS.glade: removed useless menu entries
+
+	* configure.in: new version
+
+	* src/CPU/drawings/overlapped_bars.c: fixed the scroll bar
+
+	* src/CPU/cpu_config.c: use better defaults
+
+	* configure.in: increased version number
+
+	* src/VisualOS.c:
+	each subsystem can now showup in a different X display
+
+	* src/Makefile.am: some pixmaps are gone
+
+	* src/CPU/misc_menu_callbacks.c, src/VisualOS.c, src/VisualOS.glade, src/messaging.c, src/messaging.h:
+	the system can be reset
+
+2000-06-08  ranty  <ranty@debian>
+
+	* TODO, src/CLOCK/main.c, src/CPU/main.c, src/CPU/misc_menu_callbacks.c, src/IO/main.c, src/MEM/main.c, src/REQUESTOR/main.c, src/VisualOS.c, src/VisualOS.glade, src/messaging.h:
+	Subsystems can now hide, show and quit on CPU orders
+
+	* src/REQUESTOR/main.c: no lisens to the answers of IO and MEM.
+
+	* src/MEM/MEM.c:
+	PAGE_READY messages are send to the subsystem that caused the page fault;
+	PAGE_BITMAP_UPDATES are broadcasted.
+
+	* src/CPU/clock.c: robustnes
+
+	* src/drawing.c: drawing styles can no be detached
+
+	* src/CLOCK/main.c, src/CPU/main.c, src/IO/main.c, src/MEM/main.c, src/REQUESTOR/main.c, src/messaging.h:
+	mesg_subsystem_name related fixes
+
+	* src/IO/drawings/new.c, src/IO/drawings/round.c: more robustnes
+
+2000-06-07  ranty  <ranty@debian>
+
+	* src/messaging.c, src/messaging.h:
+	any code can now find out what subsystem it is running on
+
+2000-06-06  ranty  <ranty@debian>
+
+	* TODO: TODO
+
+	* src/MEM/drawings/physical.c, src/MEM/drawings/virtual.c:
+	Table width is now relative to the font used
+
+	* src/edit.xpm, src/new-auto.xpm, src/new.xpm, src/open.xpm, src/save.xpm:
+	removed some obsolet pixmaps
+
+	* src/CPU/CPU.c, src/CPU/CPU.h, src/MEM/page_info.c: cleanup
+
+	* src/VisualOS.glade: Removed some old widgets
+
+	* src/MEM/MEM.c, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/swap.c, src/VisualOS.glade:
+	MEM is more robust and interoperates properly with the REQUESTOR
+
+	* src/REQUESTOR/main.c, src/VisualOS.glade:
+	REQUESTOR can now request random blocks
+
+2000-06-05  ranty  <ranty@debian>
+
+	* TODO: TODO
+
+	* configure.in: VisualOS deserves at least version 0.1.0
+
+	* docs/Notes.txt: conceptos teoricos: memoria;
+	aspectos relevantes del desarrolo;
+	trabajos relacionados;
+	conclusiones y trabajo futuro.
+
+	* configure.in: added the REQUESTOR
+
+	* src/MEM/MEM.c, src/MEM/page_info.c, src/MEM/swap.c:
+	make MEM more robust
+
+	* src/Makefile.am, src/REQUESTOR/.cvsignore, src/REQUESTOR/Makefile.am, src/REQUESTOR/main.c, src/REQUESTOR/main.h, src/VisualOS.c, src/messaging.c, src/messaging.h:
+	added the REQUESTOR
+
+	* src/VisualOS.glade: visual improvemets;
+	added the REQUESTOR window.
+
+2000-05-25  ranty  <ranty@debian>
+
+	* docs/Notes.txt: added more background concepts
+
+	* src/CPU/editor/advanced.c, src/CPU/editor/advanced.h, src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/editor/file.c, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/parser.h, src/CPU/editor/parser.y, src/CPU/simulation.c, src/CPU/simulation.h, src/VisualOS.glade, src/process.c:
+	process creation and modification can now be canceled
+
+	* src/IO/io_config.c, src/MEM/MEM.c: removed annoying debuging messages
+
+	* src/MEM/drawings/physical.c, src/MEM/drawings/virtual.c: more colors
+
+	* src/IO/IO.c, src/IO/Makefile.am, src/IO/io_config.c, src/IO/io_config.h, src/IO/main.c, src/IO/status.c, src/IO/status.h, src/VisualOS.glade:
+	IO now has status bar and settings(stop_clock and disable) work
+
+	* src/MEM/algorithms/clock.h, src/MEM/algorithms/clock.c, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/Makefile.am:
+	added the "clock" algorithm
+
+	* src/MEM/algorithms/second_chance.c: cleaner implementation
+
+	* src/MEM/MEM.h: incremented the number of memory frames available
+
+	* src/MEM/swap.c: clean pages are now discarded insted of swaped out.
+
+2000-05-24  ranty  <ranty@debian>
+
+	* TODO: updated TODO
+
+2000-05-23  ranty  <ranty@debian>
+
+	* docs/Notes.txt: imported some notes
+
+2000-05-20  ranty  <ranty@debian>
+
+	* src/CPU/drawings/bars.c, src/CPU/drawings/overlapped_bars.c, src/VisualOS.glade:
+	CPU drawings "bars" and "overlapped bars" ovey the history limit
+
+	* src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/main.c, src/VisualOS.glade:
+	improved configuration, and now it is persistent
+
+	* src/MEM/MEM.c, src/MEM/MEM.h, src/MEM/main.c, src/MEM/mem_config.c, src/MEM/mem_config.h, src/MEM/page_info.c:
+	memory can now be disabled
+
+	* src/VisualOS.c: include cleanup
+
+	* docs/VisualOS-docs.sgml: *** empty log message ***
+
+2000-05-10  ranty  <ranty@debian>
+
+	* src/CPU/status.c, src/MEM/status.c: spelling fix
+
+2000-05-09  ranty  <ranty@debian>
+
+	* src/CPU/status.c, src/CPU/status.h: forgot to check in some files
+
+	* autogen.sh, configure.in, macros/aclocal-include.m4, macros/compiler-flags.m4, macros/curses.m4, macros/gnome-bonobo-check.m4, macros/gnome-common.m4, macros/gnome-fileutils.m4, macros/gnome-gettext.m4, macros/gnome-ghttp-check.m4, macros/gnome-gnorba-check.m4, macros/gnome-guile-checks.m4, macros/gnome-libgtop-check.m4, macros/gnome-objc-checks.m4, macros/gnome-orbit-check.m4, macros/gnome-print-check.m4, macros/gnome-pthread-check.m4, macros/gnome-support.m4, macros/gnome-undelfs.m4, macros/gnome-vfs.m4, macros/gnome-x-checks.m4, macros/gnome-xml-check.m4, macros/gnome.m4, macros/linger.m4, macros/need-declaration.m4, src/CLOCK/main.c, src/CPU/Makefile.am, src/CPU/main.c, src/CPU/queues.c, src/IO/combo.c, src/IO/combo.h, src/IO/info.h, src/IO/main.c, src/MEM/MEM.c, src/MEM/combo.c, src/MEM/main.c, src/MEM/page_info.c, src/MEM/status.c, src/MEM/status.h, src/VisualOS.c, src/VisualOS.glade:
+	started using Gnome and ported IO and CLOCK to libglade
+
+	* src/drawing.c:
+	fixed: SIGSEGV then updating a drawing with no styles jet.
+
+	* src/CPU/CPU.c, src/CPU/CPU.h, src/CPU/Makefile.am, src/CPU/main.c, src/MEM/page_info.c, src/MEM/page_info.h:
+	MEM is now aware of process destruction.
+
+2000-04-17  ranty  <ranty@debian>
+
+	* src/CPU/algorithms/manual.c:
+	now stops the CLOCK to allow more control
+
+2000-04-13  ranty  <ranty@debian>
+
+	* TODO: TODO
+
+2000-04-11  ranty  <ranty@debian>
+
+	* docs/VisualOS-docs.sgml, src/MEM/swap.c: documentation updates
+
+	* src/Makefile.am: include io_editor_disk.xpm in "make dist"
+
+	* Makefile.am, configure.in, docs/Makefile.am, docs/VisualOS-docs.sgml, docs/VisualOS-sections.txt, docs/tmpl/CLOCK.sgml, docs/tmpl/IO.sgml, docs/tmpl/MEM.sgml, docs/tmpl/SCHED.sgml, docs/tmpl/VisualOS-unused.sgml, docs/tmpl/advanced.sgml, docs/tmpl/algorithm_api.sgml, docs/tmpl/algorithms.sgml, docs/tmpl/bars.sgml, docs/tmpl/bitops.sgml, docs/tmpl/callbacks.sgml, docs/tmpl/clock.sgml, docs/tmpl/combo.sgml, docs/tmpl/combos.sgml, docs/tmpl/config.sgml, docs/tmpl/cpu_config.sgml, docs/tmpl/delay.sgml, docs/tmpl/drawing.sgml, docs/tmpl/editor.sgml, docs/tmpl/events.sgml, docs/tmpl/fcfs.sgml, docs/tmpl/fifo.sgml, docs/tmpl/file-dialog.sgml, docs/tmpl/file.sgml, docs/tmpl/gdk-helper.sgml, docs/tmpl/general.sgml, docs/tmpl/geometry.sgml, docs/tmpl/hrrn.sgml, docs/tmpl/info.sgml, docs/tmpl/interface.sgml, docs/tmpl/io.sgml, docs/tmpl/main.sgml, docs/tmpl/manual.sgml, docs/tmpl/mem_config.sgml, docs/tmpl/memory.sgml, docs/tmpl/messaging.sgml, docs/tmpl/misc_menu_callbacks.sgml, docs/tmpl/new.sgml, docs/tmpl/new4.sgml, docs/tmpl/nsscan.sgml, docs/tmpl/original.sgml, docs/tmpl/overlapped_bars.sgml, docs/tmpl/page_info.sgml, docs/tmpl/parser.sgml, docs/tmpl/physical.sgml, docs/tmpl/process.sgml, docs/tmpl/property_widgets.sgml, docs/tmpl/queues.sgml, docs/tmpl/round.sgml, docs/tmpl/rr.sgml, docs/tmpl/scan.sgml, docs/tmpl/second_chance.sgml, docs/tmpl/shared.sgml, docs/tmpl/signals.sgml, docs/tmpl/simulation.sgml, docs/tmpl/spn.sgml, docs/tmpl/srt.sgml, docs/tmpl/sstf.sgml, docs/tmpl/state.sgml, docs/tmpl/stats.sgml, docs/tmpl/status.sgml, docs/tmpl/support.sgml, docs/tmpl/swap.sgml, docs/tmpl/test.sgml, docs/tmpl/util.sgml, docs/tmpl/virtual.sgml, src/CPU/editor/Makefile.am, src/MEM/swap.c, src/Makefile.am, src/SCHED.c, src/SCHED.h, src/property_widgets.c, src/property_widgets.h:
+	Started the documentation based on gtk-doc
+
+2000-04-10  ranty  <ranty@debian>
+
+	* src/MEM/MEM.c, src/MEM/swap.c, src/MEM/swap.h:
+	MEM_FRAME_MODIFIED is now set when writing to a page/frame
+
+2000-04-09  ranty  <ranty@debian>
+
+	* src/CPU/simulation.c, src/CPU/simulation.h, src/MEM/MEM.c, src/MEM/MEM.h, src/CPU/clock.c:
+	MEM can now be told if pages are written
+
+	* src/CPU/editor/dump.c, src/CPU/editor/memory.c, src/CPU/editor/parser.y, src/CPU/simulation.c, src/CPU/simulation.h, src/VisualOS.glade:
+	new memory properties autofilling is now funcional
+
+	* src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/editor/editor.c, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/util.h, src/CPU/simulation.c, src/VisualOS.glade:
+	Process properties autofill works now in a per-section basis
+
+2000-04-05  ranty  <ranty@debian>
+
+	* src/MEM/algorithms/fifo.c, src/MEM/algorithms/fifo.h, src/MEM/algorithms/second_chance.c, src/MEM/algorithms/second_chance.h:
+	forgot the files for the new algorithms
+
+	* src/CPU/cpu_config.c, src/CPU/cpu_config.h, src/CPU/misc_menu_callbacks.c, src/CPU/misc_menu_callbacks.h, src/MEM/mem_config.c, src/MEM/mem_config.h, src/MEM/misc_menu_callbacks.c, src/MEM/misc_menu_callbacks.h:
+	forgot to add some files for the options menu
+
+	* src/CPU/editor/memory.c, src/VisualOS.glade:
+	improved memory properties
+
+2000-04-04  ranty  <ranty@debian>
+
+	* src/CPU/editor/io.c: bug fix
+
+	* src/CPU/editor/io.c, src/VisualOS.glade, src/io_editor_disk.xpm:
+	blocks for IO operations can now be selected on a disk picture
+
+2000-03-28  ranty  <ranty@debian>
+
+	* src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/main.c, src/CPU/simulation.c, src/VisualOS.glade:
+	Autofill parameters a now accesible from the menu
+
+2000-03-27  ranty  <ranty@debian>
+
+	* src/CPU/Makefile.am, src/CPU/combos.c, src/CPU/main.c, src/CPU/queues.c, src/MEM/MEM.c, src/MEM/Makefile.am, src/MEM/main.c, src/MEM/page_info.h, src/VisualOS.glade, src/process.c, src/process.h:
+	program behavior can now be changed via options menu
+
+	* src/MEM/swap.c: reference bit is set when a page is swaped in
+
+	* src/MEM/algorithms/Makefile.am, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/rr.c, src/MEM/algorithms/rr.h:
+	added second_chance and FIFO algorithms
+
+	* src/MEM/MEM.c, src/MEM/drawings/virtual.c, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/swap.c, src/bitops.h:
+	improved support for MEM algorithms, added set/cleat/test bit functions
+
+2000-03-19  ranty  <ranty@debian>
+
+	* src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/main.c, src/CLOCK/main.h, src/MEM/MEM.c:
+	allow any subsystem to stop the clock
+
+2000-03-16  ranty  <ranty@debian>
+
+	* configure.in: bumped version number
+
+	* configure.in: ups, didn't need to bump version numver
+
+	* configure.in: bumped version number
+
+	* src/CPU/clock.c, src/CPU/combos.c, src/MEM/MEM.c, src/MEM/info.c, src/MEM/main.c, src/VisualOS.glade:
+	misc fixes/cleanups
+
+	* src/IO/IO.h, src/MEM/MEM.c, src/MEM/Makefile.am, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/rr.c, src/MEM/drawings/physical.c, src/MEM/drawings/virtual.c, src/MEM/main.c, src/MEM/page_info.c, src/MEM/page_info.h, src/MEM/swap.c, src/MEM/swap.h:
+	MEM system now swaps to disk
+
+2000-03-08  ranty  <ranty@debian>
+
+	* src/IO/drawings/round.c: disk geometry is becoming dynamic;
+	divided the disk into data and swap areas;
+	beautifyed the round disk drawing;
+
+	* src/IO/drawings/new.c, src/IO/simulation.h, src/IO/simulation.c, src/IO/geometry.h, src/IO/geometry.c, src/IO/Makefile.am:
+	disk geometry is becoming dynamic;
+
+	* src/IO/IO.h, src/IO/IO.c: disk geometry is becoming dynamic;
+	divided the disk into data and swap areas.
+
+	* src/CPU/editor/io.c, src/CPU/editor/editor.c:
+	disk geometry is becoming dynamic
+
+	* src/CPU/drawings/CPU-orig.xpm: checked in the original CPU pixmap
+
+	* src/.cvsignore: ignore process description files.
+
+	* src/drawing.c:
+	DRAWING_FIXED_RATIO now maintains the aspect ratio of the desired size of the widget.
+
+	* src/VisualOS.glade: cosmetic changes
+
+	* src/VisualOS.c: disk geometry is becoming dynamic;
+	no more SIGSEGV handling, the core file is more usefull.
+
+	* TODO: *** empty log message ***
+
+2000-01-29  ranty  <ranty@debian>
+
+	* src/MEM/MEM.c, src/CPU/editor/editor.c: ANSI C compliance.
+
+2000-01-26  ranty  <ranty@debian>
+
+	* src/MEM/drawings/virtual.c, src/MEM/drawings/physical.c:
+	the tables are now fully drawn;
+	cleanup/fix;
+
+	* src/drawing.c: drawings are now updated when switched.
+
+2000-01-20  ranty  <ranty@debian>
+
+	* src/MEM/drawings/.cvsignore, src/MEM/algorithms/.cvsignore:
+	*** empty log message ***
+
+	* src/MEM/algorithms/algorithms.c: warning cleanup.
+
+	* src/MEM/MEM.h: new message type MEM_ACCESS.
+
+	* src/MEM/MEM.c, src/MEM/page_info.c:
+	pages bitmap is now updated in the CPU.
+
+2000-01-16  ranty  <ranty@debian>
+
+	* src/MEM/info.c: cleanups.
+
+	* src/MEM/main.c: added memory algorithms.
+
+	* src/MEM/page_info.c:
+	mem_assign_frame informs the CPU and updates the status bar and the drawing.
+
+	* src/MEM/MEM.c: moved code to the algorithms;
+	cleanups.
+
+	* src/CPU/combos.c: libglade name change.
+
+	* src/VisualOS.glade: name changes.
+
+	* src/MEM/algorithms/rr.h, src/MEM/algorithms/rr.c, src/MEM/algorithms/algorithms.h, src/MEM/algorithms/algorithms.c, src/MEM/algorithms/algorithm_api.h, src/MEM/algorithms/Makefile.am, src/MEM/combo.h, src/MEM/combo.c, src/MEM/Makefile.am, src/Makefile.am, configure.in:
+	added memory algorithms.
+
+	* src/VisualOS.glade: name changes for conection to the code;
+	added signal handlers;
+	added a true memory properties widget;
+	appearance changes.
+
+	* src/MEM/drawings/physical.c: It now draws the physical memory :)
+
+	* src/MEM/drawings/virtual.c: cleanups.
+
+	* src/MEM/MEM.c: centraliced frame assignment to pages;
+	cleanups.
+
+	* src/MEM/page_info.h: frames are numbered;
+	centraliced frame assignment to pages.
+
+	* src/MEM/page_info.c: frames are numbered;
+	return null insted of a non existent frame;
+	centraliced frame assignment to pages;
+	no more using and extra frame at the end of the list.
+
+2000-01-15  ranty  <ranty@debian>
+
+	* src/CPU/editor/dump.c: memory properties support.
+
+	* src/CPU/editor/memory.c: preliminary memory properties.
+
+	* src/CPU/editor/memory.h, src/CPU/editor/io.h, src/CPU/editor/io.c, src/CPU/editor/general.h, src/CPU/editor/general.c, src/CPU/editor/advanced.h:
+	more libglade.
+
+	* src/CPU/editor/editor.c, src/CPU/editor/advanced.c:
+	memory properties support; more libglade.
+
+	* src/CPU/editor/parser.y: added memory properties
+
+	* src/CPU/main.c: function calling order fix
+
+	* src/CPU/clock.c: changed process execution page semantics
+
+	* src/CPU/simulation.h, src/CPU/simulation.c:
+	changed process execution page semantics;
+	added true memory properties.
+
+	* src/IO/drawings/main.h, src/IO/drawings/main.c, src/IO/algorithms/test.c, src/IO/IO.c, src/CLOCK/CLOCK.c:
+	cleanups
+
+	* src/VisualOS.c: segmentation fault fixed
+
+	* src/process.c, src/messaging.h, src/SCHED.h: cleanups
+
+1999-12-20  ranty  <ranty@debian>
+
+	* src/MEM/drawings/Makefile.am, src/MEM/drawings/main.c, src/MEM/drawings/main.h, src/MEM/drawings/physical.c, src/MEM/drawings/physical.h, src/MEM/drawings/virtual.c, src/MEM/drawings/virtual.h:
+	added memory drawings
+
+	* src/MEM/MEM.c, src/MEM/MEM.h: Memory interface with the others.
+
+	* src/MEM/info.c, src/MEM/info.h: mostly copied from IO
+
+	* src/MEM/page_info.c, src/MEM/page_info.h:
+	pages/frames information/lists.
+
+	* src/MEM/status.c, src/MEM/status.h: status bar
+
+	* src/MEM/main.c: MEM subsystem is now more than a dummy.
+
+	* src/MEM/Makefile.am: added some files
+
+	* configure.in: added memory drawings
+
+	* src/CPU/editor/file.h, src/CPU/editor/file.c:
+	save to file now uses select_file()
+
+	* src/CPU/editor/editor.c: save to file is treated differently;
+	preliminary memory autofill support.
+
+	* src/CPU/editor/dump.c:
+	don't try to save IO event when there are none.
+
+	* src/CPU/drawings/overlapped_bars.c:
+	simplified the expose_event handler
+
+	* src/CPU/simulation.h, src/CPU/simulation.c:
+	preliminary memory support
+
+	* src/CPU/clock.c: processes now use memory.
+
+	* src/process.h: added EVENT_NONE
+
+	* src/gdk-helper.h, src/gdk-helper.c:
+	added resize_gdk_pixmap, enlarge_gdk_pixmap, draw_gdk_text_centered and fill_gdk_window.
+
+	* src/VisualOS.glade: somewhat filled the memory window
+
+	* src/Makefile.am: added memory drawings
+
+1999-11-28  ranty  <ranty@debian>
+
+	* src/edit.xpm, src/new-auto.xpm, src/new.xpm, src/open.xpm, src/save.xpm:
+	added icons
+
+	* src/CPU/editor/advanced.c: moved parse_proc_init call to editor.c;
+	uses new get_simulation_from_string and get_proc_in_gstring;
+
+	* src/CPU/editor/editor.c: moved parse_proc_init call here
+
+	* src/CPU/editor/file.c:
+	uses new get_simulation_from_string and get_proc_in_gstring;
+	closes the file after writing;
+
+	* src/CPU/editor/Makefile.am:
+	general purpose process to string conversion
+
+	* src/CPU/editor/parser.y:
+	modified string to simul_data_t conversion to allow parsing of more and one process in the same string.
+
+	* src/CPU/editor/parser.h: added process to string conversion;
+	modified string to simul_data_t conversion.
+
+	* src/CPU/editor/dump.c: general purpose process to string conversion
+
+	* src/CPU/simulation.c, src/CPU/simulation.h:
+	new function free_CPU_proc_simulation_data
+
+1999-11-27  ranty  <ranty@debian>
+
+	* src/CPU/main.c: menu signal connection;
+	delete_event now works.
+
+	* src/VisualOS.glade: signal connection and object naming
+
+	* src/process.c:
+	added proc_queue_find to proc_queue macro encapsulation;
+	made process creation more general;
+	added "save all processes" and "load many processes" capability;
+	added two process lists: unborn and dead processes.
+
+	* src/process.h:
+	added proc_queue_find to proc_queue macro encapsulation;
+	made process creation more general;
+	added "save all processes" and "load many processes" capability
+
+	* src/file-dialog.c, src/file-dialog.h:
+	added a select_file function which uses file_selection widget transparently
+
+	* src/Makefile.am:
+	added a "select_file" function which uses file_selection widget transparently
+
+	* .cvsignore: *** empty log message ***
+
+1999-11-25  ranty  <ranty@debian>
+
+	* src/interface.h: new way of getting the xml file
+
+	* src/CPU/editor/parser.y, src/CPU/editor/io.c, src/CPU/editor/file.c, src/CPU/editor/advanced.c:
+	uses new io_event list structure;
+
+	* src/CPU/editor/editor.c: gets the xml file the new way;
+	uses new io_event list structure;
+	users fix_simulation_in_proc
+
+	* src/CPU/drawings/state.c, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/new4.c:
+	doesn't include CPU/combos.h
+
+	* src/CPU/drawings/bars.c:
+	calls gdk_gc_unref only once when a process stops running
+	doesn't include CPU/combos.h
+
+	* src/CPU/stats.c: uses the new way to get the xml_file
+
+	* src/CPU/simulation.h, src/CPU/simulation.c:
+	changed io_event list structure;
+	added a fixup funtion for the simulation data
+
+	* src/CPU/main.c: using more libglade
+
+	* src/CPU/info.h, src/CPU/info.c: removed unused functions
+
+	* src/CPU/combos.h, src/CPU/combos.c: useing more libglade;
+	removed unused functions;
+	other cleanups
+
+	* src/process.c:
+	changed init_CPU_simulation_in_proc semantics, it doesn't edit_process_properties any more;
+	some fix
+
+	* src/VisualOS.glade: more windows done with libglade
+
+	* src/VisualOS.c: cleaned up the global glade xml filename
+
+	* src/Makefile.am: added icons
+	added a header to get the glade xml file
+
+	* configure.in: bumped version number
+
+	* Makefile.am: we have a ChangeLog now, generated from CVS
+
+	* TODO: done some things
+
+1999-11-20  ranty  <ranty@debian>
+
+	* src/VisualOS.glade: using libglade
+
+	* src/CPU/stats.c, src/CPU/stats.h: added statistics
+
+	* src/CPU/editor/file.c, src/CPU/editor/file.h:
+	added save/load to/from file
+
+	* src/CPU/drawings/shared.c, src/CPU/drawings/shared.h:
+	added shared colors
+
+	* src/CLOCK/main.h, src/CLOCK/main.c: removed get_CLOCK_time
+
+	* src/CLOCK/CLOCK.h, src/CLOCK/CLOCK.c: added system wide get_time
+
+	* src/process.c: each process has a color now
+	new create_process_autofill funcion
+	processes can be scheduled to be created in the future
+	handle new EVENT_START process event
+
+	* src/process.h: each process has a color now
+	new pointer for statistics data on each process
+	new process event EVENT_START
+	new create_process_autofill function
+
+	* src/gdk-helper.h, src/gdk-helper.c: new_gdk_color needs no widget now
+
+	* src/drawing.c: tryed to update styles when shown
+
+	* src/VisualOS.c: using libglade
+
+	* src/Makefile.am: distributing VisualOS.glade
+
+	* src/.cvsignore: *** empty log message ***
+
+	* configure.in: using libglade
+	hopefully put GTK_LIBS and GTK_CFLAGS in the right place
+
+	* TODO: *** empty log message ***
+
+	* src/CPU/editor/editor.c: added auto_fill_process_properties
+	using libglade
+	added load/save processes to/from file
+	using exponential distribution to autofill process properties
+
+	* src/CPU/editor/editor.h: added auto_fill_process_properties
+
+	* src/CPU/editor/general.c: added true start and end time
+
+	* src/CPU/editor/io.c: code cleanup
+
+	* src/CPU/editor/parser.y: start and end time are now real
+
+	* src/CPU/editor/advanced.c: misc fixes
+	start and end time are now real
+
+	* src/CPU/editor/Makefile.am: added save/load process from/to file
+
+	* src/CPU/drawings/main.c: added shared colors (shared.c shared.h)
+
+	* src/CPU/drawings/state.c: using shared colors
+	enlarged drawing
+	added arrows to drawing
+	drawing is now officialy fixed size
+
+	* src/CPU/drawings/overlapped_bars.c:
+	using get_time insted of  get_CPU_time
+	using per process colors
+	fixed drawing when not looking at it
+
+	* src/CPU/drawings/new4.c: using shared colors (shared.c shared.h)
+
+	* src/CPU/drawings/bars.c: added shared colors (shared.c shared.h)
+	using get_time insted of  get_CPU_time
+	using per process colors
+	made a top bar with all processes
+	represent the state of the process in the thin line
+	fixed process selection
+
+	* src/CPU/drawings/Makefile.am: added shared colors (shared.c shared.h)
+
+	* src/CPU/algorithms/algorithm_api.h: includes CLOCK/CLOCK.h
+
+	* src/CPU/algorithms/hrrn.c:
+	using system wide get_time insted of get_CPU_time
+
+	* src/CPU/simulation.c: call edit_process_properties conditionaly
+	properly handle processes without IO events
+	added start_time and end_time to processes
+
+	* src/CPU/simulation.h: added start_time and end_time to processes
+
+	* src/CPU/main.c, src/CPU/Makefile.am: added statistics
+
+	* src/CPU/combos.c: not using create_process as a callback
+
+	* src/CPU/clock.c:
+	removed get_CPU_time in favour of get_time from the CLOCK subsystem
+	make sure we don't get into an infinite process when a negative burst shows
+
+	* src/CPU/clock.h:
+	removed get_CPU_time in favour of get_time from the CLOCK subsystem
+
+1999-11-07  ranty  <ranty@debian>
+
+	* src/CPU/editor/.cvsignore: *** empty log message ***
+
+	* configure.in: moved process properties editor to CPU/editor
+
+	* src/config.h.in: *** empty log message ***
+
+	* src/events.h, src/events.c: added mechanism for system events
+
+	* src/Makefile.am: moved the propertes editor to CPU/editor
+
+	* src/CPU/editor/.cvsignore, src/CPU/editor/Makefile.am, src/CPU/editor/advanced.c, src/CPU/editor/advanced.h, src/CPU/editor/editor.c, src/CPU/editor/editor.h, src/CPU/editor/general.c, src/CPU/editor/general.h, src/CPU/editor/io.c, src/CPU/editor/io.h, src/CPU/editor/memory.c, src/CPU/editor/memory.h, src/CPU/editor/parser.h, src/CPU/editor/parser.y:
+	added a process propertes editor
+
+	* src/CPU/drawings/bars.c, src/CPU/drawings/bars.h, src/CPU/drawings/overlapped_bars.c, src/CPU/drawings/overlapped_bars.h, src/CPU/drawings/state.c, src/CPU/drawings/state.h:
+	added bars overlapped_bars and state
+
+	* src/CPU/drawings/new4.c: Draws a shadow under the queues
+	Centered the square in the CPU pixmap
+	Fixed process selection (use new interface in process.c)
+
+	* src/CPU/simulation.c, src/CPU/simulation.h: added a properties editor
+	made IO events a list
+
+	* src/CPU/drawings/Makefile.am:
+	added bars, overlapped_bars and state drawing styles
+	distribute CPU.xpm
+
+	* src/CPU/drawings/main.c:
+	added bars, overlapped_bars and state drawing styles
+	hid the "original" style
+
+	* src/CPU/algorithms/fcfs.c, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/rr.c, src/CPU/algorithms/spn.c, src/CPU/algorithms/srt.c:
+	don't keep track of the selected proc
+	replaced old move_proc calls
+
+	* src/CPU/algorithms/manual.c: don't keep track of the selected proc
+	replaced old move_proc calls
+	conversion pointer<->int is now portable
+	when the CPU gets idle the selected process is selected to run
+
+	* src/CPU/algorithms/test.c: don't keep track of the selected proc
+	replaced old move_proc calls
+	made conversion pointer<->int portable
+
+	* src/CPU/algorithms/algorithms.c:
+	process selection handled with system events
+
+	* src/CPU/drawings/original.c: removed unused variable text_width
+
+	* src/CPU/queues.h: replaced old move_proc with:
+	        move_proc_to_queue
+	        move_proc_to_CPU
+	        remove_proc_from_queue
+	move CPU_CURRENT and CPU_NO_QUEUE definition to process.h
+
+	* src/CPU/queues.c: now generates "system events"
+	removed some debugging messages
+	replaced old move_proc with:
+	        move_proc_to_queue
+	        move_proc_to_CPU
+	        remove_proc_from_queue
+
+	* src/CPU/main.c: there is no proc_combo any more
+
+	* src/CPU/clock.c: fixed message typo
+	replaced old move_proc call
+
+	* src/CPU/Makefile.am: added a process editor directory
+
+	* src/CPU/combos.h: removed process combo related code
+
+	* src/CPU/combos.c: removed process combo related code
+	improved process selection with the new system events mechanism
+	added process "Edit" buttom
+	added local time to the process properties box
+
+1999-11-03  ranty  <ranty@debian>
+
+	* src/process.c: init proc->time in the write place
+
+	* src/drawing.c: notebook tabs are now scrollable if needed
+
+	* TODO: *** empty log message ***
+
+	* configure.in: check for const and inline keywords in compiler
+
+1999-11-01  ranty  <ranty@debian>
+
+	* src/process.h:
+	added get_proc_by_pid, select_process and get_CPU_selected_proc
+	moved CPU_WAITING CPU_NO_QUEUE and CPU_CURRENT from CPU/queues.h
+
+	* src/process.c:
+	added get_proc_by_pid, select_process and get_CPU_selected_proc
+	removed proc_combo related code
+	replaced the old "move_proc"
+
+	* src/gdk-helper.c: now uses g_new
+
+	* src/drawing.c: started using g_renew
+
+	* src/Makefile.am: added a CPU/simulation directory and system_events
+
+	* src/VisualOS.c: included stdio.h
+
+1999-10-22  ranty  <ranty@debian>
+
+	* src/CPU/drawings/new3.c, src/CPU/drawings/new3.h, src/CPU/drawings/new.c, src/CPU/drawings/new.h, src/CPU/drawings/new2.c, src/CPU/drawings/new2.h:
+	Removed some transitional CPU drawings
+
+	* src/CPU/drawings/new4.c, src/CPU/drawings/CPU.xpm:
+	beautied CPU Queues drawing
+
+	* src/CPU/drawings/main.c, src/CPU/drawings/Makefile.am:
+	Removed some transitional CPU drawings
+
+1999-10-11  ranty  <ranty@debian>
+
+	* src/CPU/algorithms/manual.c: no more lost processes when CPU busy
+
+	* src/CPU/drawings/new4.c:
+	try a more generic request when we dont find a font
+
+	* src/IO/drawings/new.c, src/IO/drawings/round.c: namespace cleanup
+
+1999-10-10  ranty  <ranty@debian>
+
+	* src/CPU/drawings/new4.c: processes can now be selected on the drawing
+
+	* src/CPU/combos.h:
+	made proc_select public to be able to call it  elsewhere
+
+	* src/CPU/combos.c:
+	modified proc_select and made it public to be able to call it  elsewhere
+	added generic properties to the proc box (pid and burst)
+
+	* src/process.h: added proc_queue_nth
+
+	* src/CPU/combos.c, src/CPU/combos.h, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c:
+	moved proc_combo stuff to combo.c
+
+	* src/CPU/combos.c, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/rr.c, src/CPU/algorithms/spn.c, src/CPU/algorithms/srt.c:
+	using more g_return_if_fail
+
+	* src/CPU/algorithms/algorithms.c, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/rr.c, src/CPU/algorithms/spn.c, src/CPU/algorithms/srt.c, src/CPU/queues.c, src/IO/algorithms/algorithms.c, src/IO/algorithms/fcfs.c, src/IO/algorithms/sstf.c:
+	removed some annoying messages
+
+1999-10-09  ranty  <ranty@debian>
+
+	* TODO: *** empty log message ***
+
+	* src/CPU/drawings/new4.h, src/CPU/drawings/new4.c, src/CPU/drawings/new3.h, src/CPU/drawings/new3.c, src/CPU/drawings/new2.h, src/CPU/drawings/new2.c, src/CPU/drawings/Makefile.am:
+	added more drawing variants
+
+	* src/CPU/drawings/new.c: added colors to the drawing
+
+	* src/CPU/drawings/main.c, src/CPU/drawings/main.h:
+	fixed redraw_CPU_drawing declaration
+
+	* src/gdk-helper.h, src/gdk-helper.c:
+	added gdk-helper with a function for easy color selection
+
+	* src/Makefile.am: added gdk-helper
+
+	* configure.in: we now properly detect if CC is GCC
+
+1999-09-28  ranty  <ranty@debian>
+
+	* TODO: TODO
+
+	* src/IO/drawings/new.c: new IO drawing style
+
+	* configure.in: ported the IO drawing to the new abstraction
+
+1999-09-25  ranty  <ranty@debian>
+
+	* src/IO/algorithms/algorithms.c, src/util.c, src/signals.c, src/property_widgets.c, src/process.c, src/messaging.c, src/drawing.c, src/VisualOS.c, src/SCHED.c:
+	header inclusion cleanup
+
+	* src/IO/drawings/round.c, src/IO/drawings/new.c, src/IO/drawings/main.c, src/IO/simulation.h, src/IO/simulation.c, src/IO/queues.h, src/IO/Makefile.am, src/IO/algorithms/test.c, src/IO/algorithms/sstf.c, src/IO/algorithms/scan.c, src/IO/algorithms/nsscan.c, src/IO/algorithms/fcfs.c:
+	header inclusion cleanup
+	encapsulated IO request lists with macros and typedefs
+
+	* src/IO/algorithms/algorithms.h, src/IO/algorithms/algorithm_api.h, src/IO/main.c, src/IO/info.h, src/IO/info.c, src/IO/delay.h, src/IO/delay.c, src/IO/combo.c, src/IO/IO.h, src/IO/IO.c, src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/manual.c, src/CPU/algorithms/rr.c, src/CPU/algorithms/spn.c, src/CPU/algorithms/srt.c, src/CPU/algorithms/test.c, src/CPU/clock.c, src/CPU/combos.c, src/CPU/combos.h, src/CPU/drawings/main.c, src/CPU/drawings/new.c, src/CPU/drawings/original.c, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c, src/CPU/queues.c, src/CPU/queues.h, src/CPU/simulation.c, src/CPU/simulation.h, src/MEM/main.c, src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/main.c:
+	header inclusion cleanup
+
+	* src/IO/drawings/main.h, src/IO/drawings/new.c, src/IO/drawings/round.c, src/CPU/Makefile.am, src/CPU/clock.c, src/CPU/drawing.c, src/CPU/drawing.h, src/CPU/drawings/Makefile.am, src/CPU/drawings/init.c, src/CPU/drawings/init.h, src/CPU/drawings/main.c, src/CPU/drawings/main.h, src/CPU/drawings/new.c, src/CPU/drawings/original.c, src/CPU/main.c, src/CPU/queues.c, src/IO/Makefile.am, src/IO/drawing.c, src/IO/drawing.h, src/IO/drawings/Makefile.am, src/IO/drawings/init.c, src/IO/drawings/init.h, src/IO/drawings/main.c, src/IO/main.c, src/IO/simulation.c:
+	drawing code cleanups
+
+	* src/Makefile.am: ported the IO drawing to the new abstraction
+
+	* src/CPU/drawings/new.h: fixed multiple inclusion protection
+
+	* src/IO/drawings/.cvsignore, src/IO/main.c, src/IO/drawing.h, src/IO/drawing.c, src/IO/Makefile.am, src/IO/drawings/round.h, src/IO/drawings/round.c, src/IO/drawings/new.h, src/IO/drawings/new.c, src/IO/drawings/init.h, src/IO/drawings/init.c, src/IO/drawings/Makefile.am:
+	ported the IO drawing to the new abstraction
+
+1999-09-24  ranty  <ranty@debian>
+
+	* .cvsignore, doc/.cvsignore, src/.cvsignore, src/IO/.cvsignore, src/MEM/.cvsignore, src/IO/algorithms/.cvsignore, src/CPU/.cvsignore, src/CPU/drawings/.cvsignore, src/CPU/algorithms/.cvsignore, src/CLOCK/.cvsignore:
+	added .cvsignore file
+
+	* src/CPU/drawings/original.c, src/CPU/drawings/new.c: code cleanup
+
+	* src/CPU/drawing.c: supressed warning for an unavoidable condition
+
+	* src/drawing.c: added DRAWING_FIXED_RATIO style flag
+	improved flags treatment
+	added more assertions
+	now only the current style gets updated
+
+	* src/drawing.h: added DRAWING_FIXED_RATIO style flag
+
+	* src/VisualOS.c:
+	now uses glib's g_on_error_ functions in case of SIGSEGV
+
+1999-09-23  ranty  <ranty@debian>
+
+	* src/CPU/Makefile.am, src/Makefile.am: build system fix
+
+	* configure.in: bumped version number
+
+	* src/CPU/drawings/Makefile.am, src/CPU/drawings/init.c, src/CPU/drawings/init.h, src/CPU/drawings/new.c, src/CPU/drawings/new.h, src/CPU/drawings/original.c, src/CPU/drawings/original.h, src/CPU/main.c, src/CPU/drawing.h, src/CPU/drawing.c, src/CPU/Makefile.am, src/drawing.h, src/drawing.c, src/Makefile.am:
+	added "multiple drawing" abstraction
+
+1999-09-20  ranty  <ranty@debian>
+
+	* autogen.sh: automated execution of autoconf/automake related stuff
+
+	* IO_algorithms/Makefile.am, IO_algorithms/algorithm_api.h, IO_algorithms/algorithms.c, IO_algorithms/algorithms.h, IO_algorithms/fcfs.c, IO_algorithms/fcfs.h, IO_algorithms/nsscan.c, IO_algorithms/nsscan.h, IO_algorithms/scan.c, IO_algorithms/scan.h, IO_algorithms/sstf.c, IO_algorithms/sstf.h, IO_algorithms/test.c, IO_algorithms/test.h, CPU_algorithms/Makefile.am, CPU_algorithms/algorithm_api.h, CPU_algorithms/algorithms.c, CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/fcfs.h, CPU_algorithms/hrrn.c, CPU_algorithms/hrrn.h, CPU_algorithms/manual.c, CPU_algorithms/manual.h, CPU_algorithms/rr.c, CPU_algorithms/rr.h, CPU_algorithms/spn.c, CPU_algorithms/spn.h, CPU_algorithms/srt.c, CPU_algorithms/srt.h, CPU_algorithms/test.c, CPU_algorithms/test.h, src/IO/IO.c, src/IO/IO.h, src/IO/Makefile.am, src/IO/algorithms/Makefile.am, src/IO/algorithms/algorithm_api.h, src/IO/algorithms/algorithms.c, src/IO/algorithms/algorithms.h, src/IO/algorithms/fcfs.c, src/IO/algorithms/fcfs.h, src/IO/algorithms/nsscan.c, src/IO/algorithms/nsscan.h, src/IO/algorithms/scan.c, src/IO/algorithms/scan.h, src/IO/algorithms/sstf.c, src/IO/algorithms/sstf.h, src/IO/algorithms/test.c, src/IO/algorithms/test.h, src/IO/combo.c, src/IO/combo.h, src/IO/delay.c, src/IO/delay.h, src/IO/drawing.c, src/IO/drawing.h, src/IO/info.c, src/IO/info.h, src/IO/main.c, src/IO/main.h, src/IO/simulation.c, src/IO/simulation.h, src/MEM/Makefile.am, src/MEM/main.c, src/MEM/main.h, mkinstalldirs, process.c, process.h, property_widgets.c, property_widgets.h, signals.c, signals.h, src/CLOCK/CLOCK.c, src/CLOCK/CLOCK.h, src/CLOCK/Makefile.am, src/CLOCK/main.c, src/CLOCK/main.h, src/CPU/Makefile.am, src/CPU/algorithms/Makefile.am, src/CPU/algorithms/algorithm_api.h, src/CPU/algorithms/algorithms.c, src/CPU/algorithms/algorithms.h, src/CPU/algorithms/fcfs.c, src/CPU/algorithms/fcfs.h, src/CPU/algorithms/hrrn.c, src/CPU/algorithms/hrrn.h, src/CPU/algorithms/manual.c, src/CPU/algorithms/manual.h, src/CPU/algorithms/rr.c, src/CPU/algorithms/rr.h, src/CPU/algorithms/spn.c, src/CPU/algorithms/spn.h, src/CPU/algorithms/srt.c, src/CPU/algorithms/srt.h, src/CPU/algorithms/test.c, src/CPU/algorithms/test.h, src/CPU/clock.c, src/CPU/clock.h, src/CPU/combos.c, src/CPU/combos.h, src/CPU/drawing.c, src/CPU/drawing.h, src/CPU/info.c, src/CPU/info.h, src/CPU/main.c, src/CPU/main.h, src/CPU/queues.c, src/CPU/queues.h, src/CPU/simulation.c, src/CPU/simulation.h, src/Makefile.am, src/SCHED.c, src/SCHED.h, src/VisualOS.c, src/config.h.in, src/messaging.c, src/messaging.h, src/process.c, src/process.h, src/property_widgets.c, src/property_widgets.h, src/signals.c, src/signals.h, src/util.c, src/util.h, util.c, util.h, IO_drawing.c, IO_drawing.h, IO_info.c, IO_info.h, IO_main.c, IO_main.h, IO_simulation.c, IO_simulation.h, MEM_main.c, MEM_main.h, Makefile.am, NEWS, README, SCHED.c, SCHED.h, VisualOS.c, config.guess, config.sub, configure.in, install-sh, messaging.c, messaging.h, missing, CLOCK.c, CLOCK.h, CLOCK_main.c, CLOCK_main.h, COPYING, CPU_clock.c, CPU_clock.h, CPU_combos.c, CPU_combos.h, CPU_drawing.c, CPU_drawing.h, CPU_info.c, CPU_info.h, CPU_main.c, CPU_main.h, CPU_queues.c, CPU_queues.h, CPU_simulation.c, CPU_simulation.h, ChangeLog, IO.c, IO.h, IO_combo.c, IO_combo.h, IO_delay.c, IO_delay.h:
+	moved files around
+
+	* configure.in:
+	-"buggy select" workaround's default depends on the host OS
+	-only enable compiler warning if we are using GCC
+
+	* TODO: TODO
+
+	* configure.in: static compilation is now a configure option
+
+1999-07-12  ranty  <ranty@debian>
+
+	* CPU_algorithms/algorithms.c, CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/hrrn.c, CPU_algorithms/rr.c, CPU_algorithms/spn.c, CPU_algorithms/srt.c, CPU_clock.c, CPU_drawing.c, CPU_main.c, CPU_queues.c, CPU_queues.h, TODO, process.c, process.h:
+	encapsulated process queues with macros
+
+	* IO_algorithms/Makefile.am, IO_algorithms/algorithms.c, IO_algorithms/nsscan.c, IO_algorithms/nsscan.h:
+	added N Step Scan
+
+	* IO_algorithms/scan.c: logic clean up
+
+	* CPU_algorithms/test.c, CPU_algorithms/manual.c, property_widgets.c, MEM_main.c, IO_drawing.c, IO_combo.c, CPU_drawing.c, CPU_combos.c, CLOCK_main.c:
+	fixed compile warnings (header inclusion)
+
+1999-07-08  ranty  <ranty@debian>
+
+	* IO_algorithms/test.c, IO_algorithms/sstf.c, IO_algorithms/scan.c, IO_algorithms/fcfs.c, IO_algorithms/algorithms.h, IO_simulation.c:
+	added done_reading to the IO_algorithm specification
+
+1999-07-05  ranty  <ranty@debian>
+
+	* signals.c: use O_ASYNC insted of FASYNC by default as it should be
+
+	* configure.in: we now need at least gtk1.2.1
+	a fix for the order of arguments in the compiler call
+
+	* IO_simulation.h: changed a C++ coment into a C one for correctnes
+
+	* IO_main.c, CPU_main.c: it now works with gtk1.2
+
+	* property_widgets.c: change the order not to get signals too early
+
+	* messaging.c: Improved buggy_select workaround
+
+	* CPU_drawing.c: Fixed the CPU_drawing resizing problem with gtk1.2
+
+1999-04-03  ranty  <ranty@debian>
+
+	* MEM_main.c:
+	changed it to make io_requests as a dummy subsystem to help me work on the IO subsystem
+
+	* TODO: *** empty log message ***
+
+	* IO_algorithms/direct.c, IO_algorithms/direct.h:
+	renamed direct.c and direct.h to fcfs.c and fcfs.h
+
+	* IO_algorithms/algorithm_api.h:
+	started using g_slist_dup in algorithms
+
+	* IO_algorithms/sstf.h, IO_algorithms/sstf.c:
+	fixed sstf, it should now work correctly
+
+	* IO_algorithms/algorithms.c: -added "scan" algotithm
+	-renamed direct to fcfs
+
+	* IO_algorithms/scan.h, IO_algorithms/scan.c: -added "scan" algotithm
+
+	* IO_algorithms/Makefile.am:
+	-renamed direct.c and direct.h to fcfs.c and fcfs.h
+	-added "scan" algotithm
+
+	* IO_algorithms/fcfs.h, IO_algorithms/fcfs.c:
+	renamed direct.c and direct.h to fcfs.c and fcfs.h
+
+	* IO_simulation.c, IO_main.c, IO_info.h, IO_info.c, IO_drawing.h, IO_drawing.c:
+	added two entries to the repesentation of the IO subsystem to show the
+	two lists of requests: the full lists and the sorted reading list
+
+	* Makefile.am, util.h, util.c:
+	added a function to duplicate GSList linked lists
+
+1999-04-02  ranty  <ranty@debian>
+
+	* IO_algorithms/sstf.c, IO_algorithms/sstf.h, IO.c, IO.h, IO_algorithms/Makefile.am, IO_algorithms/algorithms.c, IO_algorithms/direct.c, IO_drawing.c, IO_simulation.c, IO_simulation.h, TODO:
+	implemented IO sstf
+
+1999-04-01  ranty  <ranty@debian>
+
+	* CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/hrrn.c, CPU_algorithms/manual.c, CPU_algorithms/rr.c, CPU_algorithms/spn.c, CPU_algorithms/srt.c, CPU_algorithms/test.c, CPU_combos.c, IO_combo.c, TODO, property_widgets.c:
+	there is no need any more to create "no properties" widged within the algorithms, in those cases leave the pointer NULL.
+
+	* IO_algorithms/test.h, IO_algorithms/test.c, IO_algorithms/direct.h, IO_algorithms/direct.c, IO_algorithms/algorithms.h, IO_algorithms/algorithms.c, IO_algorithms/algorithm_api.h, IO_algorithms/Makefile.am, IO_simulation.h, IO_simulation.c, IO.h, IO.c:
+	Added the algorithm abstraction to the IO subsytem
+
+	* messaging.h, messaging.c:
+	added a function to access the symbolic names of the different subsystems
+	which does range checking for robustnes
+
+1999-03-31  ranty  <ranty@debian>
+
+	* CPU_algorithms/test.c: cleaned up the namespace
+	and added a forgotten line of code
+
+	* CPU_algorithms/srt.c, CPU_algorithms/spn.c, CPU_algorithms/rr.c, CPU_algorithms/manual.c, CPU_algorithms/hrrn.c, CPU_algorithms/fcfs.c:
+	cleaned up the namespace
+
+	* CLOCK_main.c, CPU_main.c, IO_main.c, MEM_main.c, messaging.c, messaging.h:
+	-Changed GTK IO facilities usage semantics in "mesg_subsystem_setup"
+	-Furder documented Irix buggy select workaround
+
+	* acconfig.h, configure.in, messaging.c: Improved autoconf support
+	- added an enable-feature for the IRIX select bug
+	- disabled unused checkes included by autoscan
+
+	* CPU_algorithms/algorithms.c, CPU_algorithms/hrrn.c, CPU_queues.c, CPU_simulation.c, IO.c, IO_algorithms/algorithms.c, IO_delay.c, IO_simulation.c, SCHED.c, process.c, property_widgets.c:
+	now using glib's memory management functions
+
+1999-03-30  ranty  <ranty@debian>
+
+	* CPU_algorithms/rr.c, CPU_algorithms/spn.c, CPU_algorithms/srt.c, CPU_algorithms/test.c, IO_algorithms/Makefile.am, IO_algorithms/algorithms.c, doc/Makefile.am, CPU_algorithms/Makefile.am, CPU_algorithms/algorithms.c, CPU_algorithms/fcfs.c, CPU_algorithms/hrrn.c, CPU_algorithms/manual.c, SCHED.c, TODO, acconfig.h, acinclude.m4, config.guess, config.sub, configure.in, messaging.c, signals.c, CLOCK_main.c, CPU_combos.c, CPU_main.c, CPU_queues.c, Makefile.am:
+	Improved autoconf and automake support
+	Hopefuly fixed the O_ASYNC vs FASYNC portability issue
+
+1999-03-29  ranty  <ranty@debian>
+
+	* COPYING, INSTALL, install-sh, missing, mkinstalldirs:
+	replaced some automake symlinks with the real file
+
+	* dirs: dirs not needed any more
+
+	* CPU_algorithms/Makefile, CPU_algorithms/Makefile.am, IO_algorithms/Makefile, IO_algorithms/Makefile.am, NEWS, README, acconfig.h, configure.in, doc/Makefile, doc/Makefile.am, install-sh, missing, mkinstalldirs, AUTHORS, COPYING, ChangeLog, INSTALL, Make.Rules, Make.flags, Makefile, Makefile.am:
+	started using autoconf and automake
+
+1999-03-28  ranty  <ranty@debian>
+
+	* CPU_algorithms/spn.c, CPU_algorithms/srt.c, process.h:
+	Fixed some compilation probles due to the event management change.
+	some references to event changed with next_event
+
+1999-03-27  ranty  <ranty@debian>
+
+	* CPU_drawing.c, CPU_main.c, TODO:
+	Beautified the CPU_drawing and the code which actually draws it
+
+	* CPU_clock.c, CPU_drawing.c, CPU_simulation.c, CPU_simulation.h, TODO, process.h:
+	replaced the single event with pending and next events to get more flexivility.
+	Waiting processes no have their next burst shown insted of "0"
+
+1999-03-26  ranty  <ranty@debian>
+
+	* property_widgets.c: removed the SET button, it is not needed any more
+
+1999-03-15  ranty  <ranty@debian>
+
+	* CPU_algorithms/algorithm_api.h, CPU_algorithms/algorithms.c, CPU_algorithms/algorithms.h, CPU_algorithms/hrrn.c, process.h, process.c:
+	added a list with all currently running processes
+
+	* CPU_algorithms/rr.c: changed "time slice" lower limit from 0 to 1
+
+	* CPU_combos.c, CPU_combos.h, CPU_main.c, process.c:
+	changed "fill_CPU_proc_combo_list"'s prototipe for simplicity and did some
+	other code cleanup
+
+	* CLOCK_main.c:
+	Clock could not be stoped under certain circunstaces(FIXED)
+
+	* messaging.c: removed unused function "get_func"
+
+	* CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/hrrn.c, CPU_algorithms/manual.c, CPU_algorithms/rr.c, CPU_algorithms/spn.c, CPU_algorithms/srt.c, CPU_algorithms/test.c, CPU_clock.c, CPU_queues.c, CPU_queues.h, TODO:
+	Changed CPU_algorithm semantics to work better with processes truly waiting
+	for an event
+
+	* CPU_simulation.c: bursts are random now
+
+1999-03-09  ranty  <ranty@debian>
+
+	* messaging.c:
+	added a forgotten "break" in function mesg_subsystem_setup
+
+1999-03-08  ranty  <ranty@debian>
+
+	* TODO, messaging.c, messaging.h:
+	use GTK I/O monitoring facilities in subsystems which use GTK
+
+	* CLOCK_main.c: added automatic time and structured the code
+
+	* IO_drawing.c: moved the head's axis down out of the window
+
+	* property_widgets.c:
+	we use "value_changed" signal to update properties values
+
+1999-03-04  ranty  <ranty@debian>
+
+	* IO_algorithms/algorithm_api.h, IO_algorithms/algorithms.c, IO_algorithms/algorithms.h, IO_algorithms/Makefile:
+	-started and algorithm api and general implementatio for the IO subsystem
+
+	* CPU_main.c, CPU_simulation.c, CPU_simulation.h, IO.c, IO.h, IO_combo.c, IO_combo.h, IO_delay.c, IO_delay.h, IO_drawing.c, IO_drawing.h, IO_info.c, IO_info.h, IO_main.c, IO_simulation.c, IO_simulation.h, Makefile, TODO, dirs:
+	-cleaned namespace
+	-adapted CPU simulation to the new IO
+	-made a functional IO with simulation and a grafical representation
+
+	* CPU_algorithms/algorithms.h: added documentation
+
+	* SCHED.c, SCHED.h: made SCHEDuler more general and documented it
+
+	* CPU_drawing.c: cleaned namespace
+
+	* Make.flags: It will now be easier to modify
+
+1999-03-02  ranty  <ranty@debian>
+
+	* messaging.c:
+	documented the IRIX select on disconected socket in the source
+
+1999-02-27  ranty  <ranty@debian>
+
+	* CPU_algorithms/fcfs.c, CPU_algorithms/fcfs.h, CPU_algorithms/hrrn.c, CPU_algorithms/hrrn.h, CPU_algorithms/manual.c, CPU_algorithms/manual.h, CPU_algorithms/rr.c, CPU_algorithms/rr.h, CPU_algorithms/spn.c, CPU_algorithms/spn.h, CPU_algorithms/srt.c, CPU_algorithms/srt.h, CPU_algorithms/test.c, CPU_algorithms/test.h, CPU_drawing.c, CPU_drawing.h, IO_main.c, TODO, messaging.c, messaging.h, property_widgets.h:
+	code cleanups
+
+	* IO.c, IO.h, IO_delay.c, IO_delay.h, IO_main.c, MEM_main.c, SCHED.c, SCHED.h, TODO, VisualOS.c, messaging.c, messaging.h, signals.c, signals.h, CLOCK.c, CLOCK.h, CLOCK_main.c, CPU_clock.c, CPU_drawing.c, CPU_queues.c, CPU_queues.h, CPU_simulation.c, CPU_simulation.h:
+	-CLOCK is now capable of registering many callbacks.
+	-added a dummy IO subsystem which introduces delays.
+	-added a wait queue in the CPU.
+	-added an scheduler.
+	-messaging callbacks now get the full message struct.
+	-move signal related code to signals.c and added function to block and unblock
+		io signals.
+	-MESG is now capable of registering and calling many functions per message
+		type.
+	-MESG now reads all messages available on every signal.
+	-added functions to block and unblock messaging.
+
+1999-02-25  ranty  <ranty@debian>
+
+	* messaging.c: Improved IRIX select bug workarond
+
+1999-02-22  ranty  <ranty@debian>
+
+	* TODO: took note of portability issues
+
+	* messaging.c: Code cleanup and portability issues:
+		-Processes won't wait forever on a on existent message.
+		-work around for an IRIX 6.2 bug?
+			-disconnected socket apears as having pending data to read
+
+	* Make.flags: moved -g option to be used in all cases
+
+	* Make.Rules: Changed sed call for portability
+
+1999-02-21  ranty  <ranty@debian>
+
+	* messaging.c: finished mesg_callback_register
+
+	* Make.flags, TODO, VisualOS.c, messaging.c, messaging.h, CLOCK.c, CLOCK.h, CLOCK_main.c, CLOCK_main.h, CPU_clock.c, CPU_clock.h, CPU_main.c, IO_main.c, MEM_main.c:
+	Moved the CLOCK to its own subsystem and work on the messanger
+
+1999-01-29  ranty  <ranty@debian>
+
+	* CPU_clock.h, CPU_main.c, CPU_main.h, CPU_queues.h, IO_main.c, IO_main.h, MEM_main.c, MEM_main.h, Make.flags, TODO, VisualOS.c, messaging.c, messaging.h, process.c, process.h:
+	Messaging core implemented
+
+1999-01-13  ranty  <ranty@debian>
+
+	* CPU_clock.c, CPU_main.c: The clock window wont go away
+
+	* CPU_clock.c, CPU_info.c, CPU_info.h, CPU_main.c, process.c, process.h:
+	Moved process creation and destruction to process.c
+
+	* CPU_info.c: Added direct access to the process combos's GtkList
+
+1999-01-12  ranty  <ranty@debian>
+
+	* Make.Rules: Not so verbose dependency generation
+
+	* TODO: Updated TODO list
+
+	* CPU_algorithms/algorithm_api.h, CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/fcfs.h, CPU_algorithms/hrrn.c, CPU_algorithms/hrrn.h, CPU_algorithms/manual.c, CPU_algorithms/manual.h, CPU_algorithms/rr.c, CPU_algorithms/rr.h, CPU_algorithms/spn.c, CPU_algorithms/spn.h, CPU_algorithms/srt.c, CPU_algorithms/srt.h, CPU_algorithms/test.c, CPU_algorithms/test.h, CPU_clock.c, CPU_clock.h, CPU_combos.c, CPU_drawing.c, CPU_info.c, CPU_main.c, CPU_main.h, CPU_queues.c, CPU_queues.h, CPU_simulation.c, CPU_simulation.h, process.h:
+	Code Cleanup: moving declarations thinks to the right place and adding
+		algorithm_api.h to simplify header inclusion on algorithms
+
+	* CPU_algorithms/Makefile, Make.Rules, Makefile:
+	Changed dependencies generation so that Makefiles won't get changed
+
+1999-01-11  ranty  <ranty@debian>
+
+	* CPU_algorithms/Makefile, CPU_algorithms/algorithms.c, CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/fcfs.h, CPU_algorithms/hrrn.c, CPU_algorithms/hrrn.h, CPU_algorithms/manual.c, CPU_algorithms/manual.h, CPU_algorithms/rr.c, CPU_algorithms/rr.h, CPU_algorithms/spn.c, CPU_algorithms/spn.h, CPU_algorithms/srt.c, CPU_algorithms/srt.h, CPU_algorithms/test.c, CPU_algorithms/test.h, CPU_clock.c, CPU_clock.h, CPU_combos.c, CPU_combos.h, CPU_drawing.c, CPU_drawing.h, CPU_info.c, CPU_info.h, CPU_main.c, CPU_main.h, CPU_queues.c, CPU_queues.h, CPU_simulation.c, CPU_simulation.h, Make.flags, Makefile, TODO, VisualOS.c, dirs, doc/Makefile, doc/project.tex, property_widgets.c, property_widgets.h:
+	Imported sources
+
+	* CPU_algorithms/Makefile, CPU_algorithms/algorithms.c, CPU_algorithms/algorithms.h, CPU_algorithms/fcfs.c, CPU_algorithms/fcfs.h, CPU_algorithms/hrrn.c, CPU_algorithms/hrrn.h, CPU_algorithms/manual.c, CPU_algorithms/manual.h, CPU_algorithms/rr.c, CPU_algorithms/rr.h, CPU_algorithms/spn.c, CPU_algorithms/spn.h, CPU_algorithms/srt.c, CPU_algorithms/srt.h, CPU_algorithms/test.c, CPU_algorithms/test.h, CPU_clock.c, CPU_clock.h, CPU_combos.c, CPU_combos.h, CPU_drawing.c, CPU_drawing.h, CPU_info.c, CPU_info.h, CPU_main.c, CPU_main.h, CPU_queues.c, CPU_queues.h, CPU_simulation.c, CPU_simulation.h, Make.flags, Makefile, TODO, VisualOS.c, dirs, doc/Makefile, doc/project.tex, property_widgets.c, property_widgets.h:
+	New file.
+

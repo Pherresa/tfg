@@ -1,0 +1,117 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+IO Request Queue Handling.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This are the functions to use when working with any queue of
+requests in the IO subsystem.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF io_queue_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO DECLARE_IO_QUEUE ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO io_queue_empty ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO io_request_data ##### -->
+<para>
+
+</para>
+
+@element: 
+
+
+<!-- ##### MACRO io_queue_next ##### -->
+<para>
+
+</para>
+
+@element: 
+
+
+<!-- ##### MACRO io_queue_len ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO io_queue_init ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO io_queue_foreach ##### -->
+<para>
+
+</para>
+
+@queue: 
+@func: 
+@data: 
+
+
+<!-- ##### MACRO io_queue_concat ##### -->
+<para>
+
+</para>
+
+@dest: 
+@orig1: 
+@orig2: 
+
+
+<!-- ##### MACRO io_queue_remove ##### -->
+<para>
+
+</para>
+
+@queue: 
+@request: 
+
+
+<!-- ##### MACRO io_queue_append ##### -->
+<para>
+
+</para>
+
+@queue: 
+@request: 
+
+
+<!-- ##### MACRO io_queue_end ##### -->
+<para>
+
+</para>
+
+@element: 
+
+

@@ -1,0 +1,36 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Internal configuration.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This is the way to find out Memory internal configuration.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT mem_config_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### VARIABLE MEM_config ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION get_MEM_config ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

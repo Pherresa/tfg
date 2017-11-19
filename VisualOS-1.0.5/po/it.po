@@ -1,0 +1,730 @@
+# VisualOS is and educational visual simulator of an operating system. 
+# Copyright (C) 2000,2003 Colorio Mauro <linuxbox@interfree.it>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-06-03 01:30+0200\n"
+"PO-Revision-Date: 2000-09-13 20:58+0100\n"
+"Last-Translator: Colorio Mauro <linuxbox@interfree.it>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/CLOCK/main.c:53
+#, c-format
+msgid "current time: %d"
+msgstr "Tempo corrente: %d"
+
+#: src/drawing.c:172
+msgid "Detach the drawing style to its own window"
+msgstr "Stacca lo stile di disegno dalla sua finestra"
+
+#: src/file-dialog.c:51
+msgid "Select a file"
+msgstr "Seleziona un file"
+
+#: src/messaging.c:52
+msgid "MESG"
+msgstr "MESS"
+
+#: src/messaging.c:53 src/libglade_strings.h:57
+msgid "CPU"
+msgstr "CPU"
+
+#: src/messaging.c:54 src/libglade_strings.h:83 src/libglade_strings.h:130
+msgid "MEM"
+msgstr "MEM"
+
+#: src/messaging.c:55 src/libglade_strings.h:96 src/libglade_strings.h:125
+msgid "IO"
+msgstr "IO"
+
+#: src/messaging.c:56 src/libglade_strings.h:88
+msgid "CLOCK"
+msgstr "CLOCK"
+
+#: src/messaging.c:57 src/libglade_strings.h:121
+msgid "REQUESTOR"
+msgstr "RICHIEDENTE"
+
+#: src/messaging.c:93
+msgid "unknown"
+msgstr "sconosciuto"
+
+#: src/CPU/algorithms/manual.c:42 src/MEM/algorithms/manual.c:40
+msgid "Manual"
+msgstr "Manuale"
+
+#: src/CPU/algorithms/manual.c:56
+msgid "Number of queues:"
+msgstr "Numero di code:"
+
+#: src/CPU/algorithms/manual.c:57
+msgid "HeartBeat:"
+msgstr "Battiti del cuore"
+
+#: src/CPU/algorithms/manual.c:94
+#, c-format
+msgid "To CPU"
+msgstr "Alla CPU"
+
+#: src/CPU/algorithms/manual.c:104
+#, c-format
+msgid "To Queue %d"
+msgstr "Alla coda %d"
+
+#: src/CPU/algorithms/rr.c:54
+msgid "Time Slice"
+msgstr "Fetta di tempo"
+
+#: src/CPU/CPU.c:107
+#, c-format
+msgid "Process %d was terminated by %s"
+msgstr "Il processo %d è stato terminato da %s"
+
+#: src/CPU/combos.c:42 src/libglade_strings.h:17 src/libglade_strings.h:79
+msgid "pid:"
+msgstr "pid:"
+
+#: src/CPU/combos.c:43 src/libglade_strings.h:80
+msgid "time:"
+msgstr "tempo:"
+
+#: src/CPU/combos.c:44 src/libglade_strings.h:51 src/libglade_strings.h:81
+msgid "burst:"
+msgstr ""
+
+#: src/CPU/combos.c:47 src/CPU/editor/general.c:58
+#, c-format
+msgid "pid: %d"
+msgstr "pid: %d"
+
+#: src/CPU/combos.c:48 src/CPU/editor/general.c:60
+#, c-format
+msgid "time: %d"
+msgstr "tempo: %d"
+
+#: src/CPU/combos.c:49
+#, c-format
+msgid "burst: %d"
+msgstr "raffica: %d"
+
+#: src/CPU/combos.c:115 src/MEM/combo.c:55
+#, fuzzy
+msgid ""
+"No algorithm properties\n"
+"available"
+msgstr ""
+"Proprietà dell'algoritmo \n"
+"non disponibili"
+
+#: src/CPU/queues.c:183
+#, c-format
+msgid "process %d moved to queue %d"
+msgstr "processo %d spostato alla coda %d"
+
+#: src/CPU/queues.c:218
+#, c-format
+msgid "process %d is now running"
+msgstr "il processo %d sta andando"
+
+#: src/CPU/queues.c:268
+#, c-format
+msgid "process %d is now blocked"
+msgstr "il processo %d è bloccato"
+
+#: src/CPU/queues.c:293
+#, c-format
+msgid "process %d is now ready"
+msgstr "il processo %d è pronto"
+
+#: src/CPU/status.c:38 src/IO/status.c:38 src/MEM/status.c:38
+#, c-format
+msgid "Welcome to %s version %s"
+msgstr ""
+
+#: src/CPU/drawings/bars.c:48
+msgid "Bars"
+msgstr "Barre"
+
+#: src/CPU/drawings/new4.c:42
+msgid "Queues"
+msgstr "Code"
+
+#: src/CPU/drawings/original.c:38
+msgid "original"
+msgstr "originale"
+
+#: src/CPU/drawings/overlapped_bars.c:44
+msgid "Overlapped Bars"
+msgstr "Barre sovrapposte"
+
+#: src/CPU/drawings/state.c:44
+msgid "State"
+msgstr "Stato"
+
+#: src/CPU/editor/editor.c:67 src/libglade_strings.h:23
+msgid "General"
+msgstr "Generale"
+
+#: src/CPU/editor/editor.c:72 src/libglade_strings.h:29
+msgid "I/O"
+msgstr "I/O"
+
+#: src/CPU/editor/editor.c:77 src/libglade_strings.h:40
+msgid "Memory"
+msgstr "Memoria"
+
+#: src/CPU/editor/editor.c:82 src/libglade_strings.h:41
+msgid "Advanced"
+msgstr "Avanzate"
+
+#: src/CPU/editor/memory.c:86
+msgid "WRITE"
+msgstr "SCRITTURA"
+
+#: src/CPU/editor/memory.c:88
+msgid "READ"
+msgstr "LETTURA"
+
+#: src/IO/algorithms/manual.c:47
+msgid "select blocks"
+msgstr "seleziona blocchi"
+
+#: src/IO/algorithms/manual.c:90
+#, c-format
+msgid "%d (track %d)"
+msgstr "%d (traccia %d)"
+
+#: src/IO/algorithms/manual.c:124
+msgid "no more accesses"
+msgstr "nessun'altro accesso"
+
+#: src/IO/algorithms/nsscan.c:44
+msgid "Step:"
+msgstr "Passo:"
+
+#: src/IO/IO.c:111
+#, c-format
+msgid "Block %d (Track %d) was requested"
+msgstr "E' stato richiesto il blocco %d (Traccia %d) "
+
+#: src/IO/IO.c:143
+#, c-format
+msgid "Read block %d (Track %d)"
+msgstr "Legge blocco %d (Traccia %d)"
+
+#: src/IO/combo.c:64
+#, fuzzy
+msgid ""
+"No properties\n"
+"available"
+msgstr ""
+"Nessuna proprietà<\n"
+"disponibile"
+
+#: src/IO/drawings/new.c:43
+msgid "route"
+msgstr "strada"
+
+#: src/IO/drawings/round.c:45
+msgid "round"
+msgstr "rotondo"
+
+#: src/IO/drawings/round.c:129
+#, c-format
+msgid "Track: %d"
+msgstr "Traccia: %d"
+
+#: src/MEM/algorithms/manual.c:47
+msgid "We are short on memory, please select a frame to use"
+msgstr "Siamo a corto di memoria, selezionare un frame da utilizzare"
+
+#: src/MEM/algorithms/manual.c:49
+msgid "No pending page faults"
+msgstr "Non ci sono errori di pagina pendenti"
+
+#: src/MEM/MEM.c:163
+#, c-format
+msgid "Process %d pagefaulted on page %d "
+msgstr "Il processo %d ha generato un errore sulla pagina %d"
+
+#: src/MEM/MEM.c:166 src/MEM/MEM.c:215
+msgid "(WRITE)"
+msgstr "(SCRITURA)"
+
+#: src/MEM/MEM.c:168 src/MEM/MEM.c:217
+msgid "(READ)"
+msgstr "(LETTURA)"
+
+#: src/MEM/MEM.c:212
+#, c-format
+msgid "Process %d accessed page %d "
+msgstr "Il processo %d ha acceduto alla pagina %d "
+
+#: src/MEM/page_info.c:269
+#, c-format
+msgid "Process %d got page %d (frame %d)"
+msgstr "Il processo %d ha avuto la pagina %d (frame %d)"
+
+#: src/MEM/page_info.c:296
+#, c-format
+msgid "Process %d lost frame %d (page %d)"
+msgstr "Il processo %d ha perso il frame %d (pagina %d)"
+
+#: src/MEM/drawings/physical.c:46
+msgid "Physical"
+msgstr "Fisico"
+
+#: src/MEM/drawings/physical.c:88
+#, c-format
+msgid "frame:%d"
+msgstr "frame:%d"
+
+#: src/MEM/drawings/physical.c:97
+msgid "pid:-"
+msgstr "pid:-"
+
+#: src/MEM/drawings/physical.c:99 src/MEM/drawings/virtual.c:83
+#, c-format
+msgid "pid:%d"
+msgstr "pid:%d"
+
+#: src/MEM/drawings/physical.c:108
+msgid "page:-"
+msgstr "pagina:-"
+
+#: src/MEM/drawings/physical.c:110
+#, c-format
+msgid "page:%d"
+msgstr "pagina:%d"
+
+#: src/MEM/drawings/physical.c:205
+msgid "frame:000"
+msgstr "frame:000"
+
+#: src/MEM/drawings/virtual.c:45
+msgid "Virtual"
+msgstr "Virtuale"
+
+#: src/MEM/drawings/virtual.c:106
+msgid "frame: -"
+msgstr "frame: -"
+
+#: src/MEM/drawings/virtual.c:108
+#, c-format
+msgid "frame:%-2d"
+msgstr "frame:%-2d"
+
+#: src/MEM/drawings/virtual.c:194
+msgid "frame: 00"
+msgstr "frame: 00"
+
+#: src/REQUESTOR/main.c:108
+#, c-format
+msgid "got block %d"
+msgstr "Si è ottenuto il blocco %d"
+
+#: src/REQUESTOR/main.c:113
+#, c-format
+msgid "got page %d from process %d"
+msgstr "Ottenuta pagina %d dal processo %d"
+
+#.
+#. * Translatable strings file generated by Glade.
+#. * Add this file to your project's POTFILES.in.
+#. * DO NOT compile it as part of your application.
+#.
+#: src/libglade_strings.h:7
+msgid "Properties Auto Fill Parameters"
+msgstr "Proprietà Auto Riempimento Parametri"
+
+#: src/libglade_strings.h:8 src/libglade_strings.h:103
+msgid "average number of blocks"
+msgstr "numero medio di blocchi"
+
+#: src/libglade_strings.h:9
+msgid "The average number of blocks"
+msgstr "Il numero medio di blocchi"
+
+#: src/libglade_strings.h:10 src/libglade_strings.h:105
+msgid "average time betwen IO accesses"
+msgstr "tempo medio tra accessi IO"
+
+#: src/libglade_strings.h:11
+msgid "The average time between IO accesses"
+msgstr "Il tempo medio tra accessi IO"
+
+#: src/libglade_strings.h:12 src/libglade_strings.h:107
+msgid "average time between process creation "
+msgstr "tempo medio tra la creazione di processi"
+
+#: src/libglade_strings.h:13
+msgid "The average time between process creation"
+msgstr "Il tempo medio tra la creazione di processi"
+
+#: src/libglade_strings.h:14 src/libglade_strings.h:108
+msgid "average number of IO accesses"
+msgstr "numero medio di accessi IO"
+
+#: src/libglade_strings.h:15 src/libglade_strings.h:46
+msgid "OK"
+msgstr "OK"
+
+#: src/libglade_strings.h:16
+msgid "Process Properties"
+msgstr "Proprietà processo"
+
+#: src/libglade_strings.h:18
+msgid "pid"
+msgstr "pid"
+
+#: src/libglade_strings.h:19
+msgid "local time:"
+msgstr "tempo locale:"
+
+#: src/libglade_strings.h:20
+msgid "time"
+msgstr "tempo"
+
+#: src/libglade_strings.h:21
+msgid "start time"
+msgstr "tempo inizio"
+
+#: src/libglade_strings.h:22
+msgid "live time"
+msgstr "tempo vita"
+
+#: src/libglade_strings.h:24
+msgid "Add"
+msgstr "Aggiungi"
+
+#: src/libglade_strings.h:25
+msgid "Replace"
+msgstr "sostituisci"
+
+#: src/libglade_strings.h:26
+msgid "Remove"
+msgstr "Elimina"
+
+#: src/libglade_strings.h:27 src/libglade_strings.h:122
+msgid "Block"
+msgstr "Blocco"
+
+#: src/libglade_strings.h:28
+msgid "Time"
+msgstr "Tempo"
+
+#: src/libglade_strings.h:30 src/libglade_strings.h:31
+msgid "List of accesses to memory"
+msgstr "Lista di accessi alla memoria"
+
+#: src/libglade_strings.h:32 src/libglade_strings.h:126
+msgid "Page"
+msgstr "Pagina"
+
+#: src/libglade_strings.h:33
+msgid "Type"
+msgstr "Tipo"
+
+#: src/libglade_strings.h:34 src/libglade_strings.h:110
+msgid "Reading"
+msgstr "Leggendo"
+
+#: src/libglade_strings.h:35 src/libglade_strings.h:111
+#, fuzzy
+msgid "This graph represents the probability of reading from each page"
+msgstr "Questo grafico rappresenta la probabiltà di lettura per ogni pagina"
+
+#: src/libglade_strings.h:36 src/libglade_strings.h:112
+msgid "Writing"
+msgstr "Scrivendo"
+
+#: src/libglade_strings.h:37 src/libglade_strings.h:113
+#, fuzzy
+msgid "This graph represents the probability of writing to each page"
+msgstr "Questo grafico rappresenta la probabiltà di scrittura per ogni pagina"
+
+#: src/libglade_strings.h:38
+#, fuzzy
+msgid ""
+"Total number of pages the process will acces for reading or writing in its "
+"whole life"
+msgstr ""
+"Numero totale di pagine a cui il processo accederà per scrivere o leggere\n"
+"in tutta la sua vita"
+
+#: src/libglade_strings.h:39 src/libglade_strings.h:114
+msgid "Total number of pages"
+msgstr "Numero totale di pagine"
+
+#: src/libglade_strings.h:42
+msgid "Load"
+msgstr "Carica"
+
+#: src/libglade_strings.h:43
+msgid "Auto Fill"
+msgstr "Auto Riempimento"
+
+#: src/libglade_strings.h:44 src/libglade_strings.h:76
+msgid "Save"
+msgstr "salva"
+
+#: src/libglade_strings.h:45
+msgid "Parameters"
+msgstr "Parametri"
+
+#: src/libglade_strings.h:47
+msgid "Cancel"
+msgstr "Annulla"
+
+#: src/libglade_strings.h:48
+msgid "Statistics"
+msgstr "Statistiche"
+
+#: src/libglade_strings.h:49
+msgid "creation:"
+msgstr "creazione:"
+
+#: src/libglade_strings.h:50
+msgid "average time between process creation"
+msgstr "tempo medio tra la ceazione dei processi"
+
+#: src/libglade_strings.h:52
+msgid "average process burst length"
+msgstr "lunghezza media della raffica"
+
+#: src/libglade_strings.h:53
+msgid "return:"
+msgstr "ritorno:"
+
+#: src/libglade_strings.h:54 src/libglade_strings.h:56
+msgid "average time from process creation to process destruction"
+msgstr "tempo medio dalla creazione alla distruzione del processo"
+
+#: src/libglade_strings.h:55
+msgid "response:"
+msgstr "responso:"
+
+#: src/libglade_strings.h:58
+msgid "_New"
+msgstr "_Nuovo"
+
+#: src/libglade_strings.h:59
+msgid "_Memory"
+msgstr "_Memoria"
+
+#: src/libglade_strings.h:60
+msgid "_Disk"
+msgstr "_Disco"
+
+#: src/libglade_strings.h:61
+msgid "_Requestor"
+msgstr "_Richiedente"
+
+#: src/libglade_strings.h:62
+msgid "_Clock"
+msgstr "_Clock"
+
+#: src/libglade_strings.h:63
+msgid ""
+"Don't show the process editor when creating a new process, simply autofill it"
+msgstr ""
+"Non visualizzare l'editor dei processi alla creazione di un nuovo processo, "
+"semplicemente riempilo"
+
+#: src/libglade_strings.h:64
+msgid "Auto _Fill Processes"
+msgstr "Auto _Riempimento Processi"
+
+#: src/libglade_strings.h:65
+msgid "Stop the main Clock any time a process changes its state/queue"
+msgstr ""
+"Ferma il clock principale ogni volta che un processo cambia il stato/coda"
+
+#: src/libglade_strings.h:66 src/libglade_strings.h:85
+#: src/libglade_strings.h:97
+msgid "Stop _Clock"
+msgstr "Ferma _Clock"
+
+#: src/libglade_strings.h:67
+msgid "Lets you choose the statistic parameters used by autofill function"
+msgstr ""
+"Lascia scegliere i parametri della statistica usata dalla funzione auto "
+"riempimento"
+
+#: src/libglade_strings.h:68
+msgid "AutoFill _Parameters"
+msgstr "_Parametri Autoriempimento"
+
+#: src/libglade_strings.h:69
+msgid "New File"
+msgstr "File Nuovo"
+
+#: src/libglade_strings.h:70
+msgid "New"
+msgstr "Nuovo"
+
+#: src/libglade_strings.h:71
+msgid "Edit"
+msgstr "Modifica"
+
+#: src/libglade_strings.h:72
+msgid "Properties"
+msgstr "Proprietà"
+
+#: src/libglade_strings.h:73
+msgid "Open File"
+msgstr "Apri File"
+
+#: src/libglade_strings.h:74
+msgid "Open"
+msgstr "Apri"
+
+#: src/libglade_strings.h:75
+msgid "Save File"
+msgstr "Salva File"
+
+#: src/libglade_strings.h:77
+msgid "Reset"
+msgstr "Azzera"
+
+#: src/libglade_strings.h:78 src/libglade_strings.h:127
+msgid "Process"
+msgstr "Processo"
+
+#: src/libglade_strings.h:82 src/libglade_strings.h:87
+#: src/libglade_strings.h:101
+msgid "Algorithm"
+msgstr "Algoritmo"
+
+#: src/libglade_strings.h:84
+msgid "Stop the main Clock when anything interesting happens"
+msgstr "Ferma il clock quando succede qualcosa d'interessante "
+
+#: src/libglade_strings.h:86 src/libglade_strings.h:98
+msgid "_Disable Subsystem"
+msgstr "_disabilita sottosistema"
+
+#: src/libglade_strings.h:89
+msgid "Let the clock work on its own."
+msgstr "Lascia lavorare da solo il clock."
+
+#: src/libglade_strings.h:90
+msgid "Start"
+msgstr "Inizio"
+
+#: src/libglade_strings.h:91
+msgid "Stop the clock, we can still go with \"Single Ticks\""
+msgstr "Ferma il clock, si può procedere con \"uno alla volta\""
+
+#: src/libglade_strings.h:92
+msgid "Stop"
+msgstr "Ferma"
+
+#: src/libglade_strings.h:93
+msgid "Single Tick"
+msgstr "Uno alla volta"
+
+#: src/libglade_strings.h:94
+msgid "Time Unit (ms)"
+msgstr "Unità di tempo (ms)"
+
+#: src/libglade_strings.h:95
+#, fuzzy
+msgid ""
+"This is the length of a single time unit in miliseconds. When this number is "
+"high, time goes slowly and viceversa."
+msgstr ""
+"Questa è la lunghezza di una singola unità di tempo in millisecondi, quando "
+"questo numero \n"
+"è alto il tempo è più lento e viceversa."
+
+#: src/libglade_strings.h:99
+msgid "Requested Blocks"
+msgstr "Blocchi richiesti"
+
+#: src/libglade_strings.h:100
+msgid "To Read Blocks"
+msgstr "Leggere blocchi"
+
+#: src/libglade_strings.h:102
+msgid "The average number of blocks the process will access in total."
+msgstr "Il numero medio di blocchi a cui il processo accederà in totale."
+
+#: src/libglade_strings.h:104
+msgid "The average time between IO accesses."
+msgstr "Il tempo medio fra gli accessi IO."
+
+#: src/libglade_strings.h:106
+msgid "The average time between process creation."
+msgstr "Il tempo medio fra la creazione di processi."
+
+#: src/libglade_strings.h:109
+msgid "Default Memory Usage"
+msgstr "Uso standard di memoria"
+
+#: src/libglade_strings.h:115
+msgid "Process Auto Filling"
+msgstr "Auto riempimento processi"
+
+#: src/libglade_strings.h:116
+msgid ""
+"The maximun width for incremental styles. Don't expect good performance with "
+"a high value. "
+msgstr ""
+"La larghezza massima per gli stili incrementali. Non aspettarsi buone "
+"performance\n"
+"con valori alti."
+
+#: src/libglade_strings.h:117
+msgid "Max Graph History"
+msgstr "Massimo storico di un grafico"
+
+#: src/libglade_strings.h:118
+msgid "Pixmap Size Steps"
+msgstr "Grandezza passi"
+
+#: src/libglade_strings.h:119
+msgid "Who Knows What"
+msgstr "Suggerimenti"
+
+#: src/libglade_strings.h:120
+msgid "Drawing Styles"
+msgstr "Stili di disegno"
+
+#: src/libglade_strings.h:123
+msgid "Use Random Blocks"
+msgstr "Usa blocchi random"
+
+#: src/libglade_strings.h:124
+msgid "Access"
+msgstr "Accesso"
+
+#: src/libglade_strings.h:128
+msgid "Read"
+msgstr "Lettura"
+
+#: src/libglade_strings.h:129
+msgid "Write"
+msgstr "Scrittura"
+
+#: src/libglade_strings.h:131
+#, fuzzy
+msgid "Copyright (C) 2000 Manuel Estrada Sainz <ranty@debian.org>"
+msgstr "Copyright (C) 2000 Manuel Estrada Sainz <ranty@debian.org>"
+
+#: src/libglade_strings.h:132
+msgid "Visual Simulator of an Operating System."
+msgstr "Simulatore Visuale di un Sistema Operativo."
+
+#, fuzzy
+#~ msgid "Welcome to"
+#~ msgstr "Benvenuti a "
+
+#, fuzzy
+#~ msgid "version"
+#~ msgstr " versione "

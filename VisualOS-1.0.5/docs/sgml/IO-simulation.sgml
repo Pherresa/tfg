@@ -1,0 +1,129 @@
+<refentry id="VisualOS-IO-Simulation">
+<refmeta>
+<refentrytitle>IO Simulation</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>IO Simulation</refname><refpurpose>Simulation of the device</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="gint">gint</link>        <link linkend="init-IO-simulation">init_IO_simulation</link>              (void);
+<link linkend="gint">gint</link>        <link linkend="IO-algorithm-event">IO_algorithm_event</link>              (<link linkend="io-request-t">io_request_t</link> *request);
+<link linkend="gint">gint</link>        <link linkend="get-IO-head-pos">get_IO_head_pos</link>                 (void);
+<link linkend="io-queue-t">io_queue_t</link>  <link linkend="get-IO-reading-queue">get_IO_reading_queue</link>            (void);
+<link linkend="void">void</link>        <link linkend="set-IO-reading-queue">set_IO_reading_queue</link>            (<link linkend="io-queue-t">io_queue_t</link> new_reading);
+<link linkend="io-queue-t">io_queue_t</link>  <link linkend="get-IO-requested-queue">get_IO_requested_queue</link>          (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions serve to manage the disk's simulation and it's data structures.
+
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="init-IO-simulation">init_IO_simulation ()</title>
+<indexterm><primary>init_IO_simulation</primary></indexterm><programlisting><link linkend="gint">gint</link>        init_IO_simulation              (void);</programlisting>
+<para>
+initialices the IO simulation code.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="IO-algorithm-event">IO_algorithm_event ()</title>
+<indexterm><primary>IO_algorithm_event</primary></indexterm><programlisting><link linkend="gint">gint</link>        IO_algorithm_event              (<link linkend="io-request-t">io_request_t</link> *request);</programlisting>
+<para>
+Insert a new request in the IO subsystem using the current algorith.
+</para>
+<para>
+Mainly passes <parameter>request</parameter> over to the current algorithm and puts it the the queue
+of requested blocks.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>request</parameter>&nbsp;:</term>
+<listitem><simpara> request to be inserted.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-head-pos">get_IO_head_pos ()</title>
+<indexterm><primary>get_IO_head_pos</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_IO_head_pos                 (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the track number over which the head is currently flying.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-reading-queue">get_IO_reading_queue ()</title>
+<indexterm><primary>get_IO_reading_queue</primary></indexterm><programlisting><link linkend="io-queue-t">io_queue_t</link>  get_IO_reading_queue            (void);</programlisting>
+<para>
+Get all pending requests as ordered by the current algoritym.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the request's "reading" queue (ordered by the current algorithm).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="set-IO-reading-queue">set_IO_reading_queue ()</title>
+<indexterm><primary>set_IO_reading_queue</primary></indexterm><programlisting><link linkend="void">void</link>        set_IO_reading_queue            (<link linkend="io-queue-t">io_queue_t</link> new_reading);</programlisting>
+<para>
+Sets the request's "reading" queue.
+</para>
+<para>
+This function should be called when ever the reading queue is modified by
+external means, even if the pointer to the queue is not changed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>new_reading</parameter>&nbsp;:</term>
+<listitem><simpara> newly ordered "reading" queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-requested-queue">get_IO_requested_queue ()</title>
+<indexterm><primary>get_IO_requested_queue</primary></indexterm><programlisting><link linkend="io-queue-t">io_queue_t</link>  get_IO_requested_queue          (void);</programlisting>
+<para>
+Get all pending requests in order of arrival.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the request's "requested" queue (in chronological ordered).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

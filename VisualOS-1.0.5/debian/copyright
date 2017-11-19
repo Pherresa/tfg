@@ -1,0 +1,14 @@
+VisualOS was written by Manuel Estrada Sainz <ranty@debian.org>
+
+It can be downloaded from CVS:
+	:pserver:anonymous@cvs.VisualOS.sourceforge.net:/cvsroot/visualos
+
+Copyright:
+
+This software is copyright (c) 2000,2003 Manuel Estrada Sainz.
+
+You are free to distribute this software under the terms of the GNU
+General Public License, version 2 or later.
+
+On Debian systems, the complete text of the GNU General Public
+License can be found in /usr/share/common-licenses/GPL file.

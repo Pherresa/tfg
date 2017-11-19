@@ -1,0 +1,104 @@
+<refentry id="VisualOS-System-Events">
+<refmeta>
+<refentrytitle>System Events</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>System Events</refname><refpurpose>Event dispatching facility.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+enum        <link linkend="sys-event-t">sys_event_t</link>;
+<link linkend="void">void</link>        <link linkend="system-event">system_event</link>                    (<link linkend="sys-event-t">sys_event_t</link> type,
+                                             <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>        <link linkend="system-event-receive">system_event_receive</link>            (<link linkend="sys-event-t">sys_event_t</link> type,
+                                             <link linkend="sys-event-callback">sys_event_callback</link> func);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This facility allows for non related code to be informed of some events.
+</para>
+<para>
+For an example look at: src/CPU/drawings/bars.c,
+src/CPU/drawings/overlapped_bars.c or /src/CPU/drawings/state.c
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="sys-event-t">enum sys_event_t</title>
+<indexterm><primary>sys_event_t</primary></indexterm><programlisting>typedef enum {
+	SYS_EVENT_PROC_CREATE=0,	/* there is a new process */
+	SYS_EVENT_PROC_DESTROY,		/* a process terminated */
+	SYS_EVENT_PROC_READY,		/* a process is now ready to run */
+	SYS_EVENT_PROC_QUEUED,		/* a process put in a ready queue */
+	SYS_EVENT_PROC_RUNNING,		/* a process is now running */
+	SYS_EVENT_PROC_WAITING,		/* a process is now blocked */
+	SYS_EVENT_PROC_SELECT,		/* a process has been selected by
+					   the user */
+	SYS_EVENT_FRAME_SELECT,		/* the user selected a memory frame */
+	SYS_EVENT_QUITTING		/* the subsystem is quitting */
+}sys_event_t;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="system-event">system_event ()</title>
+<indexterm><primary>system_event</primary></indexterm><programlisting><link linkend="void">void</link>        system_event                    (<link linkend="sys-event-t">sys_event_t</link> type,
+                                             <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Generate a system event of type <parameter>type</parameter> with argument <parameter>data</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> type of the event.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> agument of the event.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="system-event-receive">system_event_receive ()</title>
+<indexterm><primary>system_event_receive</primary></indexterm><programlisting><link linkend="void">void</link>        system_event_receive            (<link linkend="sys-event-t">sys_event_t</link> type,
+                                             <link linkend="sys-event-callback">sys_event_callback</link> func);</programlisting>
+<para>
+Instruct the system events code to call <parameter>func</parameter> when ever an event of
+type <parameter>type</parameter> ocurs.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> type of event to receive.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> function to call.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,219 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Status of the memory.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+Here is descrived show to find out the status of memory,
+the frames available, what process they belong to, valid and invalid pages...
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT frame_info_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM mem_frame_flags_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO FRAME_LOCKED ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+
+<!-- ##### MACRO FRAME_REFERENCED ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+
+<!-- ##### MACRO FRAME_MODIFIED ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+
+<!-- ##### STRUCT proc_pages_info_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO PAGE_VALID ##### -->
+<para>
+
+</para>
+
+@proc_pages: 
+@page: 
+
+
+<!-- ##### MACRO NO_FRAME ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO NO_PAGE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO NO_PROC ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO NO_BLOCK ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION init_page_info ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION get_free_frame ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION put_free_frame ##### -->
+<para>
+
+</para>
+
+@frame: 
+
+
+<!-- ##### FUNCTION have_free_frame ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_frame_info ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_frames_list ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION mem_frames_next ##### -->
+<para>
+
+</para>
+
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_proc_pages ##### -->
+<para>
+
+</para>
+
+@pid: 
+@creat: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_proc_pages_list ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION proc_pages_next ##### -->
+<para>
+
+</para>
+
+@pages: 
+@Returns: 
+
+
+<!-- ##### FUNCTION virt_to_phys ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mem_page_invalid ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+
+
+<!-- ##### FUNCTION mem_assign_frame ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+@frame: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mem_page_valid ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+
+

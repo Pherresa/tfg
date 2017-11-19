@@ -1,0 +1,68 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Simulation of the device
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions serve to manage the disk's simulation and it's data structures.
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION init_IO_simulation ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION IO_algorithm_event ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_IO_head_pos ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_IO_reading_queue ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION set_IO_reading_queue ##### -->
+<para>
+
+</para>
+
+@new_reading: 
+<!-- # Unused Parameters # -->
+@new_requested: 
+
+
+<!-- ##### FUNCTION get_IO_requested_queue ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

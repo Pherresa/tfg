@@ -1,0 +1,76 @@
+Make the number of decimal digits in the properties dynamic
+Implement the optional algorithms.
+Make IO disk flat and draw the whole queue of "to read" blocks
+When thinks go wrong make sure the other subsystems know before quiting.
+	And any other time too (DONE for user request).
+Put one algorithm dependent property in processes which should show up in the
+	list drawing.
+Change the `easy' properties facility:
+	-make the notify function specify which property has changed
+Do statistics of everything
+SSTF should sort the requests when it gets selected
+	-check weather it sorts correctly
+IO_simulation (simulation_sched) should probably stop been called when there
+	-are no pending reads.
+make sure all IO algorithms are working properly
+Remove "not needed any more" Debuging messages.
+
+improve CPU view:
+	mas estados... memory doesn't suspend processes
+
+Process properties:
+	pid DONE
+	time DONE
+	provavilidad de permanecer en la pagina por tick...
+						NOT UNTIL MEM SUBSYSTEM
+	tamaño de la memoria... NOT UNTIL MEM SUBSYSTEM
+	estado
+	burst = next_event.time - time
+	bloques a leer
+		-probabilidad de leerlos
+	
+IO
+	todos los algoritmos a la vez mostrando algo.
+	add function: total_track_seek to algorithms
+
+next_CPU_simulation_in_proc:
+	proc->pending_event could be a pointer into io_event queue
+
+make pid unsigned and wrap it in the end with available pids?
+
+mejorar Dibujito de estados(cambiarlo por un pixmap estatico?)
+
+too much redrawing in *move_proc_* functions?
+
+Estadisticas: 
+	las de los apuntes
+
+Generador automatico de procesos:
+Grabar /Reproducir Sesiones
+use gtk_gc_get insted of gdk_gc_new[_with_values]
+IO: flags are used in the request but are not put on the answer:
+	This means that the same subsystem can not make requests with different
+	flags relaiably.
+Improve the Manual algorithms, stop the clock to let the user decide.
+Show some flag bits in the MEM drawings.
+Write a user manual full of screenshoots
+Keep some history in the "route" style in the IO subsystem
+Change history method in CPU drawings from wrapping to sliding.
+Add a legend on drawings. A long description of what they represent
+	would also be nice.
+make the messager store the messages in per subsytem queues to make it more
+responsive when a certain subsystem can't handle more messages.
+When memory is freed while the Manual algorighm makes a decision, select_frame
+	may return a free frame which doen't have to be writen to disk
+		(done, needs testing)
+When the MEM manual algorithm gets unselected, the user still has to resolve
+	the page faults which were pending at the moment.
+
+Check weather LIBS and INCLUDES can be safely modified in configure.in
+Some messages don't get translated and they should.
+Create a visualos-doc[-es] package
+Make .so plugins out of algorithms.
+Multi-thread the messanger so it won't stop working if a single subsystem is
+	busy.
+Optionaly remember windows placement and sizes
+Remember enable/disable state for MEM and IO.

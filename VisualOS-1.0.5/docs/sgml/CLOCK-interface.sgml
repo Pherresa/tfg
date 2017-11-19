@@ -1,0 +1,96 @@
+<refentry id="VisualOS-Clock-Interface">
+<refmeta>
+<refentrytitle>Clock Interface</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Clock Interface</refname><refpurpose>CLOCK interface to the other subsystems.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="gint">gint</link>        (<link linkend="tick-callback-t">*tick_callback_t</link>)              (<link linkend="gint">gint</link> time);
+<link linkend="gint">gint</link>        <link linkend="clock-register-tick">clock_register_tick</link>             (<link linkend="tick-callback-t">tick_callback_t</link> func);
+<link linkend="gint">gint</link>        <link linkend="get-time">get_time</link>                        (void);
+<link linkend="void">void</link>        <link linkend="CLOCK-stop">CLOCK_stop</link>                      (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions allow the other subsystems to interact, througth the messaging
+service, with the CLOCK.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="tick-callback-t">tick_callback_t ()</title>
+<indexterm><primary>tick_callback_t</primary></indexterm><programlisting><link linkend="gint">gint</link>        (*tick_callback_t)              (<link linkend="gint">gint</link> time);</programlisting>
+<para>
+function pointer to be used with <parameter>clock_reguster_tick</parameter>.</para>
+<para>
+function pointer to be used with <parameter>clock_reguster_tick</parameter>.
+</para><variablelist role="params">
+<varlistentry><term><parameter>time</parameter>&nbsp;:</term>
+<listitem><simpara> current time in "time units".
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="clock-register-tick">clock_register_tick ()</title>
+<indexterm><primary>clock_register_tick</primary></indexterm><programlisting><link linkend="gint">gint</link>        clock_register_tick             (<link linkend="tick-callback-t">tick_callback_t</link> func);</programlisting>
+<para>
+Instructs the CLOCK subsystem to call func for every "time unit".</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> function to be called as time goes by.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-time">get_time ()</title>
+<indexterm><primary>get_time</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_time                        (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the current time in "time units".
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="CLOCK-stop">CLOCK_stop ()</title>
+<indexterm><primary>CLOCK_stop</primary></indexterm><programlisting><link linkend="void">void</link>        CLOCK_stop                      (void);</programlisting>
+<para>
+Tells the CLOCK to stop counting "time units".</para>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Event dispatching facility.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This facility allows for non related code to be informed of some events.
+</para>
+<para>
+For an example look at: src/CPU/drawings/bars.c,
+src/CPU/drawings/overlapped_bars.c or /src/CPU/drawings/state.c
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM sys_event_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION system_event ##### -->
+<para>
+
+</para>
+
+@type: 
+@data: 
+
+
+<!-- ##### FUNCTION system_event_receive ##### -->
+<para>
+
+</para>
+
+@type: 
+@func: 
+
+

@@ -1,0 +1,51 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+IO interface to the other subsystems.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions allow the other subsystems to interact, througth the messaging
+service, with the I/O subsystem.
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### USER_FUNCTION block_ready_callback_t ##### -->
+<para>
+Function pointer type for the callback used on @io_register_block_ready.
+</para>
+
+@block: block number of the fulfilled IO access.
+
+
+<!-- ##### FUNCTION io_register_block_ready ##### -->
+<para>
+
+</para>
+
+@func: 
+@Returns: 
+
+
+<!-- ##### FUNCTION io_request_block ##### -->
+<para>
+
+</para>
+
+@block: 
+
+
+<!-- ##### FUNCTION io_request_swap_block ##### -->
+<para>
+
+</para>
+
+@block: 
+
+

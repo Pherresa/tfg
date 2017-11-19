@@ -1,0 +1,356 @@
+<refentry id="VisualOS-Messaging">
+<refmeta>
+<refentrytitle>Messaging</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Messaging</refname><refpurpose>Messaging facility.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="message-t">message_t</link>;
+#define     <link linkend="MESSAGE-MAXSIZE-CAPS">MESSAGE_MAXSIZE</link>
+enum        <link linkend="subsystem-t">subsystem_t</link>;
+enum        <link linkend="mesg-message-type-t">mesg_message_type_t</link>;
+enum        <link linkend="misc-message-type-t">misc_message_type_t</link>;
+<link linkend="void">void</link>        (<link linkend="receive-callback">*receive_callback</link>)             (const <link linkend="message-t">message_t</link> *m);
+<link linkend="gint">gint</link>        <link linkend="mesg-pre-setup">mesg_pre_setup</link>                  (<link linkend="subsystem-t">subsystem_t</link> subsystem);
+<link linkend="gint">gint</link>        <link linkend="mesg-messanger-setup">mesg_messanger_setup</link>            (<link linkend="subsystem-t">subsystem_t</link> subsystem);
+<link linkend="gint">gint</link>        <link linkend="mesg-subsystem-setup">mesg_subsystem_setup</link>            (<link linkend="subsystem-t">subsystem_t</link> subsystem,
+                                             <link linkend="gint">gint</link> flags);
+<link linkend="gint">gint</link>        <link linkend="mesg-quit">mesg_quit</link>                       (<link linkend="subsystem-t">subsystem_t</link> subsystem);
+<link linkend="gint">gint</link>        <link linkend="mesg-send">mesg_send</link>                       (<link linkend="subsystem-t">subsystem_t</link> dest,
+                                             <link linkend="mesg-type-t">mesg_type_t</link> type,
+                                             const <link linkend="gpointer">gpointer</link> data,
+                                             <link linkend="gint">gint</link> size);
+<link linkend="gint">gint</link>        <link linkend="mesg-broadcast">mesg_broadcast</link>                  (<link linkend="mesg-type-t">mesg_type_t</link> type,
+                                             const <link linkend="gpointer">gpointer</link> data,
+                                             <link linkend="gint">gint</link> size);
+<link linkend="gboolean">gboolean</link>    <link linkend="mesg-loop">mesg_loop</link>                       (void);
+<link linkend="gint">gint</link>        <link linkend="mesg-callback-register">mesg_callback_register</link>          (<link linkend="mesg-type-t">mesg_type_t</link> type,
+                                             <link linkend="receive-callback">receive_callback</link> func);
+<link linkend="subsystem-t">subsystem_t</link> <link linkend="mesg-who-am-i">mesg_who_am_i</link>                   (void);
+<link linkend="gchar">gchar</link>*      <link linkend="mesg-subsystem-name">mesg_subsystem_name</link>             (<link linkend="subsystem-t">subsystem_t</link> subsystem);
+<link linkend="gint">gint</link>        <link linkend="mesg-block">mesg_block</link>                      (void);
+<link linkend="gint">gint</link>        <link linkend="mesg-unblock">mesg_unblock</link>                    (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This could be seen as another subsystem, and in deed is a different process. It
+makes comunication between the other subsystem posible in a transparent maner,
+currently it uses sockets but it could use any means of comunication without 
+modifing any other code.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="message-t">struct message_t</title>
+<indexterm><primary>message_t</primary></indexterm><programlisting>struct message_t {
+			/* struct describing a message */
+	subsystem_t sender;		/* sender of the message */
+	subsystem_t dest;		/* target of the message */
+	mesg_type_t type;		/* type of message */
+	gint data_size;			/* size of the data */
+	gint8 data[MESSAGE_MAXSIZE];	/* data of the message */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="MESSAGE-MAXSIZE-CAPS">MESSAGE_MAXSIZE</title>
+<indexterm><primary>MESSAGE_MAXSIZE</primary></indexterm><programlisting>#define MESSAGE_MAXSIZE 8	/* maximun size of the data to send in a message */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="subsystem-t">enum subsystem_t</title>
+<indexterm><primary>subsystem_t</primary></indexterm><programlisting>typedef enum {		/* identification for the subsystems will also be used
+			   as the higher byte for message types */
+	ALL=-2,		/* broadcast messages */
+	NOSUBSYSTEM=-1,	/* used within the messaging code to indicate that
+			   there is no subsystem */
+	MESG=0,		/* messages to be handled by the messager */
+	CPU,		/* CPU subsystem */
+	MEM,		/* Memory subsystem */
+	IO,		/* I/O subsystem */
+	CLOCK,		/* Clock subsystem */
+	REQUESTOR,	/* Requestor subsystem */
+	N_SUBSYSTEMS,	/* used within the messaging code as the total number
+			   of subsystems */
+	MISC_MESSAGES	/* messages that don't belong to any subsystem in 
+			   particular */
+} subsystem_t;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="mesg-message-type-t">enum mesg_message_type_t</title>
+<indexterm><primary>mesg_message_type_t</primary></indexterm><programlisting>typedef enum {			/* message types to be handled by the
+				   messager */
+	MESG_QUIT=MESG&lt;&lt;8,	/* each subsystem should send this message
+				   to the messenger before quiting */
+	MESG_RESET_SYSTEM	/* send by the CPU tells the messager to
+				   terminate all subsystems and restart
+				   the system */
+} mesg_message_type_t;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="misc-message-type-t">enum misc_message_type_t</title>
+<indexterm><primary>misc_message_type_t</primary></indexterm><programlisting>typedef enum {				/* message types not belonging to a
+					   particular subsystem */
+	MISC_SHOW=MISC_MESSAGES&lt;&lt;8,	/* tells a subsystem to show it's
+					   main window */
+	MISC_QUIT			/* tells a subsystem to quit */
+} misc_message_type_t;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="receive-callback">receive_callback ()</title>
+<indexterm><primary>receive_callback</primary></indexterm><programlisting><link linkend="void">void</link>        (*receive_callback)             (const <link linkend="message-t">message_t</link> *m);</programlisting>
+<para>
+Function pointer type to be used in mesg_callback_register.</para>
+<para>
+Function pointer type to be used in mesg_callback_register.
+</para><variablelist role="params">
+<varlistentry><term><parameter>m</parameter>&nbsp;:</term>
+<listitem><simpara> message.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-pre-setup">mesg_pre_setup ()</title>
+<indexterm><primary>mesg_pre_setup</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_pre_setup                  (<link linkend="subsystem-t">subsystem_t</link> subsystem);</programlisting>
+<para>
+Should be called before the fork.
+It registers the subsystem and gets ready for comunication.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>subsystem</parameter>&nbsp;:</term>
+<listitem><simpara> the subsystem ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-messanger-setup">mesg_messanger_setup ()</title>
+<indexterm><primary>mesg_messanger_setup</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_messanger_setup            (<link linkend="subsystem-t">subsystem_t</link> subsystem);</programlisting>
+<para>
+Should be called after the fork on the parent side.
+Finishes setting up comunications.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>subsystem</parameter>&nbsp;:</term>
+<listitem><simpara> the subsystem ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-subsystem-setup">mesg_subsystem_setup ()</title>
+<indexterm><primary>mesg_subsystem_setup</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_subsystem_setup            (<link linkend="subsystem-t">subsystem_t</link> subsystem,
+                                             <link linkend="gint">gint</link> flags);</programlisting>
+<para>
+Should be called after the fork on the child side.
+Finishes setting up comunications.
+</para>
+<para>
+If <parameter>flags</parameter> is MESG_WITH_GTK GTK I/O monitoring facilities will be used.
+</para>
+<para>
+NOTE: GTK+ I/O monitoring facilities can only be used if the subsystem
+uses GTK+ and calls <parameter>gtk_main</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>subsystem</parameter>&nbsp;:</term>
+<listitem><simpara> the subsystem ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara> could be MESG_WITH_GTK or 0.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-quit">mesg_quit ()</title>
+<indexterm><primary>mesg_quit</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_quit                       (<link linkend="subsystem-t">subsystem_t</link> subsystem);</programlisting>
+<para>
+Should be called by all subsystems before quitting.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>subsystem</parameter>&nbsp;:</term>
+<listitem><simpara> ID of the subsystem.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-send">mesg_send ()</title>
+<indexterm><primary>mesg_send</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_send                       (<link linkend="subsystem-t">subsystem_t</link> dest,
+                                             <link linkend="mesg-type-t">mesg_type_t</link> type,
+                                             const <link linkend="gpointer">gpointer</link> data,
+                                             <link linkend="gint">gint</link> size);</programlisting>
+<para>
+Send a message from one subsystem to another.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> target subsystem ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> type for the message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data for the message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara> size of <parameter>data</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-broadcast">mesg_broadcast ()</title>
+<indexterm><primary>mesg_broadcast</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_broadcast                  (<link linkend="mesg-type-t">mesg_type_t</link> type,
+                                             const <link linkend="gpointer">gpointer</link> data,
+                                             <link linkend="gint">gint</link> size);</programlisting>
+<para>
+Send a message from one subsystem to all the other subsystems.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> type for the message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data for the message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara> size of <parameter>data</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-loop">mesg_loop ()</title>
+<indexterm><primary>mesg_loop</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    mesg_loop                       (void);</programlisting>
+<para>
+Function to be called last on the messanger process, it will handle messages
+between the different subsystems and won't return until the system is reset
+or terminated.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> TRUE if the system should be reset insted of terminated.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-callback-register">mesg_callback_register ()</title>
+<indexterm><primary>mesg_callback_register</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_callback_register          (<link linkend="mesg-type-t">mesg_type_t</link> type,
+                                             <link linkend="receive-callback">receive_callback</link> func);</programlisting>
+<para>
+Registers the function <parameter>func</parameter> to be called when messages of
+type <parameter>type</parameter> are received.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> message type.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> function to be called.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-who-am-i">mesg_who_am_i ()</title>
+<indexterm><primary>mesg_who_am_i</primary></indexterm><programlisting><link linkend="subsystem-t">subsystem_t</link> mesg_who_am_i                   (void);</programlisting>
+<para>
+This is usefull so the code which is usable by all subsystems can find out
+where it is executing.
+</para>
+<para>
+This is specialy usefull in combination with <parameter>mesg_subsystem_name</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the identification number of the current subsystem.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-subsystem-name">mesg_subsystem_name ()</title>
+<indexterm><primary>mesg_subsystem_name</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*      mesg_subsystem_name             (<link linkend="subsystem-t">subsystem_t</link> subsystem);</programlisting>
+<para>
+The string returned should not be modified of freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>subsystem</parameter>&nbsp;:</term>
+<listitem><simpara> the identification number of a subsystem.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a string with the name of the subsystem.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-block">mesg_block ()</title>
+<indexterm><primary>mesg_block</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_block                      (void);</programlisting>
+<para>
+In case GTK I/O monitoring facilities are not been used, this function
+can be used to protect critical sections of code from been interrupted
+by I/O signals.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mesg-unblock">mesg_unblock ()</title>
+<indexterm><primary>mesg_unblock</primary></indexterm><programlisting><link linkend="gint">gint</link>        mesg_unblock                    (void);</programlisting>
+<para>
+Restarts normal messaging behaviour after calling <parameter>mesg_block</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

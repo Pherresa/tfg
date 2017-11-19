@@ -1,0 +1,33 @@
+[name]
+VisualOS - Educational Visual Simulator of Operating an System.
+
+[copyright]
+Copyright (C) 2000,2003 Manuel Estrada Sainz <ranty@debian.org>
+This  is  free software; see the source for copying condi-
+tions.  There is NO warranty; not even for
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+[description]
+.B VisualOS
+is an educational visual simulator of an operating system for
+GNOME/GTK+.
+
+It represents a working operating system visualy allowing the user to
+select the different algorithms to use for each of the simulated
+subsystems: CPU, Memory and disk I/O.
+
+[author]
+Manuel Estrada Sainz <ranty@debian.org>
+
+[see also]
+The full documentation for
+.B VisualOS
+is maintained as SGML source and located in directory
+.I docs
+of the distribution tarball.
+Documentation is also available in PDF, PostScript and HTML from the
+download section of the project's page at sourceforge:
+
+	
+.I http://sourceforge.net/projects/visualos

@@ -1,0 +1,15 @@
+Colorio Mauro <linuxbox@interfree.it>
+	Italian translation
+Laurent Bonnaud <Laurent.Bonnaud@iut2.upmf-grenoble.fr>
+	French translation
+	English spelling fixes 
+Raquel Martinez Belinchón <raquelmb@bigfoot.com>
+	Probided a lot of patience while I coded VisualOS
+	Helped translating the user manual from spanish into english
+Kasparek Tomas <kasparek@fit.vutbr.cz>
+	Czech translation (including user's manual)
+	Misc NLS updates.
+Ramón Rey Vicente <ramon.rey@hispalinux.es>
+	Warning fixes for gcc 3.2
+	Updated documentation to DocBook 4.1
+	Updated Spanish translation

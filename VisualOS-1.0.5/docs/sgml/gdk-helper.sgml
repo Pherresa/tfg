@@ -1,0 +1,209 @@
+<refentry id="VisualOS-Gdk">
+<refmeta>
+<refentrytitle>Gdk</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Gdk</refname><refpurpose>Gdk addons</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="GdkGC">GdkGC</link>*      <link linkend="new-gdk-GC-with-color">new_gdk_GC_with_color</link>           (<link linkend="guint8">guint8</link> red,
+                                             <link linkend="guint8">guint8</link> green,
+                                             <link linkend="guint8">guint8</link> blue);
+<link linkend="void">void</link>        <link linkend="resize-gdk-pixmap">resize_gdk_pixmap</link>               (<link linkend="GdkPixmap">GdkPixmap</link> **pixmap,
+                                             <link linkend="gint">gint</link> new_width,
+                                             <link linkend="gint">gint</link> new_height,
+                                             <link linkend="GdkGC">GdkGC</link> *fill);
+<link linkend="void">void</link>        <link linkend="enlarge-gdk-pixmap">enlarge_gdk_pixmap</link>              (<link linkend="GdkPixmap">GdkPixmap</link> **pixmap,
+                                             <link linkend="gint">gint</link> new_width,
+                                             <link linkend="gint">gint</link> new_height,
+                                             <link linkend="GdkGC">GdkGC</link> *fill);
+<link linkend="void">void</link>        <link linkend="draw-gdk-text-centered">draw_gdk_text_centered</link>          (<link linkend="GdkDrawable">GdkDrawable</link> *drawable,
+                                             <link linkend="GdkFont">GdkFont</link> *font,
+                                             <link linkend="GdkGC">GdkGC</link> *gc,
+                                             <link linkend="gint">gint</link> x,
+                                             <link linkend="gint">gint</link> y,
+                                             <link linkend="gint">gint</link> width,
+                                             <link linkend="gint">gint</link> height,
+                                             const <link linkend="gchar">gchar</link> *text,
+                                             <link linkend="gint">gint</link> text_length);
+<link linkend="void">void</link>        <link linkend="fill-gdk-window">fill_gdk_window</link>                 (<link linkend="GdkPixmap">GdkPixmap</link> *pixmap,
+                                             <link linkend="GdkGC">GdkGC</link> *fill);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This is the functionality which I wanted from GDK but wasn't there.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="new-gdk-GC-with-color">new_gdk_GC_with_color ()</title>
+<indexterm><primary>new_gdk_GC_with_color</primary></indexterm><programlisting><link linkend="GdkGC">GdkGC</link>*      new_gdk_GC_with_color           (<link linkend="guint8">guint8</link> red,
+                                             <link linkend="guint8">guint8</link> green,
+                                             <link linkend="guint8">guint8</link> blue);</programlisting>
+<para>
+Creates a new GdkGC (Graphic Context) with the foreground color set to
+the color descrived by <parameter>red</parameter>, <parameter>green</parameter> and <parameter>blue</parameter> components.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>red</parameter>&nbsp;:</term>
+<listitem><simpara> red component of the color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>green</parameter>&nbsp;:</term>
+<listitem><simpara> green component of the color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blue</parameter>&nbsp;:</term>
+<listitem><simpara> blue component of the color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the new Graphic Context.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="resize-gdk-pixmap">resize_gdk_pixmap ()</title>
+<indexterm><primary>resize_gdk_pixmap</primary></indexterm><programlisting><link linkend="void">void</link>        resize_gdk_pixmap               (<link linkend="GdkPixmap">GdkPixmap</link> **pixmap,
+                                             <link linkend="gint">gint</link> new_width,
+                                             <link linkend="gint">gint</link> new_height,
+                                             <link linkend="GdkGC">GdkGC</link> *fill);</programlisting>
+<para>
+Will resize *<parameter>pixmap</parameter> and, if enlarging, will fill the extra area with the
+foreground color of <parameter>fill</parameter>.
+</para>
+<para>
+If the size realy changes, it will copy the old pixmap to a new one,
+destroing it and setting *<parameter>pixmap</parameter> to the new pixmap.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixmap</parameter>&nbsp;:</term>
+<listitem><simpara> pixmap to resize.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_width</parameter>&nbsp;:</term>
+<listitem><simpara> the new width of the pixmap.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_height</parameter>&nbsp;:</term>
+<listitem><simpara> the new height of the pixmap.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fill</parameter>&nbsp;:</term>
+<listitem><simpara> a GdkGC with the foreground color set.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="enlarge-gdk-pixmap">enlarge_gdk_pixmap ()</title>
+<indexterm><primary>enlarge_gdk_pixmap</primary></indexterm><programlisting><link linkend="void">void</link>        enlarge_gdk_pixmap              (<link linkend="GdkPixmap">GdkPixmap</link> **pixmap,
+                                             <link linkend="gint">gint</link> new_width,
+                                             <link linkend="gint">gint</link> new_height,
+                                             <link linkend="GdkGC">GdkGC</link> *fill);</programlisting>
+<para>
+Same as <parameter>resize_gdk_pixmap</parameter> but will only do the resizing if the
+requested size is bigger then the current size.
+</para>
+<para>
+This is usefull for eficiency. See
+src/MEM/drawings/virtual.c:draw_page_tables for an example.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixmap</parameter>&nbsp;:</term>
+<listitem><simpara> pixmap to resize.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_width</parameter>&nbsp;:</term>
+<listitem><simpara> the new width of the pixmap.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_height</parameter>&nbsp;:</term>
+<listitem><simpara> the new height of the pixmap.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fill</parameter>&nbsp;:</term>
+<listitem><simpara> a GdkGC with the foreground color set.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="draw-gdk-text-centered">draw_gdk_text_centered ()</title>
+<indexterm><primary>draw_gdk_text_centered</primary></indexterm><programlisting><link linkend="void">void</link>        draw_gdk_text_centered          (<link linkend="GdkDrawable">GdkDrawable</link> *drawable,
+                                             <link linkend="GdkFont">GdkFont</link> *font,
+                                             <link linkend="GdkGC">GdkGC</link> *gc,
+                                             <link linkend="gint">gint</link> x,
+                                             <link linkend="gint">gint</link> y,
+                                             <link linkend="gint">gint</link> width,
+                                             <link linkend="gint">gint</link> height,
+                                             const <link linkend="gchar">gchar</link> *text,
+                                             <link linkend="gint">gint</link> text_length);</programlisting>
+<para>
+Draw <parameter>text</parameter> of length <parameter>text_length</parameter> centered in the area defined by <parameter>x</parameter>,
+<parameter>y</parameter>, <parameter>width</parameter> and <parameter>height</parameter> of <parameter>drawable</parameter> using font <parameter>font</parameter> and the foreground
+color of <parameter>gc</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>drawable</parameter>&nbsp;:</term>
+<listitem><simpara> a GdkDrawable.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>font</parameter>&nbsp;:</term>
+<listitem><simpara> any font.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>gc</parameter>&nbsp;:</term>
+<listitem><simpara> a GdkGC with the foreground color set.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara> x coordinate of the area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara> y coordinate of the area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> width of the area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>height of the area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara> text to draw.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text_length</parameter>&nbsp;:</term>
+<listitem><simpara> length of <parameter>text</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="fill-gdk-window">fill_gdk_window ()</title>
+<indexterm><primary>fill_gdk_window</primary></indexterm><programlisting><link linkend="void">void</link>        fill_gdk_window                 (<link linkend="GdkPixmap">GdkPixmap</link> *pixmap,
+                                             <link linkend="GdkGC">GdkGC</link> *fill);</programlisting>
+<para>
+Paint all the surface of <parameter>pixmap</parameter> with the foreground color of <parameter>fill</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixmap</parameter>&nbsp;:</term>
+<listitem><simpara> pixmap to fill.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fill</parameter>&nbsp;:</term>
+<listitem><simpara> a GdkGC with foreground color set.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

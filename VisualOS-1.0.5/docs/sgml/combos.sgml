@@ -1,0 +1,62 @@
+<refentry id="VisualOS-combos">
+<refmeta>
+<refentrytitle>combos</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>combos</refname><refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>        <link linkend="init-CPU-algorithm-combo">init_CPU_algorithm_combo</link>        (<link linkend="GladeXML">GladeXML</link> *xml,
+                                             <link linkend="GSList">GSList</link> *algorithms);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="init-CPU-algorithm-combo">init_CPU_algorithm_combo ()</title>
+<indexterm><primary>init_CPU_algorithm_combo</primary></indexterm><programlisting><link linkend="void">void</link>        init_CPU_algorithm_combo        (<link linkend="GladeXML">GladeXML</link> *xml,
+                                             <link linkend="GSList">GSList</link> *algorithms);</programlisting>
+<para>
+Setup the algorithm combo in <parameter>xml</parameter> with the algorithms in <parameter>algorithms</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>xml</parameter>&nbsp;:</term>
+<listitem><simpara> Glade interface object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>algorithms</parameter>&nbsp;:</term>
+<listitem><simpara> the list of available algorithms.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

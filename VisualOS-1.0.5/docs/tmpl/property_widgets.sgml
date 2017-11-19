@@ -1,0 +1,84 @@
+<!-- ##### SECTION Title ##### -->
+Property Widget Facility
+
+<!-- ##### SECTION Short_Description ##### -->
+Easy property widget creation.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions allow the creation and management of a widget to show and get
+numerical properties from the user without having to learn how to create a
+widget with Gtk+.
+
+It is specialy usefull within algorithms allowing the user with no Gtk+
+knowledge to write algorithms which properties.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT property_t ##### -->
+<para>
+Descrives a single property value.
+</para>
+
+
+<!-- ##### FUNCTION properties_create ##### -->
+<para>
+
+</para>
+
+@property: 
+@num_properties: 
+@notify: 
+@Returns: 
+
+
+<!-- ##### FUNCTION properties_destroy ##### -->
+<para>
+
+</para>
+
+@properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION properties_get_widget ##### -->
+<para>
+
+</para>
+
+@properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION properties_get_values ##### -->
+<para>
+
+</para>
+
+@properties: 
+@Returns: 
+
+
+<!-- ##### FUNCTION properties_set_values ##### -->
+<para>
+
+</para>
+
+@properties: 
+@value: 
+@Returns: 
+
+
+<!-- ##### STRUCT properties_t ##### -->
+<para>
+Descrives everything there is to know about a properties widget.
+</para>
+<para>
+NOTE: it's fields should not be accessed directly.
+</para>
+
+

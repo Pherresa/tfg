@@ -1,0 +1,65 @@
+<!-- ##### SECTION Title ##### -->
+Scheduler
+
+<!-- ##### SECTION Short_Description ##### -->
+Scheduling facility
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This facility allows the code to do things at certain times without having to
+handle and count all the clock's TICK events.
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION sched_init ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION sched_event ##### -->
+<para>
+
+</para>
+
+@sched_time: 
+@func: 
+@data: 
+@flags: 
+@Returns: 
+
+
+<!-- ##### FUNCTION sched_delay ##### -->
+<para>
+
+</para>
+
+@delay: 
+@func: 
+@data: 
+@flags: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION sched_callback_t ##### -->
+<para>
+Funtion pointer type for the callbacks used in the sched facility.
+</para>
+
+@time: current time.
+@data: data pointer specified when requesting the event.
+
+
+<!-- ##### ENUM sched_flags_t ##### -->
+<para>
+Flags for the scheduling facility
+</para>
+
+

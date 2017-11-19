@@ -1,0 +1,118 @@
+<refentry id="VisualOS-Memory-Miscelaneous">
+<refmeta>
+<refentrytitle>Memory Miscelaneous</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Memory Miscelaneous</refname><refpurpose>Other interesting functions.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+#define     <link linkend="MAX-FRAMES-CAPS">MAX_FRAMES</link>
+#define     <link linkend="MAX-PAGES-CAPS">MAX_PAGES</link>
+<link linkend="gint">gint</link>        <link linkend="mem-server-init">mem_server_init</link>                 (<link linkend="GladeXML">GladeXML</link> *xml);
+<link linkend="gint">gint</link>        <link linkend="mem-page-ready-server">mem_page_ready_server</link>           (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);
+<link linkend="gint">gint</link>        <link linkend="mem-page-bitmap-update-server">mem_page_bitmap_update_server</link>   (<link linkend="gint">gint</link> pid,
+                                             <link linkend="guint32">guint32</link> new_page_bitmap);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions wouldn't make a proper section, but I believe that they are
+relevant enough to be mencioned.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="MAX-FRAMES-CAPS">MAX_FRAMES</title>
+<indexterm><primary>MAX_FRAMES</primary></indexterm><programlisting>#define MAX_FRAMES 40	/* total number of frames available */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="MAX-PAGES-CAPS">MAX_PAGES</title>
+<indexterm><primary>MAX_PAGES</primary></indexterm><programlisting>#define MAX_PAGES 32	/* maximun number of pages per process */
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="mem-server-init">mem_server_init ()</title>
+<indexterm><primary>mem_server_init</primary></indexterm><programlisting><link linkend="gint">gint</link>        mem_server_init                 (<link linkend="GladeXML">GladeXML</link> *xml);</programlisting>
+<para>
+Called from the subsystem's code to initialize the interface code.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>xml</parameter>&nbsp;:</term>
+<listitem><simpara> Glade interface object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-page-ready-server">mem_page_ready_server ()</title>
+<indexterm><primary>mem_page_ready_server</primary></indexterm><programlisting><link linkend="gint">gint</link>        mem_page_ready_server           (<link linkend="gint">gint</link> pid,
+                                             <link linkend="gint">gint</link> page);</programlisting>
+<para>
+Called from the subsystem's code to tell the client about a fulfilled
+page fault.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&nbsp;:</term>
+<listitem><simpara> ready page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="mem-page-bitmap-update-server">mem_page_bitmap_update_server ()</title>
+<indexterm><primary>mem_page_bitmap_update_server</primary></indexterm><programlisting><link linkend="gint">gint</link>        mem_page_bitmap_update_server   (<link linkend="gint">gint</link> pid,
+                                             <link linkend="guint32">guint32</link> new_page_bitmap);</programlisting>
+<para>
+Called from the subsystem's code to update the valid page bitmap on the
+client.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_page_bitmap</parameter>&nbsp;:</term>
+<listitem><simpara> valid page bitmap.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

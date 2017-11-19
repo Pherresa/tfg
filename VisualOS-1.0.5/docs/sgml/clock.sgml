@@ -1,0 +1,87 @@
+<refentry id="VisualOS-clock">
+<refmeta>
+<refentrytitle>clock</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>clock</refname><refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>        <link linkend="init-CPU-clock">init_CPU_clock</link>                  (void);
+<link linkend="gint">gint</link>        <link linkend="set-CPU-heart-beat">set_CPU_heart_beat</link>              (<link linkend="gint">gint</link> freq);
+<link linkend="gint">gint</link>        <link linkend="reset-CPU-timer">reset_CPU_timer</link>                 (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="init-CPU-clock">init_CPU_clock ()</title>
+<indexterm><primary>init_CPU_clock</primary></indexterm><programlisting><link linkend="void">void</link>        init_CPU_clock                  (void);</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="set-CPU-heart-beat">set_CPU_heart_beat ()</title>
+<indexterm><primary>set_CPU_heart_beat</primary></indexterm><programlisting><link linkend="gint">gint</link>        set_CPU_heart_beat              (<link linkend="gint">gint</link> freq);</programlisting>
+<para>
+Set timer interrupt frequency. Which means, the calling frequency
+of algorithm function <parameter>clock</parameter>.
+</para>
+<para>
+Zero means that the timer interupt is not desired.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>freq</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="reset-CPU-timer">reset_CPU_timer ()</title>
+<indexterm><primary>reset_CPU_timer</primary></indexterm><programlisting><link linkend="gint">gint</link>        reset_CPU_timer                 (void);</programlisting>
+<para>
+Resets the "time unit" counter so we will have a full timeslice until
+the next interupt.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

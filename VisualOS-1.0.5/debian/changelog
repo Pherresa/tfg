@@ -1,0 +1,82 @@
+visualos (1.0.4-3) unstable; urgency=low
+
+  * Changed section to gnome.
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Tue,  1 Apr 2003 11:23:54 +0200
+
+visualos (1.0.4-2) unstable; urgency=low
+
+  * The "That is why I had to 'make dist' before packing" release.
+  * run 'make dist' and build from the tarball, so autotools symlinks get
+    replaced with real files. (closes: Bug#149495)
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Mon, 10 Jun 2002 10:30:50 +0200
+
+visualos (1.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Sat, 18 May 2002 13:31:50 +0200
+
+visualos (1.0.3.cvs20011122-1) unstable; urgency=low
+
+  * 'make distdir' before building debian packages to replace automake's
+    symlinks et all.
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Thu, 22 Nov 2001 21:26:42 +0100
+
+visualos (1.0.3-5) unstable; urgency=low
+
+  * Rebuilt agains current binutils to take advantage of combreloc.
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Fri,  2 Nov 2001 19:23:50 +0100
+
+visualos (1.0.3-4) unstable; urgency=low
+
+  * fixed Build-depends syntax 'debhelper (>= 3.0.0)' (closes: #98120)
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Mon, 21 May 2001 10:51:06 +0200
+
+visualos (1.0.3-3) unstable; urgency=low
+
+  * changed the maintainer email to ranty@debian.org as I should have
+    done on the first place.
+  * Build-depend on debhelper >= 3.0.0 (closes: #94177)
+
+ -- Manuel Estrada Sainz <ranty@debian.org>  Mon, 21 May 2001 10:50:57 +0200
+
+visualos (1.0.3-2) unstable; urgency=low
+
+  * Added libglade-gnome0-dev to Build-Depends. (closes: #92574)
+
+ -- Manuel Estrada Sainz <ranty@atdot.org>  Mon,  2 Apr 2001 17:00:37 +0200
+
+visualos (1.0.3-1) unstable; urgency=low
+
+  * added a proper manpage.
+
+ -- Manuel Estrada Sainz <ranty@atdot.org>  Mon, 19 Mar 2001 14:09:46 +0100
+
+visualos (1.0.2-1) unstable; urgency=low
+
+  * new upstream version.
+  * added undocumented manpage link.
+  * added menu entry.
+
+ -- Manuel Estrada Sainz <ranty@atdot.org>  Sat, 21 Oct 2000 12:43:50 +0200
+
+visualos (1.0.1-1) unstable; urgency=low
+
+  * some cleanup.
+
+ -- Manuel Estrada Sainz <ranty@atdot.org>  Sun, 10 Sep 2000 20:39:45 +0200
+
+visualos (1.0.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Manuel Estrada Sainz <ranty@atdot.org>  Tue, 18 Jul 2000 09:15:43 +0200
+
+Local variables:
+mode: debian-changelog
+End:

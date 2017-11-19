@@ -1,0 +1,34 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Other interesting functions.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions wouldn't make a proper section, but I believe that they are
+relevant enough to be mencioned.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION io_server_init ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION io_block_ready_server ##### -->
+<para>
+
+</para>
+
+@io_request: 
+@Returns: 
+
+

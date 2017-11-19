@@ -1,0 +1,135 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Process Queue Handling.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This are the functions to use when working with any queue of processes in the
+CPU.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF proc_queue_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO DECLARE_PROC_QUEUE ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO proc_queue_empty ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO proc_data ##### -->
+<para>
+
+</para>
+
+@element: 
+
+
+<!-- ##### MACRO proc_queue_next ##### -->
+<para>
+
+</para>
+
+@element: 
+
+
+<!-- ##### MACRO proc_queue_find ##### -->
+<para>
+
+</para>
+
+@queue: 
+@proc: 
+
+
+<!-- ##### MACRO proc_queue_len ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO proc_queue_init ##### -->
+<para>
+
+</para>
+
+@queue: 
+
+
+<!-- ##### MACRO proc_queue_foreach ##### -->
+<para>
+
+</para>
+
+@queue: 
+@func: 
+@data: 
+
+
+<!-- ##### MACRO proc_queue_concat ##### -->
+<para>
+
+</para>
+
+@dest: 
+@orig1: 
+@orig2: 
+
+
+<!-- ##### MACRO proc_queue_remove ##### -->
+<para>
+
+</para>
+
+@queue: 
+@proc: 
+
+
+<!-- ##### MACRO proc_queue_append ##### -->
+<para>
+
+</para>
+
+@queue: 
+@proc: 
+
+
+<!-- ##### MACRO proc_queue_nth ##### -->
+<para>
+
+</para>
+
+@queue: 
+@n: 
+
+
+<!-- ##### MACRO proc_queue_end ##### -->
+<para>
+
+</para>
+
+@element: 
+
+

@@ -1,0 +1,42 @@
+<!-- ##### SECTION Title ##### -->
+clock
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION init_CPU_clock ##### -->
+<para>
+
+</para>
+
+<!-- # Unused Parameters # -->
+@Returns: 
+
+
+<!-- ##### FUNCTION set_CPU_heart_beat ##### -->
+<para>
+
+</para>
+
+@freq: 
+@Returns: 
+
+
+<!-- ##### FUNCTION reset_CPU_timer ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

@@ -1,0 +1,74 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Gdk addons
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This is the functionality which I wanted from GDK but wasn't there.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION new_gdk_GC_with_color ##### -->
+<para>
+
+</para>
+
+@red: 
+@green: 
+@blue: 
+@Returns: 
+
+
+<!-- ##### FUNCTION resize_gdk_pixmap ##### -->
+<para>
+
+</para>
+
+@pixmap: 
+@new_width: 
+@new_height: 
+@fill: 
+
+
+<!-- ##### FUNCTION enlarge_gdk_pixmap ##### -->
+<para>
+
+</para>
+
+@pixmap: 
+@new_width: 
+@new_height: 
+@fill: 
+
+
+<!-- ##### FUNCTION draw_gdk_text_centered ##### -->
+<para>
+
+</para>
+
+@drawable: 
+@font: 
+@gc: 
+@x: 
+@y: 
+@width: 
+@height: 
+@text: 
+@text_length: 
+
+
+<!-- ##### FUNCTION fill_gdk_window ##### -->
+<para>
+
+</para>
+
+@pixmap: 
+@fill: 
+
+

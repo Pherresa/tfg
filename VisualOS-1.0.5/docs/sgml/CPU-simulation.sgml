@@ -1,0 +1,287 @@
+<refentry id="VisualOS-Procesor-Simulation">
+<refmeta>
+<refentrytitle>Procesor Simulation</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Procesor Simulation</refname><refpurpose>Simulation of the processor</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="simul-data-t">simul_data_t</link>;
+struct      <link linkend="simul-io-event-t">simul_io_event_t</link>;
+struct      <link linkend="simul-mem-t">simul_mem_t</link>;
+struct      <link linkend="event-data-t">event_data_t</link>;
+<link linkend="void">void</link>        <link linkend="init-CPU-simulation">init_CPU_simulation</link>             (void);
+<link linkend="void">void</link>        <link linkend="init-CPU-simulation-in-proc">init_CPU_simulation_in_proc</link>     (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="void">void</link>        <link linkend="end-CPU-simulation-in-proc">end_CPU_simulation_in_proc</link>      (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="void">void</link>        <link linkend="cpy-CPU-simulation-data">cpy_CPU_simulation_data</link>         (<link linkend="simul-data-t">simul_data_t</link> *dest,
+                                             <link linkend="simul-data-t">simul_data_t</link> *src);
+<link linkend="simul-data-t">simul_data_t</link>* <link linkend="dup-CPU-simulation-data">dup_CPU_simulation_data</link>       (<link linkend="simul-data-t">simul_data_t</link> *data);
+<link linkend="void">void</link>        <link linkend="free-CPU-simulation-data">free_CPU_simulation_data</link>        (<link linkend="simul-data-t">simul_data_t</link> *data);
+<link linkend="void">void</link>        <link linkend="free-CPU-proc-simulation-data">free_CPU_proc_simulation_data</link>   (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="void">void</link>        <link linkend="next-CPU-simulation-in-proc">next_CPU_simulation_in_proc</link>     (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="gint">gint</link>        <link linkend="CPU-proc-current-page">CPU_proc_current_page</link>           (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="gint">gint</link>        <link linkend="CPU-proc-next-page">CPU_proc_next_page</link>              (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="gboolean">gboolean</link>    <link linkend="CPU-proc-current-page-is-write">CPU_proc_current_page_is_write</link>  (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="void">void</link>        <link linkend="fix-simulation-in-proc">fix_simulation_in_proc</link>          (<link linkend="proc-t">proc_t</link> *proc);
+#define     <link linkend="IO-BLOCK-CAPS">IO_BLOCK</link>                        (event)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions serve to manage the CPU's simulation and it's data structures.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="simul-data-t">struct simul_data_t</title>
+<indexterm><primary>simul_data_t</primary></indexterm><programlisting>struct simul_data_t {
+		/* simulation data for a process */
+	gint start_time;	/* time of creation */
+	gint end_time;		/* length of the process */
+	/* IO properties */
+	/* this list is never modified until process destruction */
+	simul_io_event_t *io_events;		/* list of all io events */
+	simul_io_event_t *next_io_event;	/* pointer to the next event */
+	simul_io_event_t *last_io_event;	/* pointer to the last event */
+	/* MEM properties */
+	simul_mem_t *pages;	/* list of memory accesses */
+	gint n_pages;		/* number of memory accesses */
+	gint cur_access;	/* index to the current access */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="simul-io-event-t">struct simul_io_event_t</title>
+<indexterm><primary>simul_io_event_t</primary></indexterm><programlisting>struct simul_io_event_t {
+	/* data for an IO event */
+	gint block;	/* block to read */
+	gint time;	/* time to read @block */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="simul-mem-t">struct simul_mem_t</title>
+<indexterm><primary>simul_mem_t</primary></indexterm><programlisting>struct simul_mem_t {
+	/* data for a page access */
+	gint8 page;	/* page to access */
+	gint8 write;	/* is it a write access? */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="event-data-t">struct event_data_t</title>
+<indexterm><primary>event_data_t</primary></indexterm><programlisting>struct event_data_t {
+	/* io event data known by all the code */
+	gint io_block;	/* block to access */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="init-CPU-simulation">init_CPU_simulation ()</title>
+<indexterm><primary>init_CPU_simulation</primary></indexterm><programlisting><link linkend="void">void</link>        init_CPU_simulation             (void);</programlisting>
+<para>
+Initializes the simulation code.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="init-CPU-simulation-in-proc">init_CPU_simulation_in_proc ()</title>
+<indexterm><primary>init_CPU_simulation_in_proc</primary></indexterm><programlisting><link linkend="void">void</link>        init_CPU_simulation_in_proc     (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+prepares the data structures for simulation in process <parameter>proc</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="end-CPU-simulation-in-proc">end_CPU_simulation_in_proc ()</title>
+<indexterm><primary>end_CPU_simulation_in_proc</primary></indexterm><programlisting><link linkend="void">void</link>        end_CPU_simulation_in_proc      (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+cleans up simulation data in <parameter>proc</parameter> to prepare it for termination.
+</para>
+<para>
+Note: currently does nothing.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="cpy-CPU-simulation-data">cpy_CPU_simulation_data ()</title>
+<indexterm><primary>cpy_CPU_simulation_data</primary></indexterm><programlisting><link linkend="void">void</link>        cpy_CPU_simulation_data         (<link linkend="simul-data-t">simul_data_t</link> *dest,
+                                             <link linkend="simul-data-t">simul_data_t</link> *src);</programlisting>
+<para>
+Copies the contents of <parameter>src</parameter> into <parameter>dest</parameter>, allocating dynamic memory when
+ needed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> the target of the copy
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src</parameter>&nbsp;:</term>
+<listitem><simpara> the source for the copy
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="dup-CPU-simulation-data">dup_CPU_simulation_data ()</title>
+<indexterm><primary>dup_CPU_simulation_data</primary></indexterm><programlisting><link linkend="simul-data-t">simul_data_t</link>* dup_CPU_simulation_data       (<link linkend="simul-data-t">simul_data_t</link> *data);</programlisting>
+<para>
+Duplicates a simul_data_t structure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer to the data to be copied
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a pointer to newly allocated memory with the same content of <parameter>data</parameter>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="free-CPU-simulation-data">free_CPU_simulation_data ()</title>
+<indexterm><primary>free_CPU_simulation_data</primary></indexterm><programlisting><link linkend="void">void</link>        free_CPU_simulation_data        (<link linkend="simul-data-t">simul_data_t</link> *data);</programlisting>
+<para>
+Frees all dynamic memory asociated to <parameter>data</parameter>, including <parameter>data</parameter> itself.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> the data to be freed
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="free-CPU-proc-simulation-data">free_CPU_proc_simulation_data ()</title>
+<indexterm><primary>free_CPU_proc_simulation_data</primary></indexterm><programlisting><link linkend="void">void</link>        free_CPU_proc_simulation_data   (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Free all simulation related dynamic memory from the <parameter>proc</parameter> structure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer to a proc_t structure
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="next-CPU-simulation-in-proc">next_CPU_simulation_in_proc ()</title>
+<indexterm><primary>next_CPU_simulation_in_proc</primary></indexterm><programlisting><link linkend="void">void</link>        next_CPU_simulation_in_proc     (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Once the process had an event it prepares the process for its next
+event, making it a termination event if necesary.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="CPU-proc-current-page">CPU_proc_current_page ()</title>
+<indexterm><primary>CPU_proc_current_page</primary></indexterm><programlisting><link linkend="gint">gint</link>        CPU_proc_current_page           (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the page which <parameter>proc</parameter> is using on this very moment.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="CPU-proc-next-page">CPU_proc_next_page ()</title>
+<indexterm><primary>CPU_proc_next_page</primary></indexterm><programlisting><link linkend="gint">gint</link>        CPU_proc_next_page              (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Makes the process move to its next memory page and should be called once
+for each "clock tick" that <parameter>proc</parameter> is running.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the new page which the process is using.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="CPU-proc-current-page-is-write">CPU_proc_current_page_is_write ()</title>
+<indexterm><primary>CPU_proc_current_page_is_write</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>    CPU_proc_current_page_is_write  (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Checks if <parameter>proc</parameter> is writing to memory or only reading.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> the process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> TRUE when <parameter>proc</parameter> is writing to its current page.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="fix-simulation-in-proc">fix_simulation_in_proc ()</title>
+<indexterm><primary>fix_simulation_in_proc</primary></indexterm><programlisting><link linkend="void">void</link>        fix_simulation_in_proc          (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Makes the simulation parameters of a process coherent, prevents: multiple
+events at the same time, events after process termination, determines the
+next event ...</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process whose simulation data should be fixed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="IO-BLOCK-CAPS">IO_BLOCK()</title>
+<indexterm><primary>IO_BLOCK</primary></indexterm><programlisting>#define IO_BLOCK(event) (((event_data_t *)(event.data))-&gt;io_block)
+</programlisting>
+<para>
+Extracts the block from a IO event.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> process event.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

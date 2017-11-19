@@ -1,0 +1,129 @@
+<refentry id="VisualOS-Geometry">
+<refmeta>
+<refentrytitle>Geometry</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Geometry</refname><refpurpose>Geometry of the device.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="gint">gint</link>        <link linkend="get-IO-blocks-per-track">get_IO_blocks_per_track</link>         (void);
+<link linkend="gint">gint</link>        <link linkend="get-IO-max-data-block">get_IO_max_data_block</link>           (void);
+<link linkend="gint">gint</link>        <link linkend="get-IO-max-swap-block">get_IO_max_swap_block</link>           (void);
+<link linkend="gint">gint</link>        <link linkend="get-IO-ntracks">get_IO_ntracks</link>                  (void);
+<link linkend="gint">gint</link>        <link linkend="get-IO-last-data-track">get_IO_last_data_track</link>          (void);
+<link linkend="gint">gint</link>        <link linkend="IO-request-track">IO_request_track</link>                (<link linkend="io-request-t">io_request_t</link> *request);
+<link linkend="void">void</link>        <link linkend="init-IO-geometry">init_IO_geometry</link>                (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+This functions serve to find out the geometry of the disk and do some
+translations based on it.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="get-IO-blocks-per-track">get_IO_blocks_per_track ()</title>
+<indexterm><primary>get_IO_blocks_per_track</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_IO_blocks_per_track         (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the number of blocks per track.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-max-data-block">get_IO_max_data_block ()</title>
+<indexterm><primary>get_IO_max_data_block</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_IO_max_data_block           (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the maximun data block number.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-max-swap-block">get_IO_max_swap_block ()</title>
+<indexterm><primary>get_IO_max_swap_block</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_IO_max_swap_block           (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the maximun swap block number.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-ntracks">get_IO_ntracks ()</title>
+<indexterm><primary>get_IO_ntracks</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_IO_ntracks                  (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the number of tracks on the disk.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-IO-last-data-track">get_IO_last_data_track ()</title>
+<indexterm><primary>get_IO_last_data_track</primary></indexterm><programlisting><link linkend="gint">gint</link>        get_IO_last_data_track          (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the last data track number.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="IO-request-track">IO_request_track ()</title>
+<indexterm><primary>IO_request_track</primary></indexterm><programlisting><link linkend="gint">gint</link>        IO_request_track                (<link linkend="io-request-t">io_request_t</link> *request);</programlisting>
+<para>
+Calculates the track of a certain <parameter>request</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>request</parameter>&nbsp;:</term>
+<listitem><simpara> IO request involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the track number corespoinding to <parameter>request</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="init-IO-geometry">init_IO_geometry ()</title>
+<indexterm><primary>init_IO_geometry</primary></indexterm><programlisting><link linkend="void">void</link>        init_IO_geometry                (void);</programlisting>
+<para>
+Initialices the geometry calculation code.</para>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,36 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
+<!entity ChangeLog SYSTEM "ChangeLog">
+]>
+
+  <article lang="es">
+    <articleinfo>
+      <title>VisualOS</title>
+      <SUBTITLE>Lista de cambios</subtitle>
+    </articleinfo>
+    <para>
+      Esto es un extracto de la lista detallada de cambios del proyecto,
+      generada de forma automática a partir del control de versiones.
+    </para>
+    <PARA>
+      Esta escrita en inglés por que no es posible registrar los
+      cambios en múltiples lenguajes y se consideró que el ingles es
+      el mas apropiado.
+    </para>
+    <figure>
+      <title>VisualOS versión 0.0.0</title>
+      <graphic fileref="screen_shots/VisualOS-0_0_0">
+    </figure>
+    <figure>
+      <title>VisualOS versión 0.9.0</title>
+      <graphic fileref="screen_shots/VisualOS-0_9_0">
+    </figure>
+
+    <para>
+      <programlisting>
+	&ChangeLog;
+      </programlisting>
+    </para>
+
+  </article>
+  
+  

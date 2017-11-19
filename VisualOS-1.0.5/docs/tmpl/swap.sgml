@@ -1,0 +1,42 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Swapping system.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions serve to get process pages in and out of the swap device.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION MEM_swap_init ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION MEM_swapout_page ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+
+
+<!-- ##### FUNCTION MEM_swapin_page ##### -->
+<para>
+
+</para>
+
+@pid: 
+@page: 
+@set_flags: 
+
+

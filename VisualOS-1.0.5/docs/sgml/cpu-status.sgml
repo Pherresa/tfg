@@ -1,0 +1,214 @@
+<refentry id="VisualOS-Processor-Status">
+<refmeta>
+<refentrytitle>Processor Status</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Processor Status</refname><refpurpose>Status of the processor.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+struct      <link linkend="proc-queues-t">proc_queues_t</link>;
+const <link linkend="proc-queues-t">proc_queues_t</link>* <link linkend="get-CPU-queues">get_CPU_queues</link>         (void);
+<link linkend="proc-t">proc_t</link>*     <link linkend="get-CPU-current-proc">get_CPU_current_proc</link>            (void);
+<link linkend="proc-queue-t">proc_queue_t</link> <link linkend="get-CPU-queue">get_CPU_queue</link>                  (<link linkend="gint">gint</link> nqueue);
+<link linkend="proc-queue-t">proc_queue_t</link> <link linkend="get-CPU-wait-queue">get_CPU_wait_queue</link>             (void);
+<link linkend="gint">gint</link>        <link linkend="request-nqueues">request_nqueues</link>                 (<link linkend="gint">gint</link> nqueues);
+<link linkend="void">void</link>        <link linkend="move-proc-to-queue">move_proc_to_queue</link>              (<link linkend="proc-t">proc_t</link> *proc,
+                                             <link linkend="gint">gint</link> new_queue);
+<link linkend="void">void</link>        <link linkend="move-proc-to-CPU">move_proc_to_CPU</link>                (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="gint">gint</link>        <link linkend="suspend-proc">suspend_proc</link>                    (<link linkend="proc-t">proc_t</link> *proc);
+<link linkend="gint">gint</link>        <link linkend="wakeup-proc">wakeup_proc</link>                     (<link linkend="proc-t">proc_t</link> *proc);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+Here is descrived show to find out the status of the processor,
+the currently running process and all the ready queues.
+</para>
+<para>
+There are also functions to move processes around and change 
+the number of ready queues.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="proc-queues-t">struct proc_queues_t</title>
+<indexterm><primary>proc_queues_t</primary></indexterm><programlisting>struct proc_queues_t {
+		/* Processor status */
+	gint nqueues;		/* Number of queues */
+	proc_t *current;	/* Currently running process */
+	proc_queue_t *queue;	/* Ready process queues */
+	proc_queue_t wait;	/* Blocked processes */
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-queues">get_CPU_queues ()</title>
+<indexterm><primary>get_CPU_queues</primary></indexterm><programlisting>const <link linkend="proc-queues-t">proc_queues_t</link>* get_CPU_queues         (void);</programlisting>
+<para>
+Retrive the processor's status.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> a pointer to the proc_queues_t structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-current-proc">get_CPU_current_proc ()</title>
+<indexterm><primary>get_CPU_current_proc</primary></indexterm><programlisting><link linkend="proc-t">proc_t</link>*     get_CPU_current_proc            (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> The currently running process, which may be NULL if the processor
+is idle.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-queue">get_CPU_queue ()</title>
+<indexterm><primary>get_CPU_queue</primary></indexterm><programlisting><link linkend="proc-queue-t">proc_queue_t</link> get_CPU_queue                  (<link linkend="gint">gint</link> nqueue);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nqueue</parameter>&nbsp;:</term>
+<listitem><simpara> requested queue.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> ready queue number <parameter>nqueue</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-wait-queue">get_CPU_wait_queue ()</title>
+<indexterm><primary>get_CPU_wait_queue</primary></indexterm><programlisting><link linkend="proc-queue-t">proc_queue_t</link> get_CPU_wait_queue             (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> the blocked process queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="request-nqueues">request_nqueues ()</title>
+<indexterm><primary>request_nqueues</primary></indexterm><programlisting><link linkend="gint">gint</link>        request_nqueues                 (<link linkend="gint">gint</link> nqueues);</programlisting>
+<para>
+Sets the number of queues for handling ready processes.
+</para>
+<para>
+NOTE: when shrinking the lower queues, those which will be deleted, must be
+empty or otherwise they will be concatenated to the first queue.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nqueues</parameter>&nbsp;:</term>
+<listitem><simpara> requested number of queues.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="move-proc-to-queue">move_proc_to_queue ()</title>
+<indexterm><primary>move_proc_to_queue</primary></indexterm><programlisting><link linkend="void">void</link>        move_proc_to_queue              (<link linkend="proc-t">proc_t</link> *proc,
+                                             <link linkend="gint">gint</link> new_queue);</programlisting>
+<para>
+Move <parameter>proc</parameter> to queue number <parameter>new_queue</parameter>.
+</para>
+<para>
+NOTE: The <parameter>proc</parameter> should not be blocked.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process to be moved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_queue</parameter>&nbsp;:</term>
+<listitem><simpara> target queue for <parameter>proc</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="move-proc-to-CPU">move_proc_to_CPU ()</title>
+<indexterm><primary>move_proc_to_CPU</primary></indexterm><programlisting><link linkend="void">void</link>        move_proc_to_CPU                (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Starts running process <parameter>proc</parameter>.
+</para>
+<para>
+NOTE: the processor should be idle.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process to run.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="suspend-proc">suspend_proc ()</title>
+<indexterm><primary>suspend_proc</primary></indexterm><programlisting><link linkend="gint">gint</link>        suspend_proc                    (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Move <parameter>proc</parameter> out of the way when it blocks.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="wakeup-proc">wakeup_proc ()</title>
+<indexterm><primary>wakeup_proc</primary></indexterm><programlisting><link linkend="gint">gint</link>        wakeup_proc                     (<link linkend="proc-t">proc_t</link> *proc);</programlisting>
+<para>
+Move a process back when it becomes ready again letting the current
+algorithm decide were to put it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proc</parameter>&nbsp;:</term>
+<listitem><simpara> process involved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> nothing important.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1>
+<title>See Also</title>
+<para>
+<variablelist>
+
+<varlistentry>
+<term><link linkend="Process"><type>Process</type></link> Queues</term>
+<listitem><para>How to inspect process queues.</para></listitem>
+</varlistentry>
+</variablelist>
+</para>
+</refsect1>
+
+</refentry>

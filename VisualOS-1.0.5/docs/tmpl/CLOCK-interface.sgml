@@ -1,0 +1,50 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+CLOCK interface to the other subsystems.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+This functions allow the other subsystems to interact, througth the messaging
+service, with the CLOCK.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### USER_FUNCTION tick_callback_t ##### -->
+<para>
+function pointer to be used with @clock_reguster_tick.
+</para>
+
+@time: current time in "time units".
+@Returns: nothing important.
+
+
+<!-- ##### FUNCTION clock_register_tick ##### -->
+<para>
+
+</para>
+
+@func: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_time ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION CLOCK_stop ##### -->
+<para>
+
+</para>
+
+
+

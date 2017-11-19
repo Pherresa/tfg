@@ -1,0 +1,121 @@
+<refentry id="VisualOS-info">
+<refmeta>
+<refentrytitle>info</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>VISUALOS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>info</refname><refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv><title>Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="GtkWidget">GtkWidget</link>*  <link linkend="get-CPU-window">get_CPU_window</link>                  (void);
+<link linkend="void">void</link>        <link linkend="set-CPU-window">set_CPU_window</link>                  (<link linkend="GtkWidget">GtkWidget</link> *window);
+<link linkend="GSList">GSList</link>*     <link linkend="get-CPU-algorithms">get_CPU_algorithms</link>              (void);
+<link linkend="void">void</link>        <link linkend="set-CPU-algorithms">set_CPU_algorithms</link>              (<link linkend="GSList">GSList</link> *algorithms);
+<link linkend="cpu-algorithm-t">cpu_algorithm_t</link>* <link linkend="get-CPU-current-algorithm">get_CPU_current_algorithm</link>  (void);
+<link linkend="void">void</link>        <link linkend="set-CPU-current-algorithm">set_CPU_current_algorithm</link>       (<link linkend="cpu-algorithm-t">cpu_algorithm_t</link> *algorithms);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1>
+<title>Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1>
+<title>Details</title>
+<refsect2>
+<title><anchor id="get-CPU-window">get_CPU_window ()</title>
+<indexterm><primary>get_CPU_window</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*  get_CPU_window                  (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="set-CPU-window">set_CPU_window ()</title>
+<indexterm><primary>set_CPU_window</primary></indexterm><programlisting><link linkend="void">void</link>        set_CPU_window                  (<link linkend="GtkWidget">GtkWidget</link> *window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-algorithms">get_CPU_algorithms ()</title>
+<indexterm><primary>get_CPU_algorithms</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*     get_CPU_algorithms              (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="set-CPU-algorithms">set_CPU_algorithms ()</title>
+<indexterm><primary>set_CPU_algorithms</primary></indexterm><programlisting><link linkend="void">void</link>        set_CPU_algorithms              (<link linkend="GSList">GSList</link> *algorithms);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>algorithms</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="get-CPU-current-algorithm">get_CPU_current_algorithm ()</title>
+<indexterm><primary>get_CPU_current_algorithm</primary></indexterm><programlisting><link linkend="cpu-algorithm-t">cpu_algorithm_t</link>* get_CPU_current_algorithm  (void);</programlisting>
+<para>
+Find out which is the current algorithm.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="set-CPU-current-algorithm">set_CPU_current_algorithm ()</title>
+<indexterm><primary>set_CPU_current_algorithm</primary></indexterm><programlisting><link linkend="void">void</link>        set_CPU_current_algorithm       (<link linkend="cpu-algorithm-t">cpu_algorithm_t</link> *algorithms);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>algorithms</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

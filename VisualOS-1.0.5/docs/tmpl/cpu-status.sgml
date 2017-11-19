@@ -1,0 +1,110 @@
+<!-- ##### SECTION Title ##### -->
+
+
+<!-- ##### SECTION Short_Description ##### -->
+Status of the processor.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+Here is descrived show to find out the status of the processor,
+the currently running process and all the ready queues.
+</para>
+<para>
+There are also functions to move processes around and change 
+the number of ready queues.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+<variablelist>
+
+<varlistentry>
+<term>#Process Queues</term>
+<listitem><para>How to inspect process queues.</para></listitem>
+</varlistentry>
+</variablelist>
+</para>
+
+<!-- ##### STRUCT proc_queues_t ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION get_CPU_queues ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_CPU_current_proc ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION get_CPU_queue ##### -->
+<para>
+
+</para>
+
+@nqueue: 
+@Returns: 
+
+
+<!-- ##### FUNCTION get_CPU_wait_queue ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION request_nqueues ##### -->
+<para>
+
+</para>
+
+@nqueues: 
+@Returns: 
+
+
+<!-- ##### FUNCTION move_proc_to_queue ##### -->
+<para>
+
+</para>
+
+@proc: 
+@new_queue: 
+
+
+<!-- ##### FUNCTION move_proc_to_CPU ##### -->
+<para>
+
+</para>
+
+@proc: 
+
+
+<!-- ##### FUNCTION suspend_proc ##### -->
+<para>
+
+</para>
+
+@proc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION wakeup_proc ##### -->
+<para>
+
+</para>
+
+@proc: 
+@Returns: 
+
+
